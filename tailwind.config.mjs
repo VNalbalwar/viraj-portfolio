@@ -18,7 +18,7 @@ export default {
       md: {max: '767px'},
       sm: {max: '639px'},
       xs: {max: '393px'},
-      // One Custom Breakpoint for web dev & dsa
+      // One Custom Breakpoint for Web Dev & DSA
       web: {max: '436px'},
     },
   },
