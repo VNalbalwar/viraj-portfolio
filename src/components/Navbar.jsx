@@ -5,7 +5,7 @@ const Navbar = ({ id }) => {
   return (
     <div className="w-[70px] h-full fixed left-0 top-0 flex flex-col justify-between border-r border-gray-200 px-4 py-10 xl:py-6 z-10">
       <a href="/#home">
-        <span className="text-3xl font-semibold text-red-400">V</span>.
+        <span className="text-3xl font-semibold text-red-400">V.</span>
         <span className="block w-min rotate-90 origin-bottom text-[12px] font-semibold dark:text-white">
           Nalbalwar
         </span>
