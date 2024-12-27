@@ -7,7 +7,7 @@ import { questions } from "@/assets"
 const Questions = () => {
   return (
     <div id="questions" className="py-20 ">
-        <Heading text={"Questions & Answers"}/>
+        <Heading text={"Spill the Tea, I’ve Got Answers! 🍵"}/>
         <div>
             <ul className="flex flex-col gap-y-3">
                 {questions.map((question, i) => (

@@ -1,149 +1,152 @@
 // Hero
-import InstagramLineIcon from 'remixicon-react/InstagramLineIcon'
-import FacebookCircleLineIcon from 'remixicon-react/FacebookCircleLineIcon'
-import DribbbleLineIcon from 'remixicon-react/DribbbleLineIcon'
-import YoutubeLineIcon from 'remixicon-react/YoutubeLineIcon'
-import GithubLineIcon from 'remixicon-react/GithubLineIcon'
-import LinkedinBoxLineIcon from 'remixicon-react/LinkedinBoxLineIcon'
+import InstagramLineIcon from "remixicon-react/InstagramLineIcon";
+import FacebookCircleLineIcon from "remixicon-react/FacebookCircleLineIcon";
+import NewspaperLineIcon from "remixicon-react/NewspaperLineIcon";
+import GithubLineIcon from "remixicon-react/GithubLineIcon";
+import LinkedinBoxLineIcon from "remixicon-react/LinkedinBoxLineIcon";
 
 //Hero Icons Array
 export const heroIcons = [
   <LinkedinBoxLineIcon />,
   <GithubLineIcon />,
-  <InstagramLineIcon  />,
+  <InstagramLineIcon />,
   <FacebookCircleLineIcon />,
-  <YoutubeLineIcon />,
-]
+  <NewspaperLineIcon />,
+];
 
 //Links for Hero Icons Array
 export const heroLinks = [
-  "https://www.linkedin.com",
-  "https://www.github.com",
-  "https://www.instagram.com",
-  "https://www.facebook.com",
-  "https://www.youtube.com",
+  "https://www.linkedin.com/in/viraj-nalbalwar-895365255/",
+  "https://github.com/VNalbalwar",
+  "https://www.instagram.com/viraj_nalbalwar/",
+  "https://www.facebook.com/profile.php?id=61558032755634&mibextid=ZbWKwL",
+  "https://virajblogs.hashnode.dev/",
 ];
 
 // AboutMe icons
-import GithubFillIcon from 'remixicon-react/GithubFillIcon'
-import Projector2LineIcon from 'remixicon-react/Projector2LineIcon'
-import GroupLineIcon from 'remixicon-react/GroupLineIcon'
-import AwardFillIcon from 'remixicon-react/AwardFillIcon'
+import GithubFillIcon from "remixicon-react/GithubFillIcon";
+import GroupLineIcon from "remixicon-react/GroupLineIcon";
+import AwardFillIcon from "remixicon-react/AwardFillIcon";
+import LinksFillIcon from "remixicon-react/LinksFillIcon";
 
 export const aboutData = [
   {
-    title: 'Github Repos',
-    amount: 348,
+    title: "Github Repos",
+    amount: 6,
     icon: <GithubFillIcon />,
   },
   {
-    title: 'Successful Projects',
-    amount: 227,
-    icon: <Projector2LineIcon />,
+    title: "Blogs Written",
+    amount: 10,
+    icon: <AwardFillIcon />,
   },
   {
-    title: 'Satisfied clients',
-    amount: 176,
+    title: "LinkedIn Followers",
+    amount: 330,
     icon: <GroupLineIcon />,
   },
   {
-    title: 'Awards and Recognition',
-    amount: 107,
-    icon: <AwardFillIcon />,
+    title: "LinkedIn Connections",
+    amount: 300,
+    icon: <LinksFillIcon />,
   },
-]
+];
 
-import DownloadLineIcon from 'remixicon-react/DownloadLineIcon'
-import ArrowLeftSFillIcon from 'remixicon-react/ArrowLeftSFillIcon'
+import DownloadLineIcon from "remixicon-react/DownloadLineIcon";
+import ArrowLeftSFillIcon from "remixicon-react/ArrowLeftSFillIcon";
 
-export const downloadIcon = <DownloadLineIcon />
-export const arrowLeftIcon = <ArrowLeftSFillIcon />
+export const downloadIcon = <DownloadLineIcon />;
+export const arrowLeftIcon = <ArrowLeftSFillIcon />;
 
 export const aboutText =
-  " Hi, I'm Viraj, a web developer & designer. I blend the technical  skills of web development with the creative aspects of web design. I code in HTML, CSS, JavaScript, React, NextJS... to build functional and responsive websites, while also using design tools like Framer and Figma to create visually appealing and user-friendly interfaces. My role allows me to ensure that websites not only work well but also look great and provide an excellent user experience."
+  " Hi, I'm Viraj, a web developer & designer. I blend the technical  skills of web development with the creative aspects of web design. I code in HTML, CSS, JavaScript, React, NextJS... to build functional and responsive websites, while also using design tools like Framer and Figma to create visually appealing and user-friendly interfaces. My role allows me to ensure that websites not only work well but also look great and provide an excellent user experience.";
 // End of AboutMe icons
 
 // Skills
 export const skillsData = [
   {
-    name: 'Figma',
-    icon: '/skills/figma.png',
+    name: "HTML",
+    icon: "/skills/html.png",
   },
   {
-    name: 'Photoshop',
-    icon: '/skills/photoshop.png',
+    name: "CSS",
+    icon: "/skills/css.png",
   },
   {
-    name: 'Blender',
-    icon: '/skills/blender.png',
+    name: "JavaScript",
+    icon: "/skills/js.png",
   },
   {
-    name: 'VS Code',
-    icon: '/skills/vscode.png',
+    name: "TypeScript",
+    icon: "/skills/ts.png",
   },
   {
-    name: 'HTML',
-    icon: '/skills/html.png',
+    name: "VS Code",
+    icon: "/skills/vscode.png",
   },
   {
-    name: 'CSS',
-    icon: '/skills/css.png',
+    name: "ReactJS",
+    icon: "/skills/react.png",
   },
   {
-    name: 'JavaScript',
-    icon: '/skills/js.png',
+    name: "NextJS",
+    icon: "/skills/nextjs.png",
   },
   {
-    name: 'TailwindCSS',
-    icon: '/skills/tailwind.png',
+    name: "Github",
+    icon: "/skills/github.png",
   },
   {
-    name: 'Vite',
-    icon: '/skills/vite.png',
+    name: "TailwindCSS",
+    icon: "/skills/tailwind.png",
   },
   {
-    name: 'ReactJS',
-    icon: '/skills/react.png',
+    name: "Framer Motion",
+    icon: "/skills/framer.png",
   },
   {
-    name: 'TypeScript',
-    icon: '/skills/ts.png',
+    name: "Figma",
+    icon: "/skills/figma.png",
   },
   {
-    name: 'AI',
-    icon: '/skills/ai.png',
+    name: "Cloudflare",
+    icon: "/skills/cloudflare.png",
   },
   {
-    name: 'Framer Motion',
-    icon: '/skills/framer.png',
+    name: "NodeJS",
+    icon: "/skills/nodejs.png",
   },
   {
-    name: 'ThreeJS',
-    icon: '/skills/threejs.png',
+    name: "MongoDB",
+    icon: "/skills/mongodb.png",
   },
   {
-    name: 'NextJS',
-    icon: '/skills/nextjs.png',
+    name: "ChatGPT",
+    icon: "/skills/chatgpt.png",
   },
   {
-    name: 'NodeJS',
-    icon: '/skills/nodejs.png',
+    name: "Linux",
+    icon: "/skills/linux.png",
   },
   {
-    name: 'MongoDB',
-    icon: '/skills/mongodb.png',
+    name: "C",
+    icon: "/skills/c.png",
   },
   {
-    name: 'Github',
-    icon: '/skills/github.png',
+    name: "C++",
+    icon: "/skills/cpp.png",
   },
-]
+  {
+    name: "Hashnode",
+    icon: "/skills/hashnode.png",
+  },
+];
 
 // import { PiCopyrightThin } from 'react-icons/pi'
-import CopyrightLineIcon from 'remixicon-react/CopyrightLineIcon'
+import CopyrightLineIcon from "remixicon-react/CopyrightLineIcon";
 
 // export const copyRightIcon = <PiCopyrightThin />
-export const copyRightIcon = <CopyrightLineIcon />
+export const copyRightIcon = <CopyrightLineIcon />;
 // Experience
 // export const experienceData = [
 //   {
@@ -196,174 +199,181 @@ export const copyRightIcon = <CopyrightLineIcon />
 //   },
 // ]
 
+export const myDates = [
+  { section: "Speedcubing Skills🧩", date: "2019 - Forever" },
+  { section: "The Beginning of the Journey 🚀", date: "2021" },
+  { section: "Tech Arsenal: My Skillset🚀", date: "2021 - Present" },
+  { section: "Building Blocks: My Diploma Journey 😎", date: "2021 - 2024" },
+  { section: "Building the Future: My BTech Story🔧", date: "2024 - Present" },
+];
+
 export const experienceData = [
   {
     year: 1,
-    title: 'The Fundamentals',
-    education:
-      'Institute: Dr. Babasaheb Ambedkar Technological University (DBATU), Lonere',
+    title: "Speedcubing Skills🧩",
+    education: "",
     experience: [
-      'Consistently topped the class.',
-      'Participated in various college events, including coding and speedcubing competitions',
-      'Helped and motivated juniors in academics and extracurricular activities.',
+      "-Techniques Mastered: Mastered various methods like CFOP and Roux for quicker solves",
+      "-Finger Tricks: Focused on improving finger dexterity for executing algorithms smoothly, reducing solve time.",
+      "-Competitive Solving: Participated in WCA (World Cube Association) events, and performed strategies like ZBLL and COLL.",
     ],
   },
   {
     year: 2,
-    title: '',
-    education:
-      'COEP Technological University, Pune',
+    title: "The Beginning of the Journey 🚀",
+    education: "S.S. Nikam English School, Lonere",
     experience: [
-      'Data Structures and Algorithms (DSA), Web Development, System Programming, Quantum Computing.',
-      'Online Courses and Certifications: Learn JavaScript, responsive design, and UX/UI design.',
+      "-Scored an impressive 97.40% in the SSC (10th) board exams.",
+      "-Developed a passion for learning and growth.",
     ],
   },
   {
     year: 3,
-    title: 'Technical Skills Development',
-    education:
-      'Online Courses and Bootcamps: Focus on specialized areas like front-end frameworks (React, Angular) and back-end technologies (Node.js).',
+    title: "Tech Arsenal: My Skillset🚀",
+    education: "",
     experience: [
-      'Internships: Secure internships with tech companies or design agencies.',
-      'Contribute to Open Source: Collaborate on open-source projects.',
+      "-Programming Proficiency: Expertise in C, C++ with a focus on Data Structures & Algorithms.",
+      "-Web Development: Specialized in front-end frameworks like React.js and backend with Node.js, creating dynamic, responsive applications.",
+      "-System Programming: Hands-on experience with 8086 Assembly Language, including interrupt handling and PPI programming.",
+      "-Graph Algorithms: Designed a complete Graph Algorithm Library in C, implementing traversal and advanced graph functionalities.",
     ],
   },
   {
     year: 4,
-    title: 'Project-Based Learning',
-    education: 'Certifications: Obtain certifications in advanced web technologies.',
+    title: "Building Blocks: My Diploma Journey 😎",
+    education: "DBATU, Lonere",
     experience: [
-      'Shortest-Path Visualizer : Built a C++ algorithm for shortest path calculation and integrated it into a React-based web application.',
-      'Hashing Algorithms in C: Implemented SHA-256, MD5, and other hashing algorithms using C.',
+      "-CGPA - 9.92",
+      "-Actively participated in coding competitions and technical events.",
+      "-Specialized in Data Structures and Algorithms (DSA), Web Development, and System Programming.",
     ],
   },
   {
     year: 5,
-    title: 'Microprocessor Programming',
-    education: 'Dealing with 8085 & 8086, ICs, and Microprocessor Interfacing',
+    title: "Building the Future: My BTech Story🔧",
+    education: "COEP Technological University, Pune",
     experience: [
-      'Gained hands-on experience with assembly language programming for 8086, including topics like interrupt handling, PPI (8255), and advanced subroutines.',
+      "-Member of CSI COEP",
+      "-Specialized in front-end frameworks like React, NextJS, and back-end technologies such as Node.js.",
     ],
   },
-]
+];
 
 export const projectsData = [
   {
-    name: 'SparkleGrove.com',
-    desc: 'A lifestyle blog featuring DIY crafts, home decor ideas, and inspiration for creating a cozy and stylish living space.',
-    url: '/projects/image-1.jpg',
-    tech: ['Figma', 'Photoshop', 'HTML'],
+    name: "MindWebs - AI Mods",
+    desc: "An open innovation project. To address the challenge of enhancing user interaction with AI Models, making them more accessible to everyone.",
+    url: "/projects/image-1.jpg",
+    tech: ["Flask", "Hugging Face", "JS"],
   },
   {
-    name: 'TechTrekker.net',
-    desc: 'A technology news and review site covering the latest gadgets, software updates, and trends in the tech industry.',
-    url: '/projects/image-2.jpg',
-    tech: ['Figma', 'Photoshop'],
+    name: "PlantID",
+    desc: "PlantID is your go-to resource for identifying and learning about plants. Our AI-powered tool helps nature enthusiasts discover the world of flora.",
+    url: "/projects/image-2.jpg",
+    tech: ["HTML", "CSS", "JS", "TypeScript"],
   },
   {
-    name: 'CozyNestHomes.org',
-    desc: 'A resource for homeowners and renters alike, offering tips on interior design, home improvement projects, and sustainable living practices.',
-    url: '/projects/image-3.jpg',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    name: "CozyNestHomes.org",
+    desc: "A resource for homeowners and renters alike, offering tips on interior design, home improvement projects, and sustainable living practices.",
+    url: "/projects/image-3.jpg",
+    tech: ["HTML", "CSS", "JS"],
   },
   {
-    name: 'WanderLuxeTravels.co',
-    desc: 'A travel website that provides luxury travel guides, destination reviews, and tips for planning unforgettable vacations.',
-    url: '/projects/image-4.jpg',
-    tech: ['HTML', 'CSS', 'JavaScript', 'TailwindCSS'],
+    name: "WanderLuxeTravels.co",
+    desc: "A travel website that provides luxury travel guides, destination reviews, and tips for planning unforgettable vacations.",
+    url: "/projects/image-4.jpg",
+    tech: ["HTML", "CSS", "JS", "TailwindCSS"],
   },
   {
-    name: 'ByteBoosters.io',
-    desc: 'A tech startup specializing in software development, offering innovative solutions and services for businesses looking to enhance their digital presence.',
-    url: '/projects/image-5.jpg',
-    tech: ['Figma', 'ReactJS', 'TailwindCSS', 'CSS'],
+    name: "ByteBoosters.io",
+    desc: "A tech startup specializing in software development, offering innovative solutions and services for businesses looking to enhance their digital presence.",
+    url: "/projects/image-5.jpg",
+    tech: ["TypeScript", "ReactJS", "TailwindCSS", "CSS"],
   },
   {
-    name: 'GreenLeafGardens.biz',
-    desc: 'An online store and community hub for gardening enthusiasts, featuring a wide range of plants, gardening tools, and expert advice.',
-    url: '/projects/image-6.jpg',
-    tech: ['ReactJS', 'TailwindCSS', , 'CSS', 'FramerMotion'],
+    name: "GreenLeafGardens.biz",
+    desc: "An online store and community hub for gardening enthusiasts, featuring a wide range of plants, gardening tools, and expert advice.",
+    url: "/projects/image-6.jpg",
+    tech: ["ReactJS", "TailwindCSS", , "CSS", "FramerMotion"],
   },
   {
-    name: 'PixelPerfectDesigns.info',
-    desc: 'A graphic design portfolio showcasing the work of a freelance designer, including branding, web design, and illustration projects.',
-    url: '/projects/image-7.jpg',
-    tech: ['NextJS', 'FramerMotion'],
+    name: "PixelPerfectDesigns.info",
+    desc: "A graphic design portfolio showcasing the work of a freelance designer, including branding, web design, and illustration projects.",
+    url: "/projects/image-7.jpg",
+    tech: ["NextJS", "FramerMotion"],
   },
   {
-    name: 'HarmonyHealthHub.com',
-    desc: ' A wellness website focused on holistic health, offering articles on nutrition, fitness, mental health, and alternative therapies.',
-    url: '/projects/image-8.jpg',
-    tech: ['NextJS', 'ReactJS', 'FramerMotion'],
+    name: "HarmonyHealthHub.com",
+    desc: " A wellness website focused on holistic health, offering articles on nutrition, fitness, mental health, and alternative therapies.",
+    url: "/projects/image-8.jpg",
+    tech: ["NextJS", "ReactJS", "FramerMotion"],
   },
   {
-    name: 'StellarSkiesAstronomy.org',
-    desc: 'An educational site dedicated to astronomy, providing resources for amateur astronomers, star maps, and information on celestial events.',
-    url: '/projects/image-9.jpg',
-    tech: ['ReactJS', 'JavaScript', 'ThreeJS'],
+    name: "StellarSkiesAstronomy.org",
+    desc: "An educational site dedicated to astronomy, providing resources for amateur astronomers, star maps, and information on celestial events.",
+    url: "/projects/image-9.jpg",
+    tech: ["ReactJS", "JS"],
   },
   {
-    name: 'UrbanEatsDelights.com',
-    desc: 'An educational site dedicated to astronomy, providing resources for amateur astronomers, star maps, and information on celestial events.',
-    url: '/projects/image-10.jpg',
-    tech: ['NextJS', 'ThreeJS'],
+    name: "UrbanEatsDelights.com",
+    desc: "An educational site dedicated to astronomy, providing resources for amateur astronomers, star maps, and information on celestial events.",
+    url: "/projects/image-10.jpg",
+    tech: ["NextJS"],
   },
-]
+];
 
 export const projectsButton = [
-  'All',
-  'Figma',
-  'Photoshop',
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'ReactJS',
-  'TailwindCSS',
-  'NextJS',
-  'FramerMotion',
-  'ThreeJS',
-]
+  "All",
+  "TypeScript",
+  "HTML",
+  "CSS",
+  "JS",
+  "ReactJS",
+  "TailwindCSS",
+  "NextJS",
+  "FramerMotion",
+];
 
 //Navbar Data:
-import Home5LineIcon from 'remixicon-react/Home5LineIcon'
-import UserLineIcon from 'remixicon-react/UserLineIcon'
-import HistoryLineIcon from 'remixicon-react/HistoryLineIcon'
-import BriefcaseLineIcon from 'remixicon-react/BriefcaseLineIcon'
-import UserStarLineIcon from 'remixicon-react/UserStarLineIcon'
-import ProjectorLineIcon from 'remixicon-react/ProjectorLineIcon'
-import PriceTag3LineIcon from 'remixicon-react/PriceTag3LineIcon'
-import ContactsBook2LineIcon from 'remixicon-react/ContactsBook2LineIcon'
-import QuestionAnswerLineIcon from 'remixicon-react/QuestionAnswerLineIcon'
+import Home5LineIcon from "remixicon-react/Home5LineIcon";
+import UserLineIcon from "remixicon-react/UserLineIcon";
+import HistoryLineIcon from "remixicon-react/HistoryLineIcon";
+import BriefcaseLineIcon from "remixicon-react/BriefcaseLineIcon";
+import UserStarLineIcon from "remixicon-react/UserStarLineIcon";
+import ProjectorLineIcon from "remixicon-react/ProjectorLineIcon";
+import PriceTag3LineIcon from "remixicon-react/PriceTag3LineIcon";
+import ContactsBook2LineIcon from "remixicon-react/ContactsBook2LineIcon";
+import QuestionAnswerLineIcon from "remixicon-react/QuestionAnswerLineIcon";
 
 export const navbarData = [
   {
-    id: 'home',
-    name: 'Home',
+    id: "home",
+    name: "Home",
     icon: <Home5LineIcon />,
   },
   {
-    id: 'about',
-    name: 'About',
+    id: "about",
+    name: "About",
     icon: <UserLineIcon />,
   },
   {
-    id: 'experience',
-    name: 'MyRoad',
+    id: "experience",
+    name: "MyRoad",
     icon: <HistoryLineIcon />,
   },
   {
-    id: 'skills',
-    name: 'Skills',
+    id: "skills",
+    name: "Skills",
     icon: <BriefcaseLineIcon />,
   },
   {
-    id: 'reviews',
-    name: 'Reviews',
+    id: "reviews",
+    name: "Reviews",
     icon: <UserStarLineIcon />,
   },
   {
-    id: 'projects',
-    name: 'Projects',
+    id: "projects",
+    name: "Projects",
     icon: <ProjectorLineIcon />,
   },
   // {
@@ -372,185 +382,135 @@ export const navbarData = [
   //   icon: <PriceTag3LineIcon />,
   // },
   {
-    id: 'contact',
-    name: 'Contact',
+    id: "contact",
+    name: "Contact",
     icon: <ContactsBook2LineIcon />,
   },
   {
-    id: 'questions',
-    name: 'Questions',
+    id: "questions",
+    name: "Questions",
     icon: <QuestionAnswerLineIcon />,
   },
-]
+];
 
 // Questions & Answers (Q&A):
 
 export const questions = [
   {
-    // question: 'How much do you charge for a website?',
-    question: 'Why building the motion designed website is expensive?',
+    question: "What’s your story, Viraj 👨‍💻? ",
     answer:
-      'Our website packages usually range from £2997 – £4997. However it really depends on what kind of website you need. We recently wrote a full guide on how much it costs for a website to give you an idea of the different options available.',
+      "I’m a BTech CSE student at COEP Pune, always hustling between coding, tech, and life. From mastering DSA to diving into quantum mechanics, I’m constantly chasing knowledge. Oh, and speedcubing is my secret weapon! 🎮💡",
   },
   {
-    question: 'Why are you so expensive?',
+    question: "Why did you start your website 💻🌐? ",
     answer:
-      'he process we use to build your website takes a certain amount of time and a lot of planning and research. Unlike other agencies, we DON’T use templates. We build your website from scratch, which means you get a unique design tailored around your business. Buying a website from us should not just simply be seen as a business expense as your website is a sales tool that should earn you money',
+      "Honestly, I wanted a place to share all my tech journeys, projects, and some life insights. It’s like a personal playground where I combine code with creativity and give a sneak peek into my brain. 🚀💭",
   },
   {
-    question: 'How long does it take to build a website?',
+    question: "What’s the hardest part of being a techie 😅? ",
     answer:
-      'It takes approximately 6-10 weeks to build a website from start to finish, providing we have all the information from you. Our full web design process is broken down here. Generally speaking, the website will only take a long time if we are still waiting for text and images from yourself.',
+      "It’s juggling between theory and practice! Sometimes you can’t find the right resources, and other times, the code doesn’t want to cooperate. But hey, that’s the fun of it! 😜💻",
   },
   {
-    question: 'How do we communicate throughout the website build?',
+    question: "How do you manage your time with all these projects 🕐?",
     answer:
-      'Before we begin working together, we’ll usually have an initially chat on the phone or via Skype to discuss the project. Once we get started, most of the communication will take place over email. This makes the process a lot easier as we’ll have all of the information saved and can come back to it later. Once we’ve finished the project, we will book in your 1hr digital marketing training session.',
+      "Time management is key! I try breaking down tasks into smaller chunks, using productivity tools, and, of course, a little bit of procrastination sprinkled in (shhh... 🤫). But I’ve learned to prioritize what matters. ✨",
   },
   {
-    question: 'What will you need from me?',
+    question: "Any cool tech trends you’re vibing with lately 🔮?",
     answer:
-      'It really depends on what type of website you want. We’ll be able to discuss this on our discovery call before we start working together. Depending on which package we agree on we could need…',
+      "Quantum computing and AI are my current obsessions. There’s something magical about quantum mechanics and its potential to change everything. Imagine coding in a parallel universe! 🤯💻",
   },
   {
-    question: 'What if I don’t like the website?',
+    question: "What’s one tech myth you want to bust 🧐?",
     answer:
-      'You’re in luck. We offer a risk-free guarantee. Before we build your new website, we’ll design a mockup of your homepage. We’ll design a layout in Photoshop first, that way you’ll get to see our initial designs within approximately ten days. This is your opportunity to give us feedback and if you really don’t like it, you don’t have to move forward. Best part is, this won’t cost you anything.',
+      "You don’t need to be a genius to code! It’s all about persistence and learning from mistakes. Plus, Google and Stack Overflow are your best friends. 🤝📚",
   },
   {
-    question: 'Do you offer a payment schedule?',
+    question: "Got any advice for young tech enthusiasts 💡?",
     answer:
-      'Yes, we split the payment into two. The first 50% is usually taken once you have seen the mockup of your homepage and you’re happy to move forward. The following 50% is taken 30 days after this.',
+      "Start small but dream big! Dive into DSA, try building real-world projects, and never stop exploring new tech. And most importantly, have fun with it. Coding is like playing a game. 🎮💻",
   },
   {
-    question: 'Can I make the final payment when the site is ready to go live?',
+    question: "What inspires your coding projects 🤔💻?",
     answer:
-      'No. In the past we have found that projects can take a lot longer than expected to complete. We might be waiting for information from you and this can delay the process. Sometimes these delays can take months. This is why we always invoice 30 days after the original payment. At this point we’ll be well on our way with your new website and you’ll be able to see the progress.',
+      "Anything that challenges me! Whether it’s solving a tough algorithm, automating something, or creating cool web apps, I love finding solutions that make life a little easier. 🔧🔍",
   },
   {
-    question: 'Who hosts the website?',
+    question: "How do you deal with coding burnout 🤯🔥 ?",
     answer:
-      'If we build your website, we will generally manage the hosting for you so you don’t need to do anything. We use the same hosting company for our own website and for ALL our clients. Each website is managed individually to avoid any security issues. Every website we build has unlimited bandwidth, 20GB of disk space, 2GB Ram and 99.9% uptime. We’ve used the same company for 5 years and we don’t plan on changing this anytime soon.',
+      "I take breaks and step away from the screen. A walk, a speedcube solve, or just talking with my family helps me reset. Balance is the secret sauce. 🧠🍃",
   },
   {
-    question: 'Can I update the website myself once it’s been built?',
+    question: "What’s next for you 🚀✨? ",
     answer:
-      'Yes. We like to offer the ability for our clients to update the website themselves. We we’ll give you all the training and tools to be able to make website amendments. We use a easy to use platform called WordPress so you can add edit and delete content without paying us to do it for you.',
+      "More learning, more projects, and maybe some new skills like quantum programming. The world’s full of possibilities, and I’m just getting started. Watch out! 💥✨",
   },
-  {
-    question: 'What if I don’t want to manage the website at all. Can you do it all for me?',
-    answer:
-      'Yes, we can arrange a maintenance package to suit your needs. This can range from 1hr per month to 10 hours per month and we can discuss a package that’s right for you.',
-  },
-]
+];
 
-import ArrowDropDownLineIcon from 'remixicon-react/ArrowDropDownLineIcon'
-export const questionArrow = <ArrowDropDownLineIcon />
+import ArrowDropDownLineIcon from "remixicon-react/ArrowDropDownLineIcon";
+export const questionArrow = <ArrowDropDownLineIcon />;
 
 // Reviews
 
-import StarFillIcon from 'remixicon-react/StarFillIcon'
-import StarHalfLineIcon from 'remixicon-react/StarHalfLineIcon'
-import ArrowLeftSLineIcon from 'remixicon-react/ArrowLeftSLineIcon'
-import ArrowRightSLineIcon from 'remixicon-react/ArrowRightSLineIcon'
+import StarFillIcon from "remixicon-react/StarFillIcon";
+import StarHalfLineIcon from "remixicon-react/StarHalfLineIcon";
+import ArrowLeftSLineIcon from "remixicon-react/ArrowLeftSLineIcon";
+import ArrowRightSLineIcon from "remixicon-react/ArrowRightSLineIcon";
+import StarLineIcon from "remixicon-react/StarLineIcon";
 
-export const starIcons = [<StarFillIcon />, <StarHalfLineIcon />]
-export const arrowIcons = [<ArrowLeftSLineIcon />, <ArrowRightSLineIcon />]
+export const starIcons = [
+  <StarFillIcon />,
+  <StarHalfLineIcon />,
+  <StarLineIcon />,
+];
+export const arrowIcons = [<ArrowLeftSLineIcon />, <ArrowRightSLineIcon />];
 
 export const reviewsData = [
   {
-    image: '/reviews/client-4.png',
-    name: 'Mark T., Freelance Graphic Designer',
+    image: "/reviews/client-8.png",
+    name: "Sanjay Nalbalwar, Dean, DBATU Lonere",
     comment:
-      "Your work on our website has been phenomenal. The design is visually stunning and incredibly user-friendly. We've received countless compliments from our customers, and our sales have noticeably increased. Thank you for capturing our brand's essence so perfectly!",
+      "This website is absolutely amazing!✨The design feels modern, and the transitions are buttery smooth. Navigating through the sections was super easy, and I loved how interactive everything was. Definitely one of the best personal websites I've seen!",
     stars: [1, 1, 1, 1, 0.5],
   },
   {
-    image: '/reviews/client-2.png',
-    name: 'Sarah B., E-commerce Store Owner',
+    image: "/reviews/client-7.png",
+    name: "Bhumi Batawale, VJTI Mumbai",
     comment:
-      "Working with you, has been an absolute pleasure. The portfolio website you created for me is sleek, modern, and beautifully showcases my work. Your attention to detail and creative flair are truly impressive. I couldn't be happier with the final result!",
+      "Bro, this site is straight fire! 🔥 The vibes are unmatched—smooth animations, sleek design, and everything flows like a dream. Navigating is a breeze, and the portfolio? It's next-level 👏. Seriously, if this was a flex, it's on a whole other level. Keep doing your thing, Viraj!",
     stars: [1, 1, 1, 1, 1],
   },
   {
-    image: '/reviews/client-3.png',
-    name: 'Emily R., CEO of Tech Startup',
+    image: "/reviews/client-5.png",
+    name: "Prathmesh Pattewar, VIT Pune",
     comment:
-      "The redesign of our corporate website exceeded all expectations. Your innovative ideas and professional execution have given us a site that is not only visually appealing but also highly functional. We've seen a significant improvement in user engagement thanks to your expertise.",
-    stars: [1, 1, 1, 1, 1],
-  },
-  {
-    image: '/reviews/client-1.png',
-    name: 'Bob W., Lifestyle Blogger',
-    comment:
-      "I absolutely love the blog design you created for me, [Web Designer's Name]. It's exactly what I envisioned—stylish, unique, and easy to navigate. Your responsiveness and creative input were invaluable. My readers are raving about the new look, and I couldn't be more thrilled!",
+      "Yo, this site is lowkey fire 🔥! The design is sleek, and everything feels smooth as heck. It’s easy to find your way around, and the projects are insane. Just a tiny delay on some pages, but honestly, still vibes all the way. Keep flexing, Viraj!",
     stars: [1, 1, 1, 1, 0.5],
   },
   {
-    image: '/reviews/client-5.png',
-    name: 'David H., Director of Non-Profit Organization',
+    image: "/reviews/client-4.png",
+    name: "Amogh Waskar, Modern College Pune",
     comment:
-      "Your work on our non-profit’s website has been transformative. The design is clean, engaging, and effectively conveys our mission. We've seen an increase in online donations and volunteer sign-ups, all thanks to your fantastic design. Your dedication and talent are greatly appreciated!",
-    stars: [1, 1, 1, 1, 1],
-  },
-]
-
-export const pricingPlans = [
-  {
-    title: 'Basic',
-    pricing: '$500 - $1,000',
-    features: [
-      'Up to 5 pages',
-      'Responsive design ',
-      'Basic SEO ',
-      'Contact form',
-      'Social media links',
-      '1 month support',
-    ],
-    recommended: 'Small businesses, personal websites, bloggers',
+      "Honestly, this website slaps! 😎 The transitions and animations are smooth, and the content is super engaging. Mobile could use a little fine-tuning, but that’s minor. Overall, it’s a vibe and definitely stands out. Keep doing you!",
+    stars: [1, 1, 1, 1, 0],
   },
   {
-    title: 'Premium',
-    pricing: '$5,000 - $10,000',
-    features: [
-      'Unlimited pages',
-      'Responsive design',
-      'Comprehensive SEO',
-      'Contact form ',
-      'Social media links',
-      'Advanced security',
-      'E-commerce (unlimited products)',
-      'Blog setup',
-      'Google Analytics with custom reports',
-      '6 months support',
-    ],
-    recommended: 'Medium-sized businesses, online stores, service providers',
+    image: "/reviews/client-3.png",
+    name: "Rudrakshi Sawant, VIIT Pune",
+    comment:
+      "Okay, this site is straight-up a flex! 💯 The animations are crispy, the design is sleek, and the vibe is just on point. Honestly, it feels like I’m browsing through the future. Definitely a must-see for anyone looking for inspiration!",
+    stars: [1, 1, 1, 1, 0.5],
   },
-  {
-    title: 'Standard',
-    pricing: '$1,500 - $3,000',
-    features: [
-      'Up to 10 pages',
-      'Responsive design',
-      'Advanced SEO',
-      'CContact form',
-      'Social media links',
-      'E-commerce (20 products)',
-      'Blog setup',
-      'Google Analytics',
-      '3 months support',
-    ],
-    recommended: 'Large businesses, complex e-commerce sites, custom web applications',
-  },
-]
+];
 
-import CheckLineIcon from 'remixicon-react/CheckLineIcon'
+import CheckLineIcon from "remixicon-react/CheckLineIcon";
 
-export const checkIcon = <CheckLineIcon />
+export const checkIcon = <CheckLineIcon />;
 
 // Toggle
-import MoonFoggyFillIcon from 'remixicon-react/MoonFoggyFillIcon'
-import SunFoggyFillIcon from 'remixicon-react/SunFoggyFillIcon'
+import MoonFoggyFillIcon from "remixicon-react/MoonFoggyFillIcon";
+import SunFoggyFillIcon from "remixicon-react/SunFoggyFillIcon";
 
-export const sunIcon = <SunFoggyFillIcon />
-export const moonIcon = <MoonFoggyFillIcon />
+export const sunIcon = <SunFoggyFillIcon />;
+export const moonIcon = <MoonFoggyFillIcon />;

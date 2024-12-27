@@ -24,8 +24,8 @@ const Projects = () => {
 
   return (
     <div id="projects" className="min-h-screen py-20">
-      <Heading text={"Projects"} />
-      <div className="flex flex-wrap items-center justify-between gap-4 py-10">
+      <Heading text={"My Creative Playground 🎮"} />
+      <div className="flex flex-wrap items-center justify-center gap-16 py-10 md:justify-between md:gap-4">
         {projectsButton.map((text, i) => (
           <motion.button
             ref={(el) => buttonRef.current.push(el)}

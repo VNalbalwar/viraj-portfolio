@@ -38,7 +38,7 @@ const Reviews = () => {
 
   return (
     <div id="reviews" className="my-20 ">
-      <Heading text={"Reviews"} />
+      <Heading text={"Your Thoughts, My Vibes 🎤"} />
       <div className="flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, x: -200 }}
@@ -78,7 +78,7 @@ const Reviews = () => {
                 <div className="flex items-center gap-x-2 text-2xl text-yellow-500">
                   {review.stars.map((star, i) => (
                     <span key={i}>
-                      {star === 1 ? starIcons[0] : starIcons[1]}
+                      {star === 0 ? starIcons[2] : star === 1 ? starIcons[0] : starIcons[1]}
                     </span>
                   ))}
                 </div>

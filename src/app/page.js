@@ -1,5 +1,6 @@
 "use client";
-import About from "@/components/About";
+
+import About from "@/components/About"
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
@@ -39,7 +40,10 @@ export default function Home() {
       <Load />
       <Toggle>
         <Navbar id={id} />
-        <div className="xl:px-2 lg:px-2 md:px-2 sm:px-1 xs:px-1 web:px-1 px-2" ref={compsRef}>
+        <div
+          className="xl:px-2 lg:px-2 md:px-2 sm:px-1 xs:px-1 web:px-1 px-2"
+          ref={compsRef}
+        >
           <Hero />
           <About />
           <Experience />

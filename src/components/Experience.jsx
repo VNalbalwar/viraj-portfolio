@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Heading from "./sub/Heading";
-import { experienceData, arrowLeftIcon } from "@/assets";
+import { experienceData, arrowLeftIcon, myDates } from "@/assets";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 
@@ -15,8 +15,8 @@ const Experience = () => {
     offset: ["start 95%", "end end"],
   });
 
-  const scrollY = useSpring(scrollYProgress, {stiffness: 200, damping: 20})
-  
+  const scrollY = useSpring(scrollYProgress, { stiffness: 200, damping: 20 });
+
   return (
     <div id="experience" className="relative py-20">
       <Heading text={"Experience & Education"} />
@@ -34,7 +34,7 @@ const Experience = () => {
         {experienceData.map((data, i) => (
           <div
             key={`id-${i}`}
-            className={`w-[600px] xl:w-[480px] sm:w-full px-12 sm:px-0 relative ${
+            className={`w-[600px] xl:w-[480px] sm:w-full px-[5rem] sm:px-0 relative ${
               i % 2 === 0
                 ? "-left-[300px] xl:-left-[240px] lg:-left-0"
                 : "left-[300px] xl:left-[240px] lg:left-0"
@@ -51,7 +51,13 @@ const Experience = () => {
                 {data.title}
               </h1>
               <p className="text-gray-800 dark:text-gray-100">
-                <span className="block font-light">Education:</span>
+                <span
+                  className={`block font-light ${
+                    data.education === "" ? "hidden" : ""
+                  }`}
+                >
+                  Education:
+                </span>
                 <span className="block pl-2 font-extralight">
                   {data.education}
                 </span>
@@ -75,13 +81,14 @@ const Experience = () => {
               </span>
             </motion.div>
             <div
-              className={`w-14 absolute top-20 border border-gray-300 rounded-full aspect-square grid place-items-center text-red-400 font-light -translate-y-1/2 z-10 bg-white ${
+              className={`w-[7.5rem] h-8 absolute top-20 border border-gray-300 rounded-full aspect-auto grid place-items-center text-red-400 font-light -translate-y-1/2 z-10 bg-white ${
                 i % 2 === 0
                   ? "left-full -translate-x-1/2 lg:left-1/2"
                   : "right-full translate-x-1/2 lg:right-1/2"
               }`}
             >
-              {date - experienceData.length + i + 1}
+              {/* {date - experienceData.length + i + 1} */}
+              {myDates[i].date}
             </div>
           </div>
         ))}
