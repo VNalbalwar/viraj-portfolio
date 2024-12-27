@@ -39,8 +39,8 @@ export default function Home() {
       <Load />
       <Toggle>
         <Navbar id={id} />
-        {/* <div className="px-2" ref={compsRef}> */}
-        <div className="" ref={compsRef}>
+        <div className="xl:px-2 lg:px-2 md:px-2 sm:px-1 xs:px-1 web:px-1 px-2" ref={compsRef}>
+        {/* <div className="" ref={compsRef}> */}
           <Hero />
           <About />
           <Experience />
