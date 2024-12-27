@@ -59,7 +59,7 @@ export const downloadIcon = <DownloadLineIcon />;
 export const arrowLeftIcon = <ArrowLeftSFillIcon />;
 
 export const aboutText =
-  " Hi, I'm Viraj, a web developer & designer. I blend the technical  skills of web development with the creative aspects of web design. I code in HTML, CSS, JavaScript, React, NextJS... to build functional and responsive websites, while also using design tools like Framer and Figma to create visually appealing and user-friendly interfaces. My role allows me to ensure that websites not only work well but also look great and provide an excellent user experience.";
+  "Yo, what's up? I'm Viraj! 💻✨ A web dev & designer blending all the tech vibes with creativity. I build sick websites with HTML, CSS, JS, React, and NextJS. But wait, I don’t just code, I design interfaces🔥with Framer and Figma that are as smooth as they are user-friendly. My goal? To create sites that don’t just work but pop and give users an epic experience. When I’m not coding, I’m speedcubing🧩and vibing with tech innovations. Let’s make some magic happen!🔥🚀";
 // End of AboutMe icons
 
 // Skills
