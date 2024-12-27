@@ -145,30 +145,82 @@ import CopyrightLineIcon from 'remixicon-react/CopyrightLineIcon'
 // export const copyRightIcon = <PiCopyrightThin />
 export const copyRightIcon = <CopyrightLineIcon />
 // Experience
+// export const experienceData = [
+//   {
+//     year: 1,
+//     title: 'Foundation and Basics',
+//     education:
+//       'High School Diploma: Focus on computer science, mathematics, and art/design courses.',
+//     experience: [
+//       'Basic HTML/CSS: Learn through online tutorials and courses.',
+//       'Personal Projects: Create simple personal websites or blogs.',
+//     ],
+//   },
+//   {
+//     year: 2,
+//     title: 'Advanced Learning and Early Experience',
+//     education:
+//       'Associate’s Degree in Web Development or Design: Enroll in a 2-year program covering web development and design principles.',
+//     experience: [
+//       'Freelance Work: Take on small freelance projects to build a portfolio.',
+//       'Online Courses and Certifications: Learn JavaScript, responsive design, and UX/UI design.',
+//     ],
+//   },
+//   {
+//     year: 3,
+//     title: 'Specialized Education and Real-World Application',
+//     education:
+//       'Online Courses and Bootcamps: Focus on specialized areas like front-end frameworks (React, Angular) and back-end technologies (Node.js).',
+//     experience: [
+//       'Internships: Secure internships with tech companies or design agencies.',
+//       'Contribute to Open Source: Collaborate on open-source projects.',
+//     ],
+//   },
+//   {
+//     year: 4,
+//     title: 'Building Expertise and Expanding Skills',
+//     education: 'Certifications: Obtain certifications in advanced web technologies.',
+//     experience: [
+//       'Full-Time Position: Work as a junior web developer or designer.',
+//       'Portfolio Development: Continuously update your portfolio with professional and personal projects.',
+//     ],
+//   },
+//   {
+//     year: 5,
+//     title: 'Mastery and Leadership',
+//     education: 'Workshops and Conferences: Attend industry events to stay updated.',
+//     experience: [
+//       'Senior Position: Aim for a senior web developer or lead designer role, mentoring junior colleagues.',
+//       'Freelance and Consulting: Consider starting a freelance business or consulting practice.',
+//     ],
+//   },
+// ]
+
 export const experienceData = [
   {
     year: 1,
-    title: 'Foundation and Basics',
+    title: 'The Fundamentals',
     education:
-      'High School Diploma: Focus on computer science, mathematics, and art/design courses.',
+      'Institute: Dr. Babasaheb Ambedkar Technological University (DBATU), Lonere',
     experience: [
-      'Basic HTML/CSS: Learn through online tutorials and courses.',
-      'Personal Projects: Create simple personal websites or blogs.',
+      'Consistently topped the class.',
+      'Participated in various college events, including coding and speedcubing competitions',
+      'Helped and motivated juniors in academics and extracurricular activities.',
     ],
   },
   {
     year: 2,
-    title: 'Advanced Learning and Early Experience',
+    title: '',
     education:
-      'Associate’s Degree in Web Development or Design: Enroll in a 2-year program covering web development and design principles.',
+      'COEP Technological University, Pune',
     experience: [
-      'Freelance Work: Take on small freelance projects to build a portfolio.',
+      'Data Structures and Algorithms (DSA), Web Development, System Programming, Quantum Computing.',
       'Online Courses and Certifications: Learn JavaScript, responsive design, and UX/UI design.',
     ],
   },
   {
     year: 3,
-    title: 'Specialized Education and Real-World Application',
+    title: 'Technical Skills Development',
     education:
       'Online Courses and Bootcamps: Focus on specialized areas like front-end frameworks (React, Angular) and back-end technologies (Node.js).',
     experience: [
@@ -178,20 +230,19 @@ export const experienceData = [
   },
   {
     year: 4,
-    title: 'Building Expertise and Expanding Skills',
+    title: 'Project-Based Learning',
     education: 'Certifications: Obtain certifications in advanced web technologies.',
     experience: [
-      'Full-Time Position: Work as a junior web developer or designer.',
-      'Portfolio Development: Continuously update your portfolio with professional and personal projects.',
+      'Shortest-Path Visualizer : Built a C++ algorithm for shortest path calculation and integrated it into a React-based web application.',
+      'Hashing Algorithms in C: Implemented SHA-256, MD5, and other hashing algorithms using C.',
     ],
   },
   {
     year: 5,
-    title: 'Mastery and Leadership',
-    education: 'Workshops and Conferences: Attend industry events to stay updated.',
+    title: 'Microprocessor Programming',
+    education: 'Dealing with 8085 & 8086, ICs, and Microprocessor Interfacing',
     experience: [
-      'Senior Position: Aim for a senior web developer or lead designer role, mentoring junior colleagues.',
-      'Freelance and Consulting: Consider starting a freelance business or consulting practice.',
+      'Gained hands-on experience with assembly language programming for 8086, including topics like interrupt handling, PPI (8255), and advanced subroutines.',
     ],
   },
 ]
@@ -336,7 +387,8 @@ export const navbarData = [
 
 export const questions = [
   {
-    question: 'How much do you charge for a website?',
+    // question: 'How much do you charge for a website?',
+    question: 'Why building the motion designed website is expensive?',
     answer:
       'Our website packages usually range from £2997 – £4997. However it really depends on what kind of website you need. We recently wrote a full guide on how much it costs for a website to give you an idea of the different options available.',
   },
