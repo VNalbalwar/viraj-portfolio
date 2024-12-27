@@ -12,6 +12,16 @@ export default {
         foreground: "var(--foreground)",
       },
     },
+    screens:{
+      xl: {max: '1400px'},
+      lg: {max: '1150px'},
+      md: {max: '767px'},
+      sm: {max: '639px'},
+      xs: {max: '393px'},
+      // One Custom Breakpoint for web dev & dsa
+      web: {max: '436px'},
+    },
   },
   plugins: [],
+  darkMode: "class",
 };
