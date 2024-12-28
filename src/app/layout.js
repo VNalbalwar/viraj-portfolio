@@ -1,5 +1,6 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         className={`${outfit.className} ${outfit.className} antialiased`}
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
