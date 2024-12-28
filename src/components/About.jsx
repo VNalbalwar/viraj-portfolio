@@ -4,6 +4,7 @@ import Image from "next/image";
 import Heading from "./sub/Heading";
 import Achievements from "./sub/Achievements";
 import { aboutData, aboutText, downloadIcon, arrowLeftIcon } from "@/assets";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -25,7 +26,7 @@ const About = () => {
             {aboutText}
           </p>
           <a
-            // href="/nick-cv.pdf"
+            // href="/viraj-cv.pdf"
             href="/" // Change this to your CV link (later)
             download=""
             className="w-max flex items-center gap-x-2 mt-6 rounded-full border border-gray-300 bg-red-400 px-3 py-2 font-light text-white hover:bg-red-500 transition-colors"

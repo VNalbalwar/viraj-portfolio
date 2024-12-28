@@ -1,18 +1,19 @@
 "use client";
 import { navbarData, copyRightIcon } from "@/assets";
+import Link from "next/link";
 
 const Navbar = ({ id }) => {
   return (
     <div className="w-[70px] h-full fixed left-0 top-0 flex flex-col justify-between border-r border-gray-200 px-4 py-10 xl:py-6 z-10">
-      <a href="/#home">
+      <Link href="/#home">
         <span className="text-3xl font-semibold text-red-400">V.</span>
         <span className="block w-min rotate-90 origin-bottom text-[12px] font-semibold dark:text-white">
           Nalbalwar
         </span>
-      </a>
+      </Link>
       <div className="flex flex-col gap-y-3 xl:gap-y-1 sm:gap-y-2 xs:gap-y-0">
         {navbarData.map((item, i) => (
-          <a
+          <Link
             key={i}
             href={`/#${item.id}`}
             className="group flex flex-col items-center gap-y-2"
@@ -33,7 +34,7 @@ const Navbar = ({ id }) => {
             >
               {item.name}
             </span>
-          </a>
+          </Link>
         ))}
       </div>
       <p className="flex items-center justify-center text-[13px] xs:text-[11px] text-gray-500 mt-6">
