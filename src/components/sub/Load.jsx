@@ -16,13 +16,7 @@ const Load = () => {
       transition={{ duration: 0.5 }}
       className="w-full h-full fixed left-0 top-0 flex items-center justify-center bg-gradient-to-t from-yellow-50 to-red-50 z-50"
     >
-      <div style={{ width: "70px", height: "70px" }}>
-        <img
-          src="spinner.gif"
-          alt="Spinner Gif"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
+      <img src="spinner.gif" alt="Spinner Gif" />
     </motion.div>
   );
 };
