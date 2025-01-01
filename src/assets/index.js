@@ -32,7 +32,7 @@ import LinksFillIcon from "remixicon-react/LinksFillIcon";
 export const aboutData = [
   {
     title: "Github Repos",
-    amount: 6,
+    amount: 8,
     icon: <GithubFillIcon />,
   },
   {
