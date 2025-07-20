@@ -14,8 +14,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${outfit.className} ${outfit.className} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${outfit.className} ${outfit.className} antialiased`} suppressHydrationWarning>
         {children}
         <Analytics />
         <SpeedInsights />

@@ -32,7 +32,7 @@ import LinksFillIcon from "remixicon-react/LinksFillIcon";
 export const aboutData = [
   {
     title: "Github Repos",
-    amount: 8,
+    amount: 20,
     icon: <GithubFillIcon />,
   },
   {
@@ -42,12 +42,12 @@ export const aboutData = [
   },
   {
     title: "LinkedIn Followers",
-    amount: 330,
+    amount: 2000,
     icon: <GroupLineIcon />,
   },
   {
     title: "LinkedIn Connections",
-    amount: 300,
+    amount: 1700,
     icon: <LinksFillIcon />,
   },
 ];
@@ -59,19 +59,40 @@ export const downloadIcon = <DownloadLineIcon />;
 export const arrowLeftIcon = <ArrowLeftSFillIcon />;
 
 export const aboutText =
-  "Yo, what's up? I'm Viraj! 💻✨ A web dev & designer blending all the tech vibes with creativity. I build sick websites with HTML, CSS, JS, React, and NextJS. But wait, I don’t just code, I design interfaces🔥with Framer and Figma that are as smooth as they are user-friendly. My goal? To create sites that don’t just work but pop and give users an epic experience. When I’m not coding, I’m speedcubing🧩and vibing with tech innovations. Let’s make some magic happen!🔥🚀";
+  "Yo, I’m Viraj! ☁️💻 Knee-deep in the cloud game—rockin’ OpenStack, OpenShift, and all that DevOps magic 🛠️🔥. From spinning up VMs to automating infra, I’m on a roll with real-world cloud wizardry. Before that? Built sleek frontends with Next.js, Tailwind, and ShadCN, and crafted smooth UIs using Figma + Framer. Full-stack vibes, start to finish 🚀 Off-code? I’m probably speedcubing 🧩 or vibing with the latest tech drops. Let’s make the web (and the cloud) cooler together! 🌐⚡";
+
 // End of AboutMe icons
 
 // Skills
 export const skillsData = [
   {
-    name: "HTML",
-    icon: "/skills/html.png",
+    name: "Bash",
+    icon: "/skills/bash.png",
   },
   {
-    name: "CSS",
-    icon: "/skills/css.png",
+    name: "Docker",
+    icon: "/skills/docker.png",
   },
+  {
+    name: "OpenStack",
+    icon: "/skills/openstack.png",
+  },
+  {
+    name: "OpenShift",
+    icon: "/skills/openshift.png",
+  },
+  {
+    name: "Systemd",
+    icon: "/skills/systemd.png",
+  },
+  // {
+  //   name: "HTML",
+  //   icon: "/skills/html.png",
+  // },
+  // {
+  //   name: "CSS",
+  //   icon: "/skills/css.png",
+  // },
   {
     name: "JavaScript",
     icon: "/skills/js.png",
@@ -104,14 +125,14 @@ export const skillsData = [
     name: "Framer Motion",
     icon: "/skills/framer.png",
   },
-  {
-    name: "Figma",
-    icon: "/skills/figma.png",
-  },
-  {
-    name: "Cloudflare",
-    icon: "/skills/cloudflare.png",
-  },
+  // {
+  //   name: "Figma",
+  //   icon: "/skills/figma.png",
+  // },
+  // {
+  //   name: "Cloudflare",
+  //   icon: "/skills/cloudflare.png",
+  // },
   {
     name: "NodeJS",
     icon: "/skills/nodejs.png",
@@ -120,18 +141,18 @@ export const skillsData = [
     name: "MongoDB",
     icon: "/skills/mongodb.png",
   },
-  {
-    name: "ChatGPT",
-    icon: "/skills/chatgpt.png",
-  },
+  // {
+  //   name: "ChatGPT",
+  //   icon: "/skills/chatgpt.png",
+  // },
   {
     name: "Linux",
     icon: "/skills/linux.png",
   },
-  {
-    name: "C",
-    icon: "/skills/c.png",
-  },
+  // {
+  //   name: "C",
+  //   icon: "/skills/c.png",
+  // },
   {
     name: "C++",
     icon: "/skills/cpp.png",
@@ -204,7 +225,8 @@ export const myDates = [
   { section: "The Beginning of the Journey 🚀", date: "2021" },
   { section: "Tech Arsenal: My Skillset🚀", date: "2021 - Present" },
   { section: "Building Blocks: My Diploma Journey 😎", date: "2021 - 2024" },
-  { section: "Building the Future: My BTech Story🔧", date: "2024 - Present" },
+  { section: "Building the Future: My BTech Story🔧", date: "2024 - Till 2027" },
+  { section: "Cloud, Code & Everything Dope ☁️💻", date: "2025" },
 ];
 
 export const experienceData = [
@@ -255,6 +277,17 @@ export const experienceData = [
     experience: [
       "-Member of CSI COEP",
       "-Specialized in front-end frameworks like React, NextJS, and back-end technologies such as Node.js.",
+    ],
+  },
+  {
+    year: 6,
+    title: "Cloud, Code & Everything Dope ☁️💻",
+    education: "",
+    experience: [
+      "-Interning at Reliance Jio as a CloudOps Intern, working hands-on with OpenStack and OpenShift in production-grade infra setups.",
+      "-Configured multi-node OpenStack environments from scratch with Nova, Neutron, Cinder, Keystone & Horizon.",
+      "-Explored full-stack magic using Next.js, Tailwind, and ShadCN for clean UI + Firebase for quick deployments.",
+      "-Actively building real-world infra, mastering automation, monitoring, and deployment flows 🚀",
     ],
   },
 ];
@@ -397,56 +430,57 @@ export const navbarData = [
 
 export const questions = [
   {
-    question: "What’s your story, Viraj 👨‍💻? ",
+    question: "What’s your story, Viraj 👨‍💻?",
     answer:
-      "I’m a BTech CSE student at COEP Pune, always hustling between coding, tech, and life. From mastering DSA to diving into quantum mechanics, I’m constantly chasing knowledge. Oh, and speedcubing is my secret weapon! 🎮💡",
+      "I’m a BTech CSE student at COEP Pune, currently vibing with cloud infra, DevOps, and full-stack builds. From coding UIs to configuring OpenStack nodes, I love mixing creativity with chaos. Oh, and speedcubing still keeps me sharp! 🧠⚡",
   },
   {
-    question: "Why did you start your website 💻🌐? ",
+    question: "Why did you start your website 💻🌐?",
     answer:
-      "Honestly, I wanted a place to share all my tech journeys, projects, and some life insights. It’s like a personal playground where I combine code with creativity and give a sneak peek into my brain. 🚀💭",
+      "Honestly, I wanted a space to showcase what I build, write about what I learn, and keep everything under one hood. It’s like my digital brain dump—code meets creativity. 🚀🧠",
   },
   {
-    question: "What’s the hardest part of being a techie 😅? ",
+    question: "What’s the hardest part of being a techie 😅?",
     answer:
-      "It’s juggling between theory and practice! Sometimes you can’t find the right resources, and other times, the code doesn’t want to cooperate. But hey, that’s the fun of it! 😜💻",
+      "Balancing learning and building. Some days you're setting up cloud infra, and others you're debugging for hours. But that rollercoaster is what makes the ride worth it! 🎢💻",
   },
   {
     question: "How do you manage your time with all these projects 🕐?",
     answer:
-      "Time management is key! I try breaking down tasks into smaller chunks, using productivity tools, and, of course, a little bit of procrastination sprinkled in (shhh... 🤫). But I’ve learned to prioritize what matters. ✨",
+      "I work in bursts! I break big tasks into mini missions and stay flexible. Sometimes it’s chaos, sometimes it flows—but keeping things exciting helps me stay on track. ⚙️🔁",
   },
   {
-    question: "Any cool tech trends you’re vibing with lately 🔮?",
+    question: "What tech are you deep into lately 🔍☁️?",
     answer:
-      "Quantum computing and AI are my current obsessions. There’s something magical about quantum mechanics and its potential to change everything. Imagine coding in a parallel universe! 🤯💻",
+      "Lately, I’m neck-deep in OpenStack, OpenShift, and cloud-native infra setups. Automating systems, setting up nodes, and managing backend chaos—it’s fun in a weirdly satisfying way. 🛠️☁️",
   },
   {
     question: "What’s one tech myth you want to bust 🧐?",
     answer:
-      "You don’t need to be a genius to code! It’s all about persistence and learning from mistakes. Plus, Google and Stack Overflow are your best friends. 🤝📚",
+      "You don’t need to know everything to get started! Real growth comes from building, failing, googling stuff, and trying again. Consistency > genius. 🔁📚",
   },
   {
-    question: "Got any advice for young tech enthusiasts 💡?",
+    question: "Got any advice for new tech explorers 💡?",
     answer:
-      "Start small but dream big! Dive into DSA, try building real-world projects, and never stop exploring new tech. And most importantly, have fun with it. Coding is like playing a game. 🎮💻",
+      "Follow your curiosity. Learn by building. Start with the basics, ship small things, and keep leveling up. And remember—bugs are just plot twists in your dev journey. 🐞🛠️",
   },
   {
     question: "What inspires your coding projects 🤔💻?",
     answer:
-      "Anything that challenges me! Whether it’s solving a tough algorithm, automating something, or creating cool web apps, I love finding solutions that make life a little easier. 🔧🔍",
+      "Solving real problems or scratching my own itch. If it makes my workflow easier or teaches me something new, I’m in. Bonus points if it looks cool too 😎🖥️",
   },
   {
-    question: "How do you deal with coding burnout 🤯🔥 ?",
+    question: "How do you deal with coding burnout 🤯🔥?",
     answer:
-      "I take breaks and step away from the screen. A walk, a speedcube solve, or just talking with my family helps me reset. Balance is the secret sauce. 🧠🍃",
+      "I just disconnect. A speedcube, a music break, or stepping outside helps recharge. You gotta reboot the brain sometimes. 🔋🍃",
   },
   {
-    question: "What’s next for you 🚀✨? ",
+    question: "What’s next for you 🚀✨?",
     answer:
-      "More learning, more projects, and maybe some new skills like quantum programming. The world’s full of possibilities, and I’m just getting started. Watch out! 💥✨",
+      "Diving deeper into cloud automation, real-time systems, and maybe sprinkling in more quantum computing. Basically—breaking stuff, learning fast, and building smarter. 💥🛠️",
   },
 ];
+
 
 import ArrowDropDownLineIcon from "remixicon-react/ArrowDropDownLineIcon";
 export const questionArrow = <ArrowDropDownLineIcon />;
