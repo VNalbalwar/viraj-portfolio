@@ -5,18 +5,14 @@ import { motion } from "framer-motion";
 
 const Question = ({ data, index }) => {
   const [show, setShow] = useState(false);
+
   const variants = {
     visible: (i) => ({
       opacity: 1,
       x: 0,
-      transition: {
-        delay: i * 0.07,
-      },
+      transition: { delay: i * 0.07 },
     }),
-    hidden: {
-      opacity: 0,
-      x: -30,
-    },
+    hidden: { opacity: 0, x: -20 },
   };
 
   return (
@@ -26,37 +22,50 @@ const Question = ({ data, index }) => {
       whileInView="visible"
       viewport={{ margin: "50px", once: true }}
       variants={variants}
-      className="border border-yellow-500 p-1 rounded-lg"
+      className="rounded-xl overflow-hidden border transition-colors duration-200"
+      style={{
+        borderColor: show ? "var(--brand-local)" : "var(--border)",
+        background: "var(--surface)",
+      }}
     >
-      <h1
+      <button
         onClick={() => setShow(!show)}
-        className={`flex items-center text-xl text-gray-800 hover:text-yellow-600 font-extralight tracking-wide cursor-pointer dark:text-white transition-colors dark:hover:bg-zinc-700 dark:hover:text-yellow-600 ${
-          show && "border-b text-yellow-600"
-        }`}
+        className="w-full flex items-center gap-x-3 px-5 py-4 text-left"
+        aria-expanded={show}
       >
-        <motion.span animate={{ rotate: show ? 180 : 0 }}>
+        <motion.span
+          animate={{ rotate: show ? 90 : 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="text-xl shrink-0"
+          style={{ color: show ? "var(--brand-local)" : "var(--ink-3)" }}
+        >
           {questionArrow}
         </motion.span>
-        <span>{data.question}</span>
-      </h1>
-      <motion.p
-        initial={{ scaleY: 0, height: 0, opacity: 0 }}
+        <span
+          className="text-base font-medium tracking-wide"
+          style={{ color: "var(--ink-1)" }}
+        >
+          {data.question}
+        </span>
+      </button>
+      <motion.div
+        initial={false}
         animate={{
-          scaleY: show ? 1 : 0,
           height: show ? "auto" : 0,
           opacity: show ? 1 : 0,
         }}
-        transition={{
-          duration: 0.1,
-          type: "spring",
-          stiffness: show ? 250 : 50,
-          opacity: { delay: show ? 0.2 : 0 },
-        }}
-        className="box-border origin-top pl-8 text-lg font-extralight tracking-wide text-gray-900 first-letter:pl-3 dark:text-gray-200"
+        transition={{ duration: 0.25, ease: "easeInOut" }}
+        className="overflow-hidden"
       >
-        {data.answer}
-      </motion.p>
+        <p
+          className="px-5 pb-4 pl-14 text-sm leading-relaxed"
+          style={{ color: "var(--ink-2)" }}
+        >
+          {data.answer}
+        </p>
+      </motion.div>
     </motion.li>
   );
 };
 export default Question;
+

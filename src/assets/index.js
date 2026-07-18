@@ -33,21 +33,27 @@ export const aboutData = [
   {
     title: "Github Repos",
     amount: 20,
+    liveKey: "githubRepos",
     icon: <GithubFillIcon />,
   },
   {
     title: "Blogs Written",
     amount: 10,
+    liveKey: "hashnodePosts",
     icon: <AwardFillIcon />,
   },
   {
+    // LinkedIn has no public API — kept as manually-updated static value
     title: "LinkedIn Followers",
     amount: 2000,
+    liveKey: null,
     icon: <GroupLineIcon />,
   },
   {
+    // LinkedIn has no public API — kept as manually-updated static value
     title: "LinkedIn Connections",
     amount: 1700,
+    liveKey: null,
     icon: <LinksFillIcon />,
   },
 ];
@@ -59,7 +65,7 @@ export const downloadIcon = <DownloadLineIcon />;
 export const arrowLeftIcon = <ArrowLeftSFillIcon />;
 
 export const aboutText =
-  "Yo, I’m Viraj! ☁️💻 Knee-deep in the cloud game—rockin’ OpenStack, OpenShift, and all that DevOps magic 🛠️🔥. From spinning up VMs to automating infra, I’m on a roll with real-world cloud wizardry. Before that? Built sleek frontends with Next.js, Tailwind, and ShadCN, and crafted smooth UIs using Figma + Framer. Full-stack vibes, start to finish 🚀 Off-code? I’m probably speedcubing 🧩 or vibing with the latest tech drops. Let’s make the web (and the cloud) cooler together! 🌐⚡";
+  "Yo, I’m Viraj! 👨‍💻⚡ I build across the stack—from polished interfaces to the systems and infrastructure running underneath them. My journey has taken me through cloud engineering at Jio, software engineering at Mastercard, and even Kubernetes research that made its way to the international HPC stage 🌍🚀. I love figuring out how things work, turning ambitious ideas into something real, and making sure whatever I build feels as good as it works. Off-code? You’ll probably find me speedcubing 🧩, chasing another tech rabbit hole, or wondering what to build next.";
 
 // End of AboutMe icons
 
@@ -225,7 +231,10 @@ export const myDates = [
   { section: "The Beginning of the Journey 🚀", date: "2021" },
   { section: "Tech Arsenal: My Skillset🚀", date: "2021 - Present" },
   { section: "Building Blocks: My Diploma Journey 😎", date: "2021 - 2024" },
-  { section: "Building the Future: My BTech Story🔧", date: "2024 - Till 2027" },
+  {
+    section: "Building the Future: My BTech Story🔧",
+    date: "2024 - 2027",
+  },
   { section: "Cloud, Code & Everything Dope ☁️💻", date: "2025" },
 ];
 
@@ -294,77 +303,106 @@ export const experienceData = [
 
 export const projectsData = [
   {
-    name: "MindWebs - AI Mods",
-    desc: "An open innovation project. To address the challenge of enhancing user interaction with AI Models, making them more accessible to everyone.",
-    url: "/projects/image-1.jpg",
-    tech: ["Flask", "Hugging Face", "JS"],
+    name: "Thermal-Aware Core Scheduler",
+    desc: "Custom Kubernetes scheduler in Go that routes workloads to CPU cores with the lowest thermal footprint. Includes a DaemonSet node-agent thermal exporter, k8s manifests, and a Phase-1 research paper on static scheduling strategies.",
+    thumbKey: "thermal",
+    url: null,
+    tech: ["Go", "Kubernetes", "Docker", "Research"],
+    github: "https://github.com/VNalbalwar/static-thermal-aware-scheduler-phase-1",
+    live: null,
   },
   {
-    name: "PlantID",
-    desc: "PlantID is your go-to resource for identifying and learning about plants. Our AI-powered tool helps nature enthusiasts discover the world of flora.",
-    url: "/projects/image-2.jpg",
-    tech: ["HTML", "CSS", "JS", "TypeScript"],
+    name: "MAC-Based SYN Flood Detection",
+    desc: "Network security mini-project detecting and mitigating SYN flood attacks using MAC-layer fingerprinting. Features Python packet simulation, Jupyter notebooks for live visualization, a TypeScript dashboard, and a formal research paper.",
+    thumbKey: "synflood",
+    url: null,
+    tech: ["Python", "TypeScript", "Security"],
+    github: "https://github.com/VNalbalwar/CN-Mini-Project-MAC-Based-SYN-Flood-Detection",
+    live: null,
   },
   {
-    name: "CozyNestHomes.org",
-    desc: "A resource for homeowners and renters alike, offering tips on interior design, home improvement projects, and sustainable living practices.",
-    url: "/projects/image-3.jpg",
-    tech: ["HTML", "CSS", "JS"],
+    name: "Blockchain DApp on Arbitrum",
+    desc: "Full-stack Web3 decentralized app on Arbitrum Stylus with ERC-721 NFT smart contracts written in Rust, a Next.js frontend using wagmi + RainbowKit, and end-to-end WalletConnect integration.",
+    thumbKey: "blockchain",
+    url: null,
+    tech: ["TypeScript", "Web3", "Rust"],
+    github: "https://github.com/VNalbalwar/my-blockchain-dapp",
+    live: null,
   },
   {
-    name: "WanderLuxeTravels.co",
-    desc: "A travel website that provides luxury travel guides, destination reviews, and tips for planning unforgettable vacations.",
-    url: "/projects/image-4.jpg",
-    tech: ["HTML", "CSS", "JS", "TailwindCSS"],
+    name: "Mind-Webs NLP App",
+    desc: "Multifunctional NLP web app featuring image captioning, sentiment analysis, speech recognition & synthesis — all in one platform. Powered by Flask, Hugging Face Transformers, and custom ML pipelines.",
+    thumbKey: "mindwebs",
+    url: null,
+    tech: ["Python", "AI", "Flask"],
+    github: "https://github.com/VNalbalwar/mind-webs",
+    live: null,
   },
   {
-    name: "ByteBoosters.io",
-    desc: "A tech startup specializing in software development, offering innovative solutions and services for businesses looking to enhance their digital presence.",
-    url: "/projects/image-5.jpg",
-    tech: ["TypeScript", "ReactJS", "TailwindCSS", "CSS"],
+    name: "Gentales — AI Story Generator",
+    desc: "AI-powered story generation platform built with Next.js 14. Generate imaginative tales from prompts using generative AI, with Vercel Analytics integration and a polished reader experience.",
+    thumbKey: "gentales",
+    url: null,
+    tech: ["Next.js", "TypeScript", "AI"],
+    github: "https://github.com/VNalbalwar/gentales",
+    live: "https://gentales.vercel.app/",
   },
   {
-    name: "GreenLeafGardens.biz",
-    desc: "An online store and community hub for gardening enthusiasts, featuring a wide range of plants, gardening tools, and expert advice.",
-    url: "/projects/image-6.jpg",
-    tech: ["ReactJS", "TailwindCSS", , "CSS", "FramerMotion"],
+    name: "SteganоSafe — Steganography Tool",
+    desc: "No-code steganography web app to encode and decode hidden messages inside images using LSB (Least Significant Bit) pixel manipulation. Built with Next.js and TypeScript, deployed live.",
+    thumbKey: "steganosafe",
+    url: null,
+    tech: ["Next.js", "TypeScript", "Security"],
+    github: "https://github.com/VNalbalwar/no-code-steganosafe",
+    live: "https://steganosafe.vercel.app/",
   },
   {
-    name: "PixelPerfectDesigns.info",
-    desc: "A graphic design portfolio showcasing the work of a freelance designer, including branding, web design, and illustration projects.",
-    url: "/projects/image-7.jpg",
-    tech: ["NextJS", "FramerMotion"],
+    name: "Plant Identifier AI",
+    desc: "AI-powered plant identification app using Google Generative AI. Upload a photo or use camera capture to identify any plant — returns scientific name, sunlight requirements, water needs, soil type, and growth info.",
+    thumbKey: "plantid",
+    url: null,
+    tech: ["Next.js", "TypeScript", "AI"],
+    github: "https://github.com/VNalbalwar/Plant-Identifier",
+    live: "https://plant-identifier-vn.vercel.app/",
   },
   {
-    name: "HarmonyHealthHub.com",
-    desc: " A wellness website focused on holistic health, offering articles on nutrition, fitness, mental health, and alternative therapies.",
-    url: "/projects/image-8.jpg",
-    tech: ["NextJS", "ReactJS", "FramerMotion"],
+    name: "Note-Flow — Collaborative Editor",
+    desc: "Real-time collaborative note editor built with Next.js, Firebase Auth, and Liveblocks for live multi-cursor presence. Supports rich-text editing and real-time sync across multiple users simultaneously.",
+    thumbKey: "noteflow",
+    url: null,
+    tech: ["Next.js", "TypeScript", "Firebase"],
+    github: "https://github.com/VNalbalwar/note-flow",
+    live: null,
   },
   {
-    name: "StellarSkiesAstronomy.org",
-    desc: "An educational site dedicated to astronomy, providing resources for amateur astronomers, star maps, and information on celestial events.",
-    url: "/projects/image-9.jpg",
-    tech: ["ReactJS", "JS"],
+    name: "AI Streaming Chatbot",
+    desc: "Modern AI chatbot with real-time streaming responses using Vercel AI SDK, OpenAI GPT, and shadcn-chat components. Supports code blocks, markdown rendering, and a smooth streaming UX built at lightspeed.",
+    thumbKey: "chatbot",
+    url: null,
+    tech: ["Next.js", "TypeScript", "AI"],
+    github: "https://github.com/VNalbalwar/next-js-chatbot",
+    live: null,
   },
   {
-    name: "UrbanEatsDelights.com",
-    desc: "An educational site dedicated to astronomy, providing resources for amateur astronomers, star maps, and information on celestial events.",
-    url: "/projects/image-10.jpg",
-    tech: ["NextJS"],
+    name: "Pixel Aura VS Code Theme",
+    desc: "Dark VS Code theme with a vibrant, aesthetic palette designed for long coding sessions — focus-friendly contrasts, consistent syntax highlighting across all major languages, and zero lag. Published on the VS Code Marketplace.",
+    thumbKey: "pixelaura",
+    url: null,
+    tech: ["VS Code", "Theme"],
+    github: "https://github.com/VNalbalwar/pixel-aura-extension",
+    live: null,
   },
 ];
 
 export const projectsButton = [
   "All",
+  "Go",
+  "Python",
   "TypeScript",
-  "HTML",
-  "CSS",
-  "JS",
-  "ReactJS",
-  "TailwindCSS",
-  "NextJS",
-  "FramerMotion",
+  "Next.js",
+  "Security",
+  "AI",
+  "Web3",
 ];
 
 //Navbar Data:
@@ -430,57 +468,56 @@ export const navbarData = [
 
 export const questions = [
   {
-    question: "What’s your story, Viraj 👨‍💻?",
+    question: "So, what’s your story, Viraj 👨‍💻?",
     answer:
-      "I’m a BTech CSE student at COEP Pune, currently vibing with cloud infra, DevOps, and full-stack builds. From coding UIs to configuring OpenStack nodes, I love mixing creativity with chaos. Oh, and speedcubing still keeps me sharp! 🧠⚡",
+      "Started with a diploma, somehow ended up with a gold medal and Maharashtra Rank 2, and that journey brought me to COEP. Since then, I’ve gone from building slick web experiences to working with cloud infrastructure, enterprise systems, and Kubernetes research. I guess I’ve never really stuck to one lane—I just keep following whatever makes me curious enough to build. 🚀",
   },
   {
-    question: "Why did you start your website 💻🌐?",
+    question: "Why does this website even exist 💻🌐?",
     answer:
-      "Honestly, I wanted a space to showcase what I build, write about what I learn, and keep everything under one hood. It’s like my digital brain dump—code meets creativity. 🚀🧠",
+      "Because a resume can tell you what I’ve done, but not really who I am. This is my little corner of the internet where projects, experiments, milestones, questionable design obsessions, and everything I learn along the way get to live together. Basically, less of a portfolio... more of a timeline of me figuring things out. ✨",
   },
   {
-    question: "What’s the hardest part of being a techie 😅?",
+    question: "Wait... cloud guy or software guy ☁️💻?",
     answer:
-      "Balancing learning and building. Some days you're setting up cloud infra, and others you're debugging for hours. But that rollercoaster is what makes the ride worth it! 🎢💻",
+      "Why choose? 😭 I’ve built frontends with Next.js, worked hands-on with OpenStack and OpenShift at Jio, explored enterprise software engineering at Mastercard, and somehow ended up researching Kubernetes schedulers too. I like understanding the whole journey—from the interface someone clicks to the infrastructure quietly keeping everything alive underneath.",
   },
   {
-    question: "How do you manage your time with all these projects 🕐?",
+    question: "What changed the way you look at tech 🧠?",
     answer:
-      "I work in bursts! I break big tasks into mini missions and stay flexible. Sometimes it’s chaos, sometimes it flows—but keeping things exciting helps me stay on track. ⚙️🔁",
+      "Working on things outside tutorials. Real infrastructure, real codebases, research problems, deadlines, presentations—basically situations where there isn’t a neat 'Step 1, Step 2, Step 3.' That taught me something important: knowing a technology is useful, but learning how to figure things out when you don’t know the answer is probably the bigger skill. ⚡",
   },
   {
-    question: "What tech are you deep into lately 🔍☁️?",
+    question: "What’s something you’re genuinely proud of 🏆?",
     answer:
-      "Lately, I’m neck-deep in OpenStack, OpenShift, and cloud-native infra setups. Automating systems, setting up nodes, and managing backend chaos—it’s fun in a weirdly satisfying way. 🛠️☁️",
+      "Probably the trajectory more than any single achievement. From a diploma classroom to COEP, internships at places like Jio and Mastercard, and taking our Kubernetes research all the way to an international HPC workshop—it sometimes feels wild when I connect the dots. Every chapter felt like a huge jump at the time. Looking back, they somehow became one continuous story. 🌍",
   },
   {
-    question: "What’s one tech myth you want to bust 🧐?",
+    question: "What kind of problems pull you in 🔍?",
     answer:
-      "You don’t need to know everything to get started! Real growth comes from building, failing, googling stuff, and trying again. Consistency > genius. 🔁📚",
+      "The ones where I initially have no idea how I’m going to solve them. 😭 Whether it’s debugging infrastructure, understanding a massive codebase, designing a system, or turning an idea into something people can actually experience—I love that phase where everything looks confusing... until the pieces slowly start connecting.",
   },
   {
-    question: "Got any advice for new tech explorers 💡?",
+    question: "Are you a perfectionist with your work 😭?",
     answer:
-      "Follow your curiosity. Learn by building. Start with the basics, ship small things, and keep leveling up. And remember—bugs are just plot twists in your dev journey. 🐞🛠️",
+      "Unfortunately... yes. 😂 If something works but doesn’t feel right, I’ll probably keep touching it. Code structure, animations, tiny spacing, presentation flow—I care a lot about how things come together. I’ve learned that 'done' matters too, but if I’m putting my name on something, I want it to feel intentional.",
   },
   {
-    question: "What inspires your coding projects 🤔💻?",
+    question: "What do you do when tech gets too loud 🧩🎧?",
     answer:
-      "Solving real problems or scratching my own itch. If it makes my workflow easier or teaches me something new, I’m in. Bonus points if it looks cool too 😎🖥️",
+      "Speedcubing is still my favorite reset button. There’s something satisfying about turning complete chaos into a solved cube one algorithm at a time—which, now that I think about it, is suspiciously similar to debugging. 😭 Add some music, random tech rabbit holes, and occasionally doing absolutely nothing... system reboot complete.",
   },
   {
-    question: "How do you deal with coding burnout 🤯🔥?",
+    question: "What’s one thing you believe about learning 💡?",
     answer:
-      "I just disconnect. A speedcube, a music break, or stepping outside helps recharge. You gotta reboot the brain sometimes. 🔋🍃",
+      "You don’t have to feel ready before starting something difficult. Most of the things that taught me the most started with me thinking, 'I have absolutely no clue how to do this.' You start anyway, break things, ask stupid questions, read way too much documentation, and eventually yesterday’s impossible thing becomes something you just... know how to do. 🔁",
   },
   {
-    question: "What’s next for you 🚀✨?",
+    question: "Okay then... what’s next for Viraj 🚀✨?",
     answer:
-      "Diving deeper into cloud automation, real-time systems, and maybe sprinkling in more quantum computing. Basically—breaking stuff, learning fast, and building smarter. 💥🛠️",
+      "No perfectly scripted five-year answer here. 😭 I want to keep getting deeper into systems, cloud, distributed infrastructure, and software engineering while building things that are actually useful—and occasionally unnecessarily beautiful. Wherever that takes me, I just want future-me to look back and think: damn, we really kept leveling up. ⚡",
   },
 ];
-
 
 import ArrowDropDownLineIcon from "remixicon-react/ArrowDropDownLineIcon";
 export const questionArrow = <ArrowDropDownLineIcon />;

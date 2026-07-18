@@ -1,27 +1,2 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
-    screens:{
-      xl: {max: '1400px'},
-      lg: {max: '1150px'},
-      md: {max: '767px'},
-      sm: {max: '639px'},
-      xs: {max: '393px'},
-      // One Custom Breakpoint for Web Dev & DSA
-      web: {max: '436px'},
-    },
-  },
-  plugins: [],
-  darkMode: "class",
-};
+// Tailwind v4 — configuration has moved to src/app/globals.css
+export default {};

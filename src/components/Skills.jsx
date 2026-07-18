@@ -6,43 +6,43 @@ import { skillsData } from "@/assets";
 import { motion } from "framer-motion";
 
 const Skills = () => {
-  const variants = {
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.3 + i * 0.07,
-      },
-    }),
-    hidden: {
-      opacity: 0,
-      y: 30,
-    },
-  };
-
   return (
-    <div id="skills" className="min-h-screen flex flex-col items-center justify-center gap-y-20">
+    <div id="skills" className="min-h-screen flex flex-col items-center justify-center py-20 gap-y-16">
       <Heading text={"Skills"} />
-      <div className="w-full flex justify-between flex-wrap gap-x-8 gap-y-10 lg:gap-y-6">
+      <div className="w-full flex justify-start flex-wrap gap-3">
         {skillsData.map((item, i) => (
           <motion.div
-            custom={i}
-            variants={variants}
-            initial="hidden"
-            whileInView="visible"
-            whileHover={{ scale: 1.1 }}
-            viewport={{margin: "50px", once: true}}
             key={i}
-            className="flex items-center justify-center gap-x-3 rounded-xl border border-yellow-500 bg-zinc-200 px-5 py-2 lg:px-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ margin: "50px", once: true }}
+            transition={{ delay: i * 0.04, duration: 0.4 }}
+            whileHover={{ y: -2 }}
+            className="flex items-center gap-x-2.5 rounded-xl border px-4 py-2.5 cursor-default transition-colors duration-200 group"
+            style={{
+              background: "var(--surface)",
+              borderColor: "var(--border)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "var(--brand-local)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "var(--border)";
+            }}
           >
             <Image
               src={item.icon}
-              alt="Skills Image"
+              alt={item.name}
               width={100}
               height={100}
-              className="h-auto w-[40px]"
+              className="h-auto w-8"
             />
-            <p className="text-sm text-gray-600">{item.name}</p>
+            <span
+              className="text-sm font-medium"
+              style={{ color: "var(--ink-2)" }}
+            >
+              {item.name}
+            </span>
           </motion.div>
         ))}
       </div>
@@ -50,3 +50,4 @@ const Skills = () => {
   );
 };
 export default Skills;
+

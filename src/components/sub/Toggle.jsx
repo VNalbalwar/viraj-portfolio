@@ -30,13 +30,16 @@ const Toggle = ({ children }) => {
     } else {
       darkThemeParsed ? addDarkTheme() : removeDarkTheme();
     }
-
-    console.log(darkTheme, darkThemeParsed, systemTheme);
   }, []);
+
   return (
     <main ref={mainRef}>
-      <div className="bg-zinc-50 dark:bg-zinc-800">
+      <div
+        className="min-h-screen transition-colors duration-300"
+        style={{ backgroundColor: "var(--bg)", color: "var(--ink-1)" }}
+      >
         <div className="max-w-[1200px] xl:w-full mx-auto flex justify-center xl:px-[90px] sm:pl-[80px] sm:pr-5 overflow-hidden">
+          {/* Theme toggle */}
           <button
             onClick={() => {
               if (!darkTheme) {
@@ -47,12 +50,26 @@ const Toggle = ({ children }) => {
                 reactLocalStorage.set("darkTheme", false);
               }
             }}
-            className="fixed right-14 sm:right-10 top-10 text-yellow-600 hover:text-yellow-500 z-40"
+            aria-label={darkTheme ? "Switch to light mode" : "Switch to dark mode"}
+            className="fixed right-8 top-8 z-40 w-9 h-9 flex items-center justify-center rounded-full transition-all duration-200"
+            style={{
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+              color: "var(--ink-2)",
+            }}
           >
-            <motion.span animate={{scale: darkTheme ? 0 : 1}} className="absolute block rounded-full bg-zinc-50 p-1 text-4xl dark:bg-zinc-800">
+            <motion.span
+              className="absolute text-lg block leading-none"
+              animate={{ opacity: darkTheme ? 0 : 1, scale: darkTheme ? 0.5 : 1, rotate: darkTheme ? 90 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
               {moonIcon}
             </motion.span>
-            <motion.span animate={{scale: darkTheme ? 1 : 0}} className="absolute block rounded-full bg-zinc-50 p-1 text-3xl dark:bg-zinc-800">
+            <motion.span
+              className="absolute text-lg block leading-none"
+              animate={{ opacity: darkTheme ? 1 : 0, scale: darkTheme ? 1 : 0.5, rotate: darkTheme ? 0 : -90 }}
+              transition={{ duration: 0.2 }}
+            >
               {sunIcon}
             </motion.span>
           </button>
@@ -63,3 +80,4 @@ const Toggle = ({ children }) => {
   );
 };
 export default Toggle;
+

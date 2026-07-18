@@ -1,7 +1,98 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-html{
-    scroll-behavior: smooth !important;
+/* ─── Dark Mode Variant (class on <main>) ───────────────────── */
+@custom-variant dark (&:is(.dark, .dark *));
+
+/* ─── Max-Width Breakpoints (matches existing component usage) ─ */
+@theme {
+  --breakpoint-sm: initial;
+  --breakpoint-md: initial;
+  --breakpoint-lg: initial;
+  --breakpoint-xl: initial;
+}
+@custom-variant xl (@media (max-width: 1400px));
+@custom-variant lg (@media (max-width: 1150px));
+@custom-variant md (@media (max-width: 767px));
+@custom-variant sm (@media (max-width: 639px));
+@custom-variant xs (@media (max-width: 393px));
+@custom-variant web (@media (max-width: 436px));
+
+/* ─── Brand & Accent Tokens ─────────────────────────────────── */
+@theme {
+  --color-brand:        oklch(0.73 0.18 62);
+  --color-brand-deep:   oklch(0.56 0.22 62);
+  --color-brand-pale:   oklch(0.90 0.10 65);
+  --color-warm:         oklch(0.64 0.13 18);
+  --color-warm-deep:    oklch(0.50 0.16 18);
+  --color-warm-pale:    oklch(0.93 0.06 20);
+}
+
+/* ─── Semantic Theme Variables ───────────────────────────────── */
+:root {
+  --bg:           oklch(0.98 0.004 75);
+  --surface:      oklch(0.95 0.007 72);
+  --surface-2:    oklch(0.91 0.010 70);
+  --ink-1:        oklch(0.12 0.018 38);
+  --ink-2:        oklch(0.36 0.015 38);
+  --ink-3:        oklch(0.56 0.010 38);
+  --border:       oklch(0.84 0.013 65);
+  --brand-local:  oklch(0.50 0.22 62);
+  --warm-local:   oklch(0.71 0.09 14);
+}
+
+.dark {
+  --bg:           oklch(0.09 0.010 38);
+  --surface:      oklch(0.14 0.012 38);
+  --surface-2:    oklch(0.20 0.014 38);
+  --ink-1:        oklch(0.93 0.008 55);
+  --ink-2:        oklch(0.66 0.014 55);
+  --ink-3:        oklch(0.43 0.010 50);
+  --border:       oklch(0.23 0.016 38);
+  --brand-local:  oklch(0.74 0.18 62);
+  --warm-local:   oklch(0.64 0.13 18);
+}
+
+/* ─── Font Utilities ─────────────────────────────────────────── */
+@utility heading-font {
+  font-family: var(--font-bricolage, 'Bricolage Grotesque', sans-serif);
+}
+@utility mono-font {
+  font-family: var(--font-fira, 'Fira Code', monospace);
+}
+
+/* ─── Base Styles ────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  font-family: var(--font-geist, system-ui, sans-serif);
+  background-color: var(--bg);
+  color: var(--ink-1);
+}
+
+::selection {
+  background-color: oklch(0.74 0.18 62 / 0.28);
+  color: var(--ink-1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-local); }
+
+/* ─── Dot-grid background texture ───────────────────────────── */
+.bg-dots {
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

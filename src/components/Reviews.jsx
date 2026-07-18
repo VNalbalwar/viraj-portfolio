@@ -24,9 +24,7 @@ const Reviews = () => {
     animate(
       slides.current[index],
       { scale: 1, rotate: 0 },
-      {
-        delay: 0.2,
-      }
+      { delay: 0.2 }
     );
     animate(slides.current[prevIndex.current], { x: "100%" });
   };
@@ -37,62 +35,69 @@ const Reviews = () => {
   }, [index]);
 
   return (
-    <div id="reviews" className="my-20 ">
+    <div id="reviews" className="py-20">
       <Heading text={"Your Thoughts, My Vibes 🎤"} />
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center gap-y-6">
         <motion.div
-          initial={{ opacity: 0, x: -200 }}
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="relative w-[800px] lg:w-[600px] md:w-[95%] sm:w-[280px] h-[500px] lg:h-[450px] md:h-[400px] sm:h-[600px] flex items-center justify-center overflow-hidden"
+          transition={{ duration: 0.5 }}
+          className="relative w-[800px] lg:w-[600px] md:w-[95%] sm:w-full h-[420px] lg:h-[380px] md:h-[360px] sm:h-[500px] flex items-center justify-center overflow-hidden rounded-2xl border"
+          style={{ borderColor: "var(--border)" }}
         >
           {reviewsData.map((review, i) => (
             <motion.div
               initial={{ x: "100%" }}
               key={i}
-              className="absolute inset-0 flex flex-col items-center justify-center gap-y-7 lg:gap-y-4 border border-yellow-500 bg-zinc-50 p-14 lg:p-5 rounded-xl dark:bg-zinc-700 transition-colors"
+              className="absolute inset-0 flex flex-col items-center justify-center gap-y-5 lg:gap-y-3 p-10 lg:p-6 rounded-2xl"
+              style={{ background: "var(--surface)" }}
               ref={(el) => slides.current.push(el)}
             >
               <Image
                 src={review.image}
-                alt="Reviews Image"
-                width={130}
-                height={130}
-                className="w-[130px] aspect-square rounded-full border border-yellow-500 p-4 object-contain"
+                alt={review.name}
+                width={80}
+                height={80}
+                className="w-20 h-20 rounded-full border-2 p-2 object-contain"
+                style={{ borderColor: "var(--border)" }}
               />
-              <h1 className="text-2xl md:text-xl text-center tracking-wider text-yellow-600">
-                {review.name}
-              </h1>
-              <p className="text-lg md:text-sm text-justify font-extralight tracking-wide text-gray-600 first-letter:pl-2 dark:text-white transition-colors">
-                {review.comment}
+              <div className="text-center">
+                <h3
+                  className="heading-font text-lg font-semibold tracking-wide"
+                  style={{ color: "var(--brand-local)" }}
+                >
+                  {review.name}
+                </h3>
+              </div>
+              <p
+                className="text-sm text-center leading-relaxed max-w-[55ch] font-light"
+                style={{ color: "var(--ink-2)" }}
+              >
+                "{review.comment}"
               </p>
-              <div className="flex flex-col items-center justify-center gap-y-2">
-                <span className="text-lg font-light text-yellow-600 mr-3">
-                  {review.stars
-                    .reduce((sum, item) => {
-                      return (sum += item);
-                    }, 0)
-                    .toFixed(1)}
-                </span>
-                <div className="flex items-center gap-x-2 text-2xl text-yellow-500">
+              <div className="flex flex-col items-center gap-y-1">
+                <div className="flex items-center gap-x-1 text-xl" style={{ color: "var(--warm-local)" }}>
                   {review.stars.map((star, i) => (
                     <span key={i}>
                       {star === 0 ? starIcons[2] : star === 1 ? starIcons[0] : starIcons[1]}
                     </span>
                   ))}
                 </div>
+                <span className="mono-font text-sm font-medium" style={{ color: "var(--warm-local)" }}>
+                  {review.stars.reduce((sum, item) => sum + item, 0).toFixed(1)}
+                </span>
               </div>
             </motion.div>
           ))}
         </motion.div>
-        <div className="flex gap-x-4 text-4xl text-yellow-500 mt-5">
+
+        {/* Navigation arrows */}
+        <div className="flex items-center gap-x-3">
           <button
-            className={`${
-              index === 0
-                ? "opacity-30 pointer-events-none"
-                : "opacity-100 pointer-events-auto"
-            } hover:scale-150 transition-all`}
+            disabled={index === 0}
+            className="w-10 h-10 flex items-center justify-center rounded-full border text-xl transition-all duration-200 disabled:opacity-25"
+            style={{ borderColor: "var(--border)", color: "var(--ink-2)", background: "var(--surface)" }}
             onClick={() => {
               setDirection(true);
               setIndex(index - 1);
@@ -100,12 +105,13 @@ const Reviews = () => {
           >
             {arrowIcons[0]}
           </button>
+          <span className="mono-font text-xs tabular-nums" style={{ color: "var(--ink-3)" }}>
+            {index + 1} / {reviewsData.length}
+          </span>
           <button
-            className={`${
-              index === reviewsData.length - 1
-                ? "opacity-30 pointer-events-none"
-                : "opacity-100 pointer-events-auto"
-            } hover:scale-150 transition-all`}
+            disabled={index === reviewsData.length - 1}
+            className="w-10 h-10 flex items-center justify-center rounded-full border text-xl transition-all duration-200 disabled:opacity-25"
+            style={{ borderColor: "var(--border)", color: "var(--ink-2)", background: "var(--surface)" }}
             onClick={() => {
               setDirection(false);
               setIndex(index + 1);
@@ -119,3 +125,4 @@ const Reviews = () => {
   );
 };
 export default Reviews;
+
