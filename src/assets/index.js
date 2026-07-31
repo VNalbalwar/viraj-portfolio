@@ -10,7 +10,6 @@ export const heroIcons = [
   <LinkedinBoxLineIcon />,
   <GithubLineIcon />,
   <InstagramLineIcon />,
-  <FacebookCircleLineIcon />,
   <NewspaperLineIcon />,
 ];
 
@@ -19,8 +18,7 @@ export const heroLinks = [
   "https://www.linkedin.com/in/viraj-nalbalwar-895365255/",
   "https://github.com/VNalbalwar",
   "https://www.instagram.com/viraj_nalbalwar/",
-  "https://www.facebook.com/profile.php?id=61558032755634&mibextid=ZbWKwL",
-  "https://virajblogs.hashnode.dev/",
+  "https://viraj-verse.hashnode.dev/",
 ];
 
 // AboutMe icons
