@@ -36,10 +36,7 @@ export default function Hero() {
             </FadeUp>
             <FadeUp delay={1.05} className="lg:col-span-4 lg:col-start-9">
               {/* Square source with the head near its top edge: a circle keeps the whole head in frame. */}
-              <div
-                className="relative aspect-square w-full max-w-[22rem] overflow-hidden rounded-full lg:ml-auto"
-                style={{ background: "var(--accent)" }}
-              >
+              <div className="relative aspect-square w-full max-w-[22rem] overflow-hidden rounded-full lg:ml-auto">
                 <Image
                   src="/viraj-nalbalwar.jpg"
                   alt="Portrait of Viraj Nalbalwar"
@@ -47,7 +44,7 @@ export default function Hero() {
                   height={704}
                   priority
                   sizes="(min-width: 1024px) 22rem, 78vw"
-                  className="h-full w-full scale-[0.97] object-cover object-top"
+                  className="h-full w-full object-cover object-top"
                 />
               </div>
             </FadeUp>
