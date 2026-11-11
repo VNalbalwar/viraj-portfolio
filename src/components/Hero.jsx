@@ -8,12 +8,14 @@ import { site, socials } from "@/content/profile";
 export default function Hero() {
   return (
     <section id="home" className="sec !pb-16 !pt-[calc(var(--nav)+2.5rem)] lg:min-h-[100svh]" aria-label="Introduction">
-      <div className="wrap flex min-h-[calc(100svh-var(--nav)-6rem)] flex-col justify-between gap-14">
+      <div className="wrap flex min-h-[calc(100svh-var(--nav)-6rem)] flex-col justify-end gap-14">
+        {/* Removed on request: intro line above the name.
         <FadeUp delay={0.05} y={14}>
           <p className="t-lead max-w-[34ch]">
             Cloud and systems engineer in Pune. I study how shared machines behave under load.
           </p>
         </FadeUp>
+        */}
 
         <div>
           <KineticName lines={["Viraj", "Nalbalwar"]} />
