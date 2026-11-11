@@ -1,88 +1,41 @@
-"use client";
+import { Download } from "lucide-react";
+import { MaskHeading, FadeUp, ScrubText } from "./Reveal";
+import { about, aboutFacts, site } from "@/content/profile";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Heading from "./sub/Heading";
-import Achievements from "./sub/Achievements";
-import { aboutData, aboutText, downloadIcon } from "@/assets";
-
-const About = () => {
-  const [liveStats, setLiveStats] = useState(null);
-
-  useEffect(() => {
-    fetch("/api/stats")
-      .then((r) => r.json())
-      .then(setLiveStats)
-      .catch(() => {}); // silent — static fallback values stay
-  }, []);
-
-  // Merge live values where available; keep static fallback for the rest
-  const resolvedData = aboutData.map((item) => {
-    const liveValue =
-      item.liveKey && liveStats?.[item.liveKey] != null
-        ? liveStats[item.liveKey]
-        : null;
-    return {
-      ...item,
-      amount: liveValue ?? item.amount,
-      isLive: liveValue != null, // only true if live data actually came back
-    };
-  });
-
+export default function About() {
   return (
-    <div id="about" className="min-h-screen flex flex-col items-center justify-center py-20">
-      <Heading text={"About Me"} />
-
-      <div className="w-full flex items-center justify-between gap-x-12 md:flex-col md:gap-y-10">
-        {/* Image */}
-        <Image
-          src={"/about-me.png"}
-          alt="About Me illustration"
-          width={400}
-          height={400}
-          className="w-[260px] lg:w-[200px] md:hidden shrink-0"
+    <section id="about" className="sec" aria-labelledby="about-h">
+      <div className="wrap">
+        <MaskHeading id="about-h" text="About" className="t-h2" />
+        <ScrubText
+          text={about[0]}
+          className="mt-12 max-w-[30ch] text-[clamp(1.7rem,3.7vw,3.1rem)] font-medium leading-[1.16] tracking-[-0.03em] sm:max-w-[36ch]"
         />
-
-        {/* Text card */}
-        <div
-          className="relative max-w-[720px] rounded-2xl border p-7 sm:p-5"
-          style={{
-            background: "var(--surface)",
-            borderColor: "var(--border)",
-          }}
-        >
-          <p
-            className="text-base leading-relaxed font-light"
-            style={{ color: "var(--ink-2)", maxWidth: "65ch" }}
-          >
-            {aboutText}
-          </p>
-          <a
-            href="/resumes/Viraj-Nalbalwar-Resume.pdf"
-            download=""
-            className="mt-6 w-max flex items-center gap-x-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200"
-            style={{
-              background: "var(--brand-local)",
-              borderColor: "var(--brand-local)",
-              color: "oklch(0.10 0.012 255)",
-            }}
-          >
-            <span>Download CV</span>
-            <span className="text-base">{downloadIcon}</span>
-          </a>
+        <div className="mt-16 grid gap-x-6 gap-y-12 lg:grid-cols-12">
+          <FadeUp className="lg:col-span-5">
+            <p className="t-muted max-w-[46ch]">{about[1]}</p>
+            <a href={site.resume} download className="btn btn-solid mt-8">
+              Download CV <Download size={17} aria-hidden />
+            </a>
+          </FadeUp>
+          <FadeUp delay={0.1} className="lg:col-span-6 lg:col-start-7">
+            <dl>
+              {aboutFacts.map(([k, v, icon]) => (
+                <div key={k} className="row-rule grid grid-cols-[7.5rem_1fr] gap-4 py-4 sm:grid-cols-[10rem_1fr]">
+                  <dt className="t-muted">{k}</dt>
+                  <dd className="flex items-center gap-2.5">
+                    {icon && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={`/icons/${icon}.svg`} alt="" width={22} height={22} className="ic h-[22px] w-[22px]" />
+                    )}
+                    {v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </FadeUp>
         </div>
       </div>
-
-      {/* Achievement cards */}
-      <div className="mt-16 w-full grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 gap-4">
-        {resolvedData.map((item, i) => (
-          <Achievements key={i} title={item.title} amount={item.amount} isLive={item.isLive}>
-            {item.icon}
-          </Achievements>
-        ))}
-      </div>
-    </div>
+    </section>
   );
-};
-export default About;
-
+}

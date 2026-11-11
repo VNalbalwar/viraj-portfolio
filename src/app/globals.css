@@ -1,95 +1,220 @@
 @import "tailwindcss";
 
-/* ─── Dark Mode Variant (class on <main>) ───────────────────── */
-@custom-variant dark (&:is(.dark, .dark *));
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* ─── Max-Width Breakpoints (matches existing component usage) ─ */
-@theme {
-  --breakpoint-sm: initial;
-  --breakpoint-md: initial;
-  --breakpoint-lg: initial;
-  --breakpoint-xl: initial;
+/* General Sans (Fontshare, free for commercial use), self-hosted. */
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-@custom-variant xl (@media (max-width: 1400px));
-@custom-variant lg (@media (max-width: 1150px));
-@custom-variant md (@media (max-width: 767px));
-@custom-variant sm (@media (max-width: 639px));
-@custom-variant xs (@media (max-width: 393px));
-@custom-variant web (@media (max-width: 436px));
-
-/* ─── Brand & Accent Tokens ─────────────────────────────────── */
-@theme {
-  --color-brand:        oklch(0.73 0.18 62);
-  --color-brand-deep:   oklch(0.56 0.22 62);
-  --color-brand-pale:   oklch(0.90 0.10 65);
-  --color-warm:         oklch(0.64 0.13 18);
-  --color-warm-deep:    oklch(0.50 0.16 18);
-  --color-warm-pale:    oklch(0.93 0.06 20);
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* ─── Semantic Theme Variables ───────────────────────────────── */
+@theme {
+  --font-sans: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument-serif), "Iowan Old Style", Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* ─── Tokens ────────────────────────────────────────────────────────────────
+   Mist and ink, one committed ultramarine, a small signal orange.           */
 :root {
-  --bg:           oklch(0.98 0.004 75);
-  --surface:      oklch(0.95 0.007 72);
-  --surface-2:    oklch(0.91 0.010 70);
-  --ink-1:        oklch(0.12 0.018 38);
-  --ink-2:        oklch(0.36 0.015 38);
-  --ink-3:        oklch(0.56 0.010 38);
-  --border:       oklch(0.84 0.013 65);
-  --brand-local:  oklch(0.50 0.22 62);
-  --warm-local:   oklch(0.71 0.09 14);
+  color-scheme: light;
+  --bg: #eff0f5;
+  --surface: #e3e5ee;
+  --ink: #0b0d17;
+  --muted: #444a60;
+  --accent: #2d3bff;
+  --accent-ink: #ffffff;
+  --signal: #ff5a1f;
+  --line: color-mix(in oklab, var(--ink) 14%, transparent);
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius: 14px;
+  --nav: 76px;
+
+  /* project thumbnails are images: they stay dark in both themes */
+  --th-bg: #0b0c14;
+  --th-surf: #151826;
+  --th-accent: #8c98ff;
+  --th-accent-2: #c9cfff;
+  --th-warm: #ff7a45;
+  --th-ink: #f1f2f7;
+  --th-dim: #8a90a8;
+  --th-border: #272b3f;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a0b11;
+  --surface: #13151e;
+  --ink: #f1f2f7;
+  --muted: #b3b8cb;
+  --accent: #8c98ff;
+  --accent-ink: #0a0b11;
+  --signal: #ff7a45;
+  --line: color-mix(in oklab, var(--ink) 16%, transparent);
 }
 
-.dark {
-  --bg:           oklch(0.09 0.010 38);
-  --surface:      oklch(0.14 0.012 38);
-  --surface-2:    oklch(0.20 0.014 38);
-  --ink-1:        oklch(0.93 0.008 55);
-  --ink-2:        oklch(0.66 0.014 55);
-  --ink-3:        oklch(0.43 0.010 50);
-  --border:       oklch(0.23 0.016 38);
-  --brand-local:  oklch(0.74 0.18 62);
-  --warm-local:   oklch(0.64 0.13 18);
-}
-
-/* ─── Font Utilities ─────────────────────────────────────────── */
-@utility heading-font {
-  font-family: var(--font-bricolage, 'Bricolage Grotesque', sans-serif);
-}
-@utility mono-font {
-  font-family: var(--font-fira, 'Fira Code', monospace);
-}
-
-/* ─── Base Styles ────────────────────────────────────────────── */
+/* ─── Base ──────────────────────────────────────────────────────────────── */
 html {
-  scroll-behavior: smooth !important;
+  background: var(--bg);
+  scroll-padding-top: var(--nav);
+  -webkit-text-size-adjust: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--ink) 35%, var(--bg)) var(--bg);
 }
-
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
 body {
-  font-family: var(--font-geist, system-ui, sans-serif);
-  background-color: var(--bg);
-  color: var(--ink-1);
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-feature-settings: "ss01", "cv11";
+  overflow-x: clip;
+}
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--ink) 35%, var(--bg)); border: 2px solid var(--bg); border-radius: 10px; }
+input, textarea { caret-color: var(--accent); }
+
+/* ─── Layout ────────────────────────────────────────────────────────────── */
+.sec {
+  --bg-s: var(--bg);
+  position: relative;
+  background: var(--bg-s);
+  color: var(--ink);
+  padding-block: clamp(5rem, 11vw, 9.5rem);
+}
+.sec.alt { --bg-s: var(--surface); --surface: var(--bg); }
+.sec.band {
+  --bg-s: #2d3bff;
+  --ink: #ffffff;
+  --muted: #dfe2ff;
+  --accent: #ffffff;
+  --accent-ink: #2d3bff;
+  --surface: #2733e6;
+  --line: rgb(255 255 255 / 0.3);
+}
+.wrap {
+  width: 100%;
+  max-width: calc(78rem + 3rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 1024px) { .wrap { max-width: calc(78rem + 6rem); padding-inline: 3rem; } }
+
+/* ─── Type ──────────────────────────────────────────────────────────────── */
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.t-serif { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.02em; line-height: 1; }
+.t-h3 { font-family: var(--font-sans); font-weight: 600; font-size: 1.2rem; line-height: 1.25; letter-spacing: -0.015em; }
+.t-lead { font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.4; letter-spacing: -0.015em; }
+.t-muted { color: var(--muted); }
+.t-num { font-variant-numeric: tabular-nums; }
+
+/* ─── Controls ──────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 3.25rem;
+  padding-inline: 1.5rem;
+  border-radius: 999px;
+  font-size: 0.975rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.btn-solid { background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent); }
+.btn-solid:hover { background: color-mix(in oklab, var(--accent) 82%, var(--bg-s, var(--bg))); }
+.btn-line { border: 1px solid var(--line); color: var(--ink); }
+.btn-line:hover { border-color: var(--ink); background: color-mix(in oklab, var(--ink) 6%, transparent); }
+.btn[disabled] { opacity: 0.6; cursor: progress; }
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: background-size 0.25s var(--ease);
+  padding-bottom: 1px;
+}
+.link:hover { background-size: 0% 1px; background-position: 100% 100%; }
+.link-draw {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0% 1px no-repeat;
+  transition: background-size 0.25s var(--ease);
+  padding-bottom: 1px;
+}
+.link-draw:hover { background-size: 100% 1px; }
+
+.row-rule { border-top: 1px solid var(--line); }
+.row-rule:last-child { border-bottom: 1px solid var(--line); }
+
+.ic { display: inline-block; flex: none; object-fit: contain; }
+[data-theme="dark"] .ic-ink { filter: invert(1); }
+
+/* ─── Marquee ───────────────────────────────────────────────────────────── */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+.marquee:hover .marquee-track, .marquee.paused .marquee-track { animation-play-state: paused; }
+
+/* ─── Odometer ──────────────────────────────────────────────────────────── */
+.odo { display: inline-flex; align-items: baseline; white-space: pre; }
+.odo-col { display: inline-block; height: 1em; line-height: 1; overflow: hidden; vertical-align: top; font-variant-numeric: tabular-nums; }
+.odo-strip { display: block; will-change: transform; transition: transform 1.2s var(--ease-enter); }
+.odo-strip span { display: block; height: 1em; line-height: 1; }
+.odo-ch { display: inline-block; line-height: 1; white-space: pre; }
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.8); opacity: 0.3; }
 }
 
-::selection {
-  background-color: oklch(0.74 0.18 62 / 0.28);
-  color: var(--ink-1);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--brand-local); }
-
-/* ─── Dot-grid background texture ───────────────────────────── */
-.bg-dots {
-  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* ─── Reduced motion ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
