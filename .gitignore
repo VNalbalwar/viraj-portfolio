@@ -45,3 +45,4 @@ next-env.d.ts
 .impeccable/*
 !.impeccable/design.json
 !.impeccable/surfaces/
+.taste-skill/

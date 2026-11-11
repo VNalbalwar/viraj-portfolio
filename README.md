@@ -2,11 +2,11 @@
 
 Personal site of Viraj Nalbalwar, live at [viraj-verse.vercel.app](https://viraj-verse.vercel.app).
 
-The page is a heat map: a WebGL thermal field that warms under the cursor and cools back to baseline, and a page that runs from cold to hot as you scroll.
+Designed with the taste-skill rules: one system, real tool logos, plain copy, one hero entrance, one moment (the odometer in "Public work so far"), and no scroll-triggered fades.
 
 ## Stack
 
-Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Motion · hand-written WebGL · Nodemailer. Hosted free on Vercel; a Docker image is also published to GHCR.
+Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Instrument Sans and DM Mono · Nodemailer. Hosted free on Vercel; a Docker image is also published to GHCR.
 
 ## What updates itself
 
@@ -17,6 +17,10 @@ Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Motion · hand-written 
 | Experience, research, skills, certifications, LinkedIn numbers, Q&A | `src/content/profile.js` | Edited by hand. LinkedIn has no free public API. |
 
 To make a new repo look good here, give it a description and topics on GitHub. To pin it, give it a custom title or a hand-made thumbnail, add an entry to `projectOverrides` in `src/content/profile.js`. To hide a repo, add its name to `hiddenRepos`.
+
+## Tool logos
+
+Logos in `public/icons` come from SVG Logos (CC0), fetched with the taste skill's `icons.mjs`; credits are in `public/icons/icons-credits.json`. To add one: `node ~/.claude/skills/design-taste-frontend/scripts/icons.mjs fetch <name> --out public/icons --colour`, then reference it in `skills` in `src/content/profile.js`.
 
 ## Run it
 

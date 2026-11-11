@@ -1,18 +1,19 @@
-import { Archivo, JetBrains_Mono } from "next/font/google";
+import { DM_Mono, Instrument_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site, socials } from "@/content/profile";
 import "./globals.css";
 
-const archivo = Archivo({
+const instrument = Instrument_Sans({
   subsets: ["latin"],
   axes: ["wdth"],
-  variable: "--font-archivo",
+  variable: "--font-instrument",
   display: "swap",
 });
-const jetbrains = JetBrains_Mono({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
   display: "swap",
 });
 
@@ -21,6 +22,7 @@ export const metadata = {
   title: { default: site.title, template: `%s · ${site.name}` },
   description: site.description,
   applicationName: "viraj-verse",
+  other: { "page-type": "software", "site-kind": "software" },
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   keywords: [
@@ -114,7 +116,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${archivo.variable} ${jetbrains.variable}`}>
+    <html lang="en" suppressHydrationWarning data-type="software" className={`${instrument.variable} ${dmMono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

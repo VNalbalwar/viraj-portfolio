@@ -1,50 +1,34 @@
 import { Download } from "lucide-react";
-import CountUp from "./CountUp";
-import { about, manualStats, site } from "@/content/profile";
+import { about, aboutFacts, site } from "@/content/profile";
 
-export default function About({ repoCount, postCount, live }) {
-  const stats = [
-    { value: repoCount, label: "public repos", src: live.github ? "live from GitHub" : "GitHub" },
-    { value: postCount, label: "blog posts", src: live.hashnode ? "live from Hashnode" : "Hashnode" },
-    { value: manualStats.linkedinFollowers, label: "LinkedIn followers", src: "updated by hand" },
-    { value: manualStats.papersAccepted, label: "papers accepted", src: "ISC and HiPC, 2026" },
-  ];
+export default function About() {
   return (
-    <section id="about" className="zone" aria-labelledby="about-h">
-      <div className="wrap zone-pad">
-        <div className="grid gap-x-16 gap-y-8 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
-          <h2 id="about-h" className="h-section">
-            Hey, I'm Viraj.
-          </h2>
-          <div>
-            <div className="max-w-[62ch] space-y-5">
-              {about.map((p, i) => (
-                <p key={i} style={i ? { color: "var(--on-2)" } : undefined} className={i ? "" : "text-[1.25rem] font-medium leading-snug"}>
-                  {p}
-                </p>
-              ))}
-            </div>
-            <a href={site.resume} download className="btn btn-hot mt-9">
-              Download CV <Download size={18} aria-hidden />
-            </a>
+    <section id="about" className="sec alt" aria-labelledby="about-h">
+      <div className="wrap grid gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+        <h2 id="about-h" className="t-h2">
+          About
+        </h2>
+        <div>
+          <div className="max-w-[62ch] space-y-5">
+            {about.map((p, i) => (
+              <p key={i} className={i === 0 ? "t-lead" : "t-muted"} style={i === 0 ? { color: "var(--ink)" } : undefined}>
+                {p}
+              </p>
+            ))}
           </div>
+          <dl className="mt-10 max-w-[62ch]">
+            {aboutFacts.map(([k, v]) => (
+              <div key={k} className="row-rule grid grid-cols-[7rem_1fr] gap-4 py-3 sm:grid-cols-[9rem_1fr]">
+                <dt className="t-muted">{k}</dt>
+                <dd>{v}</dd>
+              </div>
+            ))}
+          </dl>
+          <a href={site.resume} download className="btn btn-solid mt-9">
+            Download CV <Download size={17} aria-hidden />
+          </a>
         </div>
-
-        <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t pt-10 lg:grid-cols-4" style={{ borderColor: "var(--line)" }}>
-          {stats.map((s) => (
-            <div key={s.label} className="flex flex-col-reverse">
-              <dt>
-                <span className="block font-semibold">{s.label}</span>
-                <span className="readout" style={{ color: "var(--on-2)" }}>{s.src}</span>
-              </dt>
-              <dd className="display mb-2 text-[clamp(2.4rem,6vw,4rem)]" style={{ color: "var(--hot)" }}>
-                <CountUp value={s.value} />
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
-
     </section>
   );
 }

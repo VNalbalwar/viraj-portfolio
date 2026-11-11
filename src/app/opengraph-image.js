@@ -16,10 +16,10 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "flex-end",
           padding: 72,
-          color: "#f4f4f6",
-          backgroundColor: "#0b0b0e",
+          color: "#ffffff",
+          backgroundColor: "#0f1f10",
           backgroundImage:
-            "radial-gradient(circle at 82% 22%, #2d5bff 0%, #1b2347 38%, #0b0b0e 70%)",
+            "linear-gradient(135deg, #0f1f10 60%, #162a17 100%)",
           fontFamily: "sans-serif",
         }}
       >

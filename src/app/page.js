@@ -1,14 +1,16 @@
 import About from "@/components/About";
-import Chrome from "@/components/Chrome";
 import Contact from "@/components/Contact";
+import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Journey from "@/components/Journey";
+import Numbers from "@/components/Numbers";
 import Projects from "@/components/Projects";
 import Questions from "@/components/Questions";
 import Research from "@/components/Research";
 import Skills from "@/components/Skills";
 import Writing from "@/components/Writing";
+import { manualStats } from "@/content/profile";
 import { getGithub } from "@/lib/github";
 import { getPosts } from "@/lib/hashnode";
 
@@ -20,14 +22,20 @@ export default async function Home() {
   const [github, blog] = await Promise.all([getGithub(), getPosts()]);
   return (
     <>
-      <Chrome />
+      <Header />
       <main>
         <Hero />
-        <About repoCount={github.repoCount} postCount={blog.postCount} live={{ github: github.live, hashnode: blog.live }} />
-        <Journey />
+        <About />
+        <Numbers
+          repoCount={github.repoCount}
+          postCount={blog.postCount}
+          followers={manualStats.linkedinFollowers}
+          live={{ github: github.live, hashnode: blog.live }}
+        />
+        <Experience />
         <Research />
         <Skills />
-        <Projects projects={github.projects} live={github.live} />
+        <Projects projects={github.projects} repoCount={github.repoCount} live={github.live} />
         <Writing posts={blog.posts} />
         <Contact />
         <Questions />

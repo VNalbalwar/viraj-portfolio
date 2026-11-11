@@ -35,7 +35,7 @@ export function Socials({ items, className = "" }) {
             rel="noopener noreferrer me"
             aria-label={s.label}
             title={s.label}
-            className="grid h-11 w-11 place-items-center rounded-full border transition-[transform,background-color,color] duration-300 hover:-translate-y-0.5 hover:bg-[var(--on)] hover:text-[var(--bg)]"
+            className="grid h-11 w-11 place-items-center rounded-md border transition-colors duration-150 hover:bg-[color-mix(in_oklab,var(--ink)_10%,transparent)]"
             style={{ borderColor: "var(--line)" }}
           >
             <BrandIcon id={s.id} size={18} />

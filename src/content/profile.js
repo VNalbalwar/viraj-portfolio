@@ -13,10 +13,10 @@
 export const site = {
   name: "Viraj Nalbalwar",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://viraj-verse.vercel.app",
-  title: "Viraj Nalbalwar — Cloud, Kubernetes & Systems Engineer",
+  title: "Viraj Nalbalwar: cloud and systems engineer in Pune",
   description:
     "Viraj Nalbalwar is a final-year Computer Engineering student at COEP Technological University working on cloud infrastructure, Kubernetes scheduling, GPU performance research and Linux. Ex-Mastercard, ex-Jio, RHCSA.",
-  tagline: "The most interesting things in computing happen when a system is under pressure.",
+  tagline: "Cloud and systems engineer. I build, and measure, how shared machines behave under load.",
   location: "Pune, Maharashtra, India",
   githubUser: "VNalbalwar",
   hashnodeHost: "viraj-verse.hashnode.dev",
@@ -40,118 +40,76 @@ export const manualStats = {
 };
 
 export const about = [
-  "Yo, I'm Viraj. I like the part of computing most people never see: how clouds share hardware, why performance dips and then recovers, and how tiny decisions snowball at scale.",
-  "That curiosity has dragged me through cloud engineering at Jio, enterprise data migration at Mastercard, and Kubernetes and GPU research that made it to international HPC venues. Somewhere along the way I also collected a Red Hat certification and a lot of deliberately broken Linux machines I'm weirdly fond of.",
-  "Off the keyboard I'm usually ricing my Arch setup or solving a cube. Turning chaos into order one algorithm at a time is suspiciously similar to debugging.",
+  "I'm a final-year computer engineering student at COEP Technological University in Pune. I work on how shared machines behave under load: Kubernetes scheduling, GPU interference, and the Linux and cloud plumbing underneath.",
+  "Last year I built a multi-node OpenStack cloud at Jio. This summer I wrote Spark migration services at Mastercard that move financial data from DB2 to Oracle. Two research papers I worked on were accepted in 2026, at ISC High Performance in Hamburg and IEEE HiPC in Bengaluru.",
+  "Outside work I run Arch on my laptop, write about Linux on Hashnode, and solve Rubik's cubes in competitions.",
 ];
 
-// ── Journey: education and experience, oldest first ───────────────────────
-export const journey = [
+export const aboutFacts = [
+  ["Based in", "Pune, Maharashtra"],
+  ["Studying", "B.Tech, Computer Engineering, COEP (2027)"],
+  ["Earlier", "Diploma, Computer Engineering, gold medal and state rank 2"],
+  ["Certified", "Red Hat Certified System Administrator"],
+];
+
+// ── Experience, education, certifications (from LinkedIn and the resume) ───
+export const experience = [
   {
-    stage: "Foundations",
-    years: "2019 – 2021",
-    line: "Curiosity doing most of the work.",
-    entries: [
-      {
-        title: "Picked up a cube and never put it down",
-        org: "Speedcubing",
-        when: "2019 – forever",
-        points: ["CFOP and Roux, finger tricks, ZBLL and COLL, and WCA competitions."],
-      },
-      {
-        title: "SSC, 97.40%",
-        org: "S.S. Nikam English School, Lonere",
-        when: "2021",
-        points: [],
-      },
+    role: "Software Engineer Intern",
+    org: "Mastercard",
+    place: "Pune",
+    when: "May to Jul 2026",
+    points: [
+      "Built Apache Spark and Spring Boot services that migrate enterprise financial data from legacy DB2 systems to Oracle.",
+      "Wrote REST-triggered batch workflows with partitioned JDBC reads, audit metadata and Oracle target writes.",
+      "Added thread-safe controls so two long-running loads cannot collide on the same endpoint.",
     ],
   },
   {
-    stage: "Diploma years",
-    years: "2021 – 2024",
-    line: "First real code, first internship, first blog.",
-    entries: [
-      {
-        title: "Diploma in Computer Engineering",
-        org: "Dr. Babasaheb Ambedkar Technological University, Lonere",
-        when: "2021 – 2024",
-        points: ["CGPA 9.92, Maharashtra State Rank 2, Gold Medalist."],
-      },
-      {
-        title: "Responsive Web Design Intern",
-        org: "SEED Infotech Ltd., Pune",
-        when: "Jun – Jul 2023",
-        points: [
-          "Built production web interfaces with Next.js, React and Tailwind CSS.",
-          "Git, code reviews and Lighthouse audits for sub-second page loads.",
-        ],
-      },
-      {
-        title: "Started writing about Linux",
-        org: "Hashnode",
-        when: "Jul 2023",
-        points: ["A beginner-to-shell-scripting series, written while learning it."],
-      },
+    role: "Cloud Intern",
+    org: "Jio Platforms",
+    place: "Navi Mumbai",
+    when: "Jun to Jul 2025",
+    points: [
+      "Set up a multi-node OpenStack cloud (controller, compute and storage) on RHEL and Ubuntu, configuring Keystone, Nova, Neutron, Glance and Cinder.",
+      "Ran Docker and Kubernetes workloads with Prometheus and Grafana monitoring.",
     ],
   },
   {
-    stage: "COEP and cloud",
-    years: "2024 – 2025",
-    line: "Real infrastructure, real pressure.",
-    entries: [
-      {
-        title: "B.Tech, Computer Engineering",
-        org: "COEP Technological University, Pune",
-        when: "2024 – 2027",
-        points: ["CGPA 8.74. Member of CSI COEP."],
-      },
-      {
-        title: "Cloud Intern",
-        org: "Jio Platforms, Navi Mumbai",
-        when: "Jun – Jul 2025",
-        points: [
-          "Stood up a multi-node OpenStack cloud (controller, compute, storage) on RHEL and Ubuntu.",
-          "Configured Keystone, Nova, Neutron, Glance and Cinder end to end.",
-          "Ran Docker and Kubernetes workloads with Prometheus and Grafana monitoring.",
-        ],
-      },
+    role: "Responsive Web Design Intern",
+    org: "SEED Infotech",
+    place: "Pune",
+    when: "Jun to Jul 2023",
+    points: [
+      "Built production web interfaces in Next.js, React and Tailwind CSS, checked with Lighthouse for sub-second loads.",
     ],
+  },
+];
+
+export const education = [
+  {
+    name: "COEP Technological University",
+    detail: "B.Tech, Computer Engineering. CGPA 8.74. Member of CSI COEP.",
+    when: "2024 to 2027",
   },
   {
-    stage: "The big year",
-    years: "2026",
-    line: "Research, Mastercard and a Red Hat cert, all at once.",
-    entries: [
-      {
-        title: "Software Engineer Intern",
-        org: "Mastercard, Pune",
-        when: "May – Jul 2026",
-        points: [
-          "Built Apache Spark and Spring Boot services migrating enterprise financial data from DB2 to Oracle.",
-          "REST-triggered batch workflows with partitioned JDBC reads and audit metadata.",
-          "Thread-safe execution controls so long-running loads never collide.",
-        ],
-      },
-      {
-        title: "Paper presented at ISC High Performance 2026",
-        org: "EESP Workshop, Hamburg, Germany",
-        when: "Jun 2026",
-        points: ["Thermal-Aware Core-Level Scheduling for Kubernetes Workloads."],
-      },
-      {
-        title: "Red Hat Certified System Administrator",
-        org: "Red Hat",
-        when: "Aug 2026",
-        points: ["Plus NVIDIA Deep Learning Institute courses on deep learning, data science and LLM apps."],
-      },
-      {
-        title: "Paper accepted at IEEE HiPC 2026",
-        org: "Student Research Symposium, Bengaluru",
-        when: "Dec 2026",
-        points: ["Characterizing Performance Recovery After Transient GPU Resource Interference."],
-      },
-    ],
+    name: "Dr. Babasaheb Ambedkar Technological University",
+    detail: "Diploma, Computer Engineering. CGPA 9.92, Maharashtra state rank 2, gold medalist.",
+    when: "2021 to 2024",
   },
+  {
+    name: "S.S. Nikam English School, Lonere",
+    detail: "SSC, 97.40%.",
+    when: "2021",
+  },
+];
+
+export const certifications = [
+  ["Red Hat Certified System Administrator", "Red Hat", "Aug 2026"],
+  ["Building LLM Applications With Prompt Engineering", "NVIDIA", "Sep 2026"],
+  ["Accelerating End-to-End Data Science Workflows", "NVIDIA", "Aug 2026"],
+  ["Getting Started with Deep Learning", "NVIDIA", "Jul 2026"],
+  ["Claude Code in Action", "Anthropic", "Jun 2026"],
 ];
 
 // ── Research ───────────────────────────────────────────────────────────────
@@ -159,103 +117,82 @@ export const research = [
   {
     id: "gpu",
     title: "Characterizing Performance Recovery After Transient GPU Resource Interference",
-    venue: "IEEE HiPC 2026, Student Research Symposium",
-    place: "Bengaluru, India · Dec 16–19, 2026",
     status: "Accepted",
+    venue: "IEEE HiPC 2026, Student Research Symposium",
+    place: "Bengaluru, December 16 to 19, 2026",
     question:
-      "When a noisy neighbour stops hammering a shared GPU, does your workload bounce back instantly, or does the damage linger?",
-    findings: [
-      { value: "2.7×", label: "slowdown under compute interference" },
-      { value: "1.8×", label: "slowdown under L2 cache pressure" },
-      { value: "µs", label: "back to baseline within tens of microseconds" },
-    ],
-    stack: ["CUDA", "C++", "RTX 4060", "Tesla T4", "Holm-adjusted stats"],
+      "When a noisy neighbour stops hammering a shared GPU, does your workload recover at once, or does the slowdown linger?",
+    result:
+      "On an RTX 4060 Laptop GPU, with cross-checks on a Tesla T4, compute interference slowed the victim kernel by about 2.7x and L2 cache interference by 1.8x. Latency returned to baseline within tens of microseconds of the interferer stopping.",
+    stack: ["CUDA", "C++", "Holm-adjusted tests"],
     repo: "https://github.com/VNalbalwar/gpu-recovery-experiment",
   },
   {
     id: "thermal",
     title: "Thermal-Aware Core-Level Scheduling for Kubernetes Workloads",
-    venue: "EESP Workshop at ISC High Performance 2026",
-    place: "Hamburg, Germany · Springer LNCS",
     status: "Presented",
+    venue: "EESP workshop at ISC High Performance 2026",
+    place: "Hamburg, Springer LNCS",
     question:
-      "The busiest core might be the most capable one, but is it the right choice right now? A scheduler that reads per-core temperature before it places a pod.",
-    findings: [
-      { value: "Go", label: "custom Kubernetes scheduler plugin" },
-      { value: "v2", label: "cgroups CPU pinning at core level" },
-      { value: "EMA", label: "adaptive phase tracks thermal history per node" },
-    ],
-    stack: ["Kubernetes", "Go", "DaemonSets", "cgroups v2", "Linux"],
+      "The most capable core is not always the right one for the next pod. Can a scheduler read each core's temperature before placing it?",
+    result:
+      "A custom Kubernetes scheduler in Go that scores nodes on per-core temperature from a DaemonSet exporter and pins pods with cgroups v2. The adaptive version keeps a moving average of each node's thermal history.",
+    stack: ["Go", "Kubernetes", "cgroups v2"],
     repo: "https://github.com/VNalbalwar/static-thermal-aware-scheduler-phase-1",
   },
 ];
 
 // ── Skills ─────────────────────────────────────────────────────────────────
-// [name, where it was used]
+// icon: file in /public/icons (real logos, see README); text-only items have none.
 export const skills = [
   {
-    name: "Cloud & Infra",
+    name: "Cloud and infrastructure",
     items: [
-      ["Kubernetes", "Custom thermal-aware scheduler"],
-      ["Docker", "Jio workloads, this site"],
-      ["OpenStack", "Multi-node cloud at Jio"],
-      ["OpenShift", "Jio CloudOps"],
-      ["Prometheus", "Cluster monitoring"],
-      ["Grafana", "Dashboards at Jio"],
-      ["DevStack", "CloudInfraLab"],
-      ["HPE iLO", "Bare-metal management"],
+      { name: "Kubernetes", icon: "kubernetes" },
+      { name: "Docker", icon: "docker" },
+      { name: "OpenStack", icon: "openstack" },
+      { name: "OpenShift", icon: "openshift" },
+      { name: "Prometheus", icon: "prometheus" },
+      { name: "Grafana", icon: "grafana" },
     ],
   },
   {
-    name: "Linux & Systems",
+    name: "Linux and systems",
     items: [
-      ["RHEL", "RHCSA certified"],
-      ["Arch Linux", "Daily driver, btw"],
-      ["Bash", "Hashnode series"],
-      ["systemd", "Services and units"],
-      ["cgroups v2", "Core-level CPU pinning"],
-      ["SELinux", "Learned the hard way"],
-      ["LVM", "Storage that survives reboots"],
-      ["SDN / Mininet", "SYN flood detection"],
+      { name: "Red Hat Enterprise Linux", icon: "redhat" },
+      { name: "Arch Linux", icon: "archlinux" },
+      { name: "Linux", icon: "linux-tux" },
+      { name: "Bash", icon: "bash" },
+      { name: "systemd" },
+      { name: "cgroups v2" },
+      { name: "SELinux" },
+      { name: "LVM" },
     ],
   },
   {
     name: "Languages",
     items: [
-      ["Go", "Kubernetes scheduler"],
-      ["Java", "Spring Boot at Mastercard"],
-      ["Python", "ML pipelines, Scapy"],
-      ["TypeScript", "Most of my web apps"],
-      ["C++", "CUDA benchmarks, DSA"],
-      ["CUDA", "GPU microbenchmarks"],
-      ["SQL", "Oracle and DB2 migration"],
-      ["C", "Graph algorithm library"],
+      { name: "Go", icon: "go" },
+      { name: "Java", icon: "java" },
+      { name: "Python", icon: "python" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "JavaScript", icon: "javascript" },
+      { name: "C++", icon: "c-plusplus" },
+      { name: "CUDA" },
+      { name: "SQL" },
     ],
   },
   {
-    name: "Web",
+    name: "Web and data",
     items: [
-      ["Next.js", "This site, SteganoSafe"],
-      ["React", "Since SEED Infotech"],
-      ["Tailwind CSS", "Every UI I ship"],
-      ["Motion", "The animations here"],
-      ["Spring Boot", "Migration services"],
-      ["Node.js", "APIs and tooling"],
-      ["Flask", "MindWebs NLP app"],
-      ["Firebase", "Note-Flow auth"],
-    ],
-  },
-  {
-    name: "Data & ML",
-    items: [
-      ["Apache Spark", "DB2 to Oracle at Mastercard"],
-      ["Perf Analysis", "GPU latency research"],
-      ["Deep Learning", "BiLSTM failure prediction"],
-      ["XGBoost", "Hard-drive failure ensemble"],
-      ["LightGBM", "Hard-drive failure ensemble"],
-      ["Generative AI", "Plant Identifier, Gentales"],
-      ["Statistics", "Holm-adjusted trial tests"],
-      ["Scapy", "Packet crafting for SDN tests"],
+      { name: "Next.js", icon: "nextjs" },
+      { name: "React", icon: "react" },
+      { name: "Tailwind CSS", icon: "tailwindcss" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: "Spring Boot", icon: "spring" },
+      { name: "Flask", icon: "flask" },
+      { name: "Firebase", icon: "firebase" },
+      { name: "Apache Spark", icon: "apache-spark" },
     ],
   },
 ];
@@ -386,35 +323,31 @@ export const linkedinActivityUrl =
 // ── Q&A ────────────────────────────────────────────────────────────────────
 export const questions = [
   {
-    q: "So, what's your story, Viraj? 👨‍💻",
-    a: "Started with a diploma, somehow walked out with a gold medal and Maharashtra Rank 2, and that got me to COEP. Since then it's been web apps, cloud infrastructure at Jio, enterprise data at Mastercard, and Kubernetes and GPU research. I never really picked a lane. I just follow whatever makes me curious enough to build. 🚀",
+    q: "What's your story?",
+    a: "I started with a diploma, finished with a gold medal and Maharashtra rank 2, and that got me into COEP. Since then it has been web apps, a cloud internship at Jio, data migration at Mastercard, and research on Kubernetes and GPUs. I never picked one lane. I follow whatever makes me curious enough to build something.",
   },
   {
-    q: "Wait... cloud guy or software guy? ☁️💻",
-    a: "Why choose? 😭 I've built front ends in Next.js, wired up OpenStack and OpenShift at Jio, shipped Spark migration services at Mastercard, and wrote a Kubernetes scheduler for research. I like knowing the whole trip, from the button someone clicks to the hardware quietly sweating underneath.",
+    q: "Are you a cloud person or a software person?",
+    a: "Both, and I'd rather not choose. I've built front ends in Next.js, wired up OpenStack and OpenShift, shipped Spark services, and written a Kubernetes scheduler. I like knowing the whole path from the button someone clicks to the hardware underneath it.",
   },
   {
-    q: "Why does this website even exist? 💻",
-    a: "Because a resume tells you what I've done, not who I am. This is my corner of the internet where projects, research, milestones and questionable design obsessions live together. It also updates itself from GitHub and Hashnode, because I refuse to maintain it by hand. ✨",
+    q: "What is the research about?",
+    a: "Shared machines under pressure. One paper asks whether a GPU keeps a performance hangover after a noisy neighbour leaves. It mostly doesn't: latency recovers within microseconds. The other teaches Kubernetes to check how hot each CPU core is before it puts more work there.",
   },
   {
-    q: "What's the research actually about? 🔬",
-    a: "Systems under pressure. One paper asks whether a GPU keeps a performance hangover after a noisy neighbour leaves (it mostly doesn't, it recovers in microseconds). The other teaches Kubernetes to check how hot each CPU core is before dumping more work on it. Both are about making shared machines behave better. 🌡️",
+    q: "How do you learn something new?",
+    a: "Badly at first, on purpose. I pick something I can't do yet, break it, read way too much documentation, and ask the question I'm embarrassed by. Most of what I know started with me having no idea how to do it.",
   },
   {
-    q: "What changed how you look at tech? 🧠",
-    a: "Working on things that don't come with a tutorial. Real infrastructure, real codebases, real deadlines, no neat step 1, step 2, step 3. Knowing a tool is useful. Knowing how to figure things out when you have no idea is the actual skill. ⚡",
+    q: "Are you a perfectionist?",
+    a: "Unfortunately, yes. If something works but doesn't feel right, I keep touching it. I've learned that shipping matters too, but when my name is on something I want it to look intentional.",
   },
   {
-    q: "Are you a perfectionist? 😭",
-    a: "Unfortunately, yes. 😂 If something works but doesn't feel right, I keep touching it. Code structure, animations, tiny spacing, all of it. I've learned that done matters too, but if my name is on it, I want it to feel intentional.",
+    q: "What do you do when tech gets too loud?",
+    a: "I cube. Turning a scrambled mess into a solved state one algorithm at a time is suspiciously close to debugging. I also reinstall Arch more often than I need to.",
   },
   {
-    q: "What do you do when tech gets too loud? 🎧",
-    a: "Cube. There's something deeply satisfying about turning total chaos into a solved state. Add music, a random rabbit hole, an unnecessary Arch reinstall, and occasionally doing absolutely nothing. System reboot complete.",
-  },
-  {
-    q: "Okay, what's next? 🚀",
-    a: "No perfectly scripted five-year answer here. 😭 Deeper into systems, cloud and distributed infrastructure, building things that are actually useful and occasionally unnecessarily beautiful. I just want future me to look back and think: damn, we really kept levelling up. ⚡",
+    q: "What's next?",
+    a: "More systems work: cloud, distributed infrastructure, performance. I want to build things that are useful, and sometimes unnecessarily nice to look at.",
   },
 ];
