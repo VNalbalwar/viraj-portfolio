@@ -2,9 +2,19 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/* Unbounded's own "j" is a bare stem that reads as an "i". This face holds only
+   the letter j (from Sora, OFL) and applies to nothing else. */
+@font-face {
+  font-family: "J Hook";
+  src: url("/fonts/j-hook.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+  unicode-range: U+006A;
+}
+
 @theme {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-unbounded), var(--font-geist), ui-sans-serif, sans-serif;
+  --font-display: "J Hook", var(--font-unbounded), var(--font-geist), ui-sans-serif, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
