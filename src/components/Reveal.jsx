@@ -15,7 +15,7 @@ export function MaskHeading({ text, as: Tag = "h2", className = "", id, delay = 
   return (
     <Tag id={id} className={className} aria-label={text}>
       {words.map((w, i) => (
-        <span key={i} aria-hidden className="inline-block overflow-hidden pb-[0.14em] align-top" style={{ marginBottom: "-0.14em" }}>
+        <span key={i} aria-hidden className="inline-block overflow-hidden pb-[0.3em] align-top" style={{ marginBottom: "-0.3em" }}>
           <motion.span
             className="inline-block"
             initial={reduce ? false : { y: "112%" }}

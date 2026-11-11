@@ -67,13 +67,13 @@ export default function KineticName({ lines }) {
 
   let n = 0;
   return (
-    <h1 ref={root} className="t-display text-[clamp(2.6rem,12vw,10.5rem)]" aria-label={lines.join(" ")}>
+    <h1 ref={root} className="t-display text-[clamp(2.6rem,12vw,10.5rem)] !leading-[1.1]" aria-label={lines.join(" ")}>
       {lines.map((line, li) => (
         <span key={li} className="block whitespace-nowrap" aria-hidden>
           {[...line].map((c, ci) => {
             const i = n++;
             return (
-              <span key={ci} className="inline-block overflow-hidden pb-[0.12em] align-top" style={{ marginBottom: "-0.12em" }}>
+              <span key={ci} className="inline-block overflow-hidden pb-[0.3em] align-top" style={{ marginBottom: "-0.3em" }}>
                 <motion.span
                   className="inline-block"
                   initial={reduce ? false : { y: "115%", rotate: 4 }}

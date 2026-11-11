@@ -105,13 +105,13 @@ input, textarea { caret-color: var(--accent); }
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.045em;
-  line-height: 0.96;
+  line-height: 1.06;
 }
 .t-h2 {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(2rem, 5.2vw, 4.25rem);
-  line-height: 1.02;
+  line-height: 1.1;
   letter-spacing: -0.04em;
   text-wrap: balance;
 }
