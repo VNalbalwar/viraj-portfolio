@@ -35,15 +35,19 @@ export default function Hero() {
               <Socials items={socials} className="mt-7" />
             </FadeUp>
             <FadeUp delay={1.05} className="lg:col-span-4 lg:col-start-9">
-              <div className="relative overflow-hidden rounded-[var(--radius)]" style={{ background: "var(--accent)" }}>
+              {/* Square source with the head near its top edge: a circle keeps the whole head in frame. */}
+              <div
+                className="relative aspect-square w-full max-w-[22rem] overflow-hidden rounded-full lg:ml-auto"
+                style={{ background: "var(--accent)" }}
+              >
                 <Image
                   src="/viraj-nalbalwar.jpg"
                   alt="Portrait of Viraj Nalbalwar"
-                  width={640}
-                  height={640}
+                  width={704}
+                  height={704}
                   priority
-                  sizes="(min-width: 1024px) 24rem, 80vw"
-                  className="aspect-[5/4] w-full object-cover"
+                  sizes="(min-width: 1024px) 22rem, 78vw"
+                  className="h-full w-full scale-[0.97] object-cover object-top"
                 />
               </div>
             </FadeUp>
