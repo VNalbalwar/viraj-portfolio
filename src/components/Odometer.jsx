@@ -9,8 +9,8 @@ const DIGITS = "0123456789";
  * no-JS state both show the real figure; the strips only move after the first
  * view. Transform only. Under reduced motion it never moves.
  */
-export default function Odometer({ value }) {
-  const text = Number(value).toLocaleString("en-US");
+export default function Odometer({ value, text: label }) {
+  const text = label ?? Number(value).toLocaleString("en-US");
   const ref = useRef(null);
   const [rolled, setRolled] = useState(false);
   const [armed, setArmed] = useState(false);

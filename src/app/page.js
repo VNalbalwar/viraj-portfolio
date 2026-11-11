@@ -11,7 +11,6 @@ import Questions from "@/components/Questions";
 import Research from "@/components/Research";
 import Skills from "@/components/Skills";
 import Writing from "@/components/Writing";
-import { manualStats } from "@/content/profile";
 import { getGithub } from "@/lib/github";
 import { getPosts } from "@/lib/hashnode";
 
@@ -28,12 +27,7 @@ export default async function Home() {
         <Hero />
         <Marquee />
         <About />
-        <Numbers
-          repoCount={github.repoCount}
-          postCount={blog.postCount}
-          followers={manualStats.linkedinFollowers}
-          live={{ github: github.live, hashnode: blog.live }}
-        />
+        <Numbers repoCount={github.repoCount} postCount={blog.postCount} />
         <Experience />
         <Research />
         <Skills />

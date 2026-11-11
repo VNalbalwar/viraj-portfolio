@@ -34,7 +34,7 @@
 
 @theme {
   --font-sans: "General Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument-serif), "Iowan Old Style", Georgia, serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
@@ -134,19 +134,20 @@ input, textarea { caret-color: var(--accent); }
 /* ─── Type ──────────────────────────────────────────────────────────────── */
 .t-display {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
 }
 .t-h2 {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(2.3rem, 6vw, 5rem);
-  line-height: 1.02;
-  letter-spacing: -0.045em;
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
-.t-h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; line-height: 1.25; letter-spacing: -0.02em; }
+.t-serif { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.02em; line-height: 1; }
+.t-h3 { font-family: var(--font-sans); font-weight: 600; font-size: 1.2rem; line-height: 1.25; letter-spacing: -0.015em; }
 .t-lead { font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.4; letter-spacing: -0.015em; }
 .t-muted { color: var(--muted); }
 .t-num { font-variant-numeric: tabular-nums; }

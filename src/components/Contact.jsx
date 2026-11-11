@@ -4,7 +4,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Check, Send } from "lucide-react";
 import { FadeUp, MaskHeading } from "./Reveal";
-import { socials } from "@/content/profile";
 
 const EMPTY = { name: "", email: "", subject: "", message: "", company: "" };
 const field =
@@ -38,20 +37,10 @@ export default function Contact() {
   return (
     <section id="contact" className="sec band" aria-labelledby="contact-h">
       <div className="wrap">
-        <MaskHeading id="contact-h" text="Say hello." className="t-display text-[clamp(3rem,10vw,9rem)]" />
+        <MaskHeading id="contact-h" text="Say hello." className="t-display text-[clamp(4rem,15vw,14rem)]" />
         <div className="mt-16 grid gap-x-6 gap-y-14 lg:grid-cols-12">
           <FadeUp className="lg:col-span-4">
             <p className="t-lead max-w-[24ch]">If you work on infrastructure, performance or reliability, I'd like to hear about it.</p>
-            <ul className="mt-8">
-              {socials.map((s) => (
-                <li key={s.id} className="row-rule">
-                  <a href={s.href} target="_blank" rel="noopener noreferrer me" className="group flex min-h-12 items-center justify-between py-3">
-                    <span className="transition-transform duration-300 group-hover:translate-x-1.5">{s.label}</span>
-                    <span aria-hidden className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
           </FadeUp>
 
           <FadeUp delay={0.1} className="lg:col-span-7 lg:col-start-6">

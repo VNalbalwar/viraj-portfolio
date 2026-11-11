@@ -13,7 +13,7 @@ export default function Marquee() {
       <li key={key + i.name} className="mx-7 flex items-center gap-3 sm:mx-9">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`/icons/${i.icon}.svg`} alt="" width={30} height={30} loading="lazy" className={`ic h-[30px] w-[30px] ${["github", "flask"].includes(i.icon) ? "ic-ink" : ""}`} />
-        <span className="whitespace-nowrap text-[1.05rem] font-medium" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}>
+        <span className="whitespace-nowrap text-[1.05rem] font-medium" style={{ letterSpacing: "-0.015em" }}>
           {i.name}
         </span>
       </li>

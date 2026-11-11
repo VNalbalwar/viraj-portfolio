@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="overflow-hidden pt-20" style={{ background: "var(--bg)" }}>
       <div className="wrap flex flex-wrap items-center justify-between gap-x-10 gap-y-4 pb-10">
-        <p className="t-muted text-[0.9375rem]">© {new Date().getFullYear()} {site.name}. Product names and logos are trademarks of their owners.</p>
+        <p className="t-muted text-[0.9375rem]">© {new Date().getFullYear()} {site.name}</p>
         <ul className="flex flex-wrap gap-x-6">
           {socials.map((s) => (
             <li key={s.id}>
@@ -17,7 +17,7 @@ export default function Footer() {
         </ul>
       </div>
       <FadeUp y={60}>
-        <p aria-hidden className="t-display select-none whitespace-nowrap text-center text-[clamp(2rem,14vw,14rem)] leading-none opacity-[0.07] pb-[0.2em]">
+        <p aria-hidden className="t-display select-none whitespace-nowrap text-center text-[clamp(3rem,18vw,20rem)] leading-none opacity-[0.07] pb-[0.2em]">
           Viraj Nalbalwar
         </p>
       </FadeUp>

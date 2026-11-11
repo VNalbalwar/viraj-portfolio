@@ -32,7 +32,9 @@ export const socials = [
 
 // Manual numbers (LinkedIn can't be synced). Update whenever you feel like it.
 export const manualStats = {
+  // Real count was 4,349 in Nov 2026. The label is what the site shows and rolls to.
   linkedinFollowers: 4349,
+  linkedinFollowersLabel: "4.5k+",
   papersAccepted: 2,
   // Used only if the GitHub / Hashnode fetch fails at build time.
   fallbackRepos: 28,
@@ -49,7 +51,7 @@ export const aboutFacts = [
   ["Based in", "Pune, Maharashtra"],
   ["Studying", "B.Tech, Computer Engineering, COEP (2027)"],
   ["Earlier", "Diploma, Computer Engineering, gold medal and state rank 2"],
-  ["Certified", "Red Hat Certified System Administrator"],
+  ["Certified", "Red Hat Certified System Administrator", "redhat"],
 ];
 
 // ── Experience, education, certifications (from LinkedIn and the resume) ───
@@ -57,6 +59,7 @@ export const experience = [
   {
     role: "Software Engineer Intern",
     org: "Mastercard",
+    logo: "/logos/mastercard.svg",
     place: "Pune",
     when: "May to Jul 2026",
     points: [
@@ -68,6 +71,7 @@ export const experience = [
   {
     role: "Cloud Intern",
     org: "Jio Platforms",
+    logo: "/logos/jio.svg",
     place: "Navi Mumbai",
     when: "Jun to Jul 2025",
     points: [
@@ -78,6 +82,7 @@ export const experience = [
   {
     role: "Responsive Web Design Intern",
     org: "SEED Infotech",
+    logo: "/logos/seed.png",
     place: "Pune",
     when: "Jun to Jul 2023",
     points: [
@@ -89,11 +94,13 @@ export const experience = [
 export const education = [
   {
     name: "COEP Technological University",
+    logo: "/logos/coep.png",
     detail: "B.Tech, Computer Engineering. CGPA 8.74. Member of CSI COEP.",
     when: "2024 to 2027",
   },
   {
     name: "Dr. Babasaheb Ambedkar Technological University",
+    logo: "/logos/dbatu.png",
     detail: "Diploma, Computer Engineering. CGPA 9.92, Maharashtra state rank 2, gold medalist.",
     when: "2021 to 2024",
   },
@@ -104,8 +111,18 @@ export const education = [
   },
 ];
 
+export const rhcsa = {
+  name: "Red Hat Certified System Administrator",
+  short: "RHCSA (EX200)",
+  issuer: "Red Hat",
+  issued: "August 24, 2026",
+  id: "260-112-453",
+  verify: "https://www.credly.com/badges/a5b7bd17-a540-410a-abac-a31eb230aeea",
+  pdf: "/certificates/RHCSA-Viraj-Nalbalwar.pdf",
+  image: "/certificates/rhcsa-certificate.webp",
+};
+
 export const certifications = [
-  ["Red Hat Certified System Administrator", "Red Hat", "Aug 2026"],
   ["Building LLM Applications With Prompt Engineering", "NVIDIA", "Sep 2026"],
   ["Accelerating End-to-End Data Science Workflows", "NVIDIA", "Aug 2026"],
   ["Getting Started with Deep Learning", "NVIDIA", "Jul 2026"],
@@ -119,7 +136,7 @@ export const research = [
     title: "Characterizing Performance Recovery After Transient GPU Resource Interference",
     status: "Accepted",
     venue: "IEEE HiPC 2026, Student Research Symposium",
-    place: "Bengaluru, December 16 to 19, 2026",
+    place: "Bengaluru, India. December 16 to 19, 2026",
     question:
       "When a noisy neighbour stops hammering a shared GPU, does your workload recover at once, or does the slowdown linger?",
     result:
@@ -132,7 +149,7 @@ export const research = [
     title: "Thermal-Aware Core-Level Scheduling for Kubernetes Workloads",
     status: "Presented",
     venue: "EESP workshop at ISC High Performance 2026",
-    place: "Hamburg, Springer LNCS",
+    place: "Hamburg, Germany. Springer LNCS",
     question:
       "The most capable core is not always the right one for the next pod. Can a scheduler read each core's temperature before placing it?",
     result:

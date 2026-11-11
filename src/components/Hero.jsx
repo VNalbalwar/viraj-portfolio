@@ -21,10 +21,10 @@ export default function Hero() {
           <KineticName lines={["Viraj", "Nalbalwar"]} />
           <div className="mt-14 grid items-end gap-x-6 gap-y-10 lg:grid-cols-12">
             <FadeUp delay={0.9} className="lg:col-span-6">
-              <p className="t-muted max-w-[46ch]">
-                Final-year at COEP. Ex-Mastercard and Jio, RHCSA, and two papers accepted in 2026 at ISC High Performance and IEEE HiPC.
+              <p className="t-lead max-w-[26ch]">
+                I break Linux machines on purpose, then rebuild them until I know why they failed.
               </p>
-              <div className="mt-7 flex flex-wrap items-center gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="#projects" className="btn btn-solid">
                   View projects <ArrowDownRight size={18} aria-hidden />
                 </a>

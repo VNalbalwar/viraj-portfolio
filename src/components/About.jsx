@@ -20,10 +20,16 @@ export default function About() {
           </FadeUp>
           <FadeUp delay={0.1} className="lg:col-span-6 lg:col-start-7">
             <dl>
-              {aboutFacts.map(([k, v]) => (
+              {aboutFacts.map(([k, v, icon]) => (
                 <div key={k} className="row-rule grid grid-cols-[7.5rem_1fr] gap-4 py-4 sm:grid-cols-[10rem_1fr]">
                   <dt className="t-muted">{k}</dt>
-                  <dd>{v}</dd>
+                  <dd className="flex items-center gap-2.5">
+                    {icon && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={`/icons/${icon}.svg`} alt="" width={22} height={22} className="ic h-[22px] w-[22px]" />
+                    )}
+                    {v}
+                  </dd>
                 </div>
               ))}
             </dl>

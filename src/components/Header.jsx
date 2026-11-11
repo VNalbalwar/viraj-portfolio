@@ -124,7 +124,7 @@ export default function Header() {
           style={{ background: "var(--accent)", scaleX: bar }}
         />
         <div className="wrap relative flex h-full items-center justify-between gap-6">
-          <a href="#home" className="t-h3 whitespace-nowrap" aria-label="Viraj Nalbalwar, home" style={{ fontWeight: 600 }}>
+          <a href="#home" className="t-serif whitespace-nowrap text-[1.7rem]" aria-label="Viraj Nalbalwar, home">
             Viraj N.
           </a>
           <nav aria-label="Sections" className="hidden items-center lg:flex">
@@ -193,7 +193,7 @@ export default function Header() {
                   <a
                     href={`#${l.id}`}
                     onClick={() => setOpen(false)}
-                    className="t-display flex min-h-16 items-center text-[1.9rem]"
+                    className="t-display flex min-h-16 items-center text-[2.6rem]"
                     style={{ color: active === l.id ? "var(--accent)" : "var(--ink)" }}
                   >
                     {l.label}
