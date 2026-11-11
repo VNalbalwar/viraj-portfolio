@@ -19,7 +19,7 @@ export default function Hero() {
 
         <div>
           <KineticName lines={["Viraj", "Nalbalwar"]} />
-          <div className="mt-12 grid items-end gap-x-6 gap-y-10 lg:grid-cols-12">
+          <div className="mt-14 grid items-end gap-x-6 gap-y-10 lg:grid-cols-12">
             <FadeUp delay={0.9} className="lg:col-span-6">
               <p className="t-muted max-w-[46ch]">
                 Final-year at COEP. Ex-Mastercard and Jio, RHCSA, and two papers accepted in 2026 at ISC High Performance and IEEE HiPC.

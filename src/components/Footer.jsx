@@ -17,7 +17,7 @@ export default function Footer() {
         </ul>
       </div>
       <FadeUp y={60}>
-        <p aria-hidden className="t-display select-none whitespace-nowrap text-center text-[clamp(2rem,9.6vw,10rem)] leading-none opacity-[0.07] pb-[0.2em]">
+        <p aria-hidden className="t-display select-none whitespace-nowrap text-center text-[clamp(2rem,14vw,14rem)] leading-none opacity-[0.07] pb-[0.2em]">
           Viraj Nalbalwar
         </p>
       </FadeUp>

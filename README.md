@@ -2,11 +2,11 @@
 
 Personal site of Viraj Nalbalwar, live at [viraj-verse.vercel.app](https://viraj-verse.vercel.app).
 
-Mist and ink with one ultramarine, Unbounded display type that swells under the cursor, Motion for the animation (masked headings, scroll-scrubbed text, staggered lists, drawn figures, animated project thumbnails), and Lenis for smooth scrolling.
+Mist and ink with one ultramarine, General Sans set very large (the name lifts and tints under the cursor), Motion for the animation (masked headings, scroll-scrubbed text, staggered lists, drawn figures, animated project thumbnails), and Lenis for smooth scrolling.
 
 ## Stack
 
-Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Motion · Lenis · Unbounded, Geist and Geist Mono · Nodemailer. Hosted free on Vercel; a Docker image is also published to GHCR.
+Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Motion · Lenis · General Sans (Fontshare, self-hosted) and Geist Mono · Nodemailer. Hosted free on Vercel; a Docker image is also published to GHCR.
 
 ## What updates itself
 

@@ -3,13 +3,11 @@
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
-const BASE = 440;
-const MAX = 900;
-const RADIUS = 300;
+const RADIUS = 280;
 
 /**
- * The name, set in a variable-weight face. Each letter rises out of a mask on
- * load; afterwards the weight of every letter swells as the cursor passes it.
+ * The name, set very large. Each letter rises out of a mask on load; after that
+ * the letters under and near the cursor lift and take on the accent colour.
  */
 export default function KineticName({ lines }) {
   const reduce = useReducedMotion();
@@ -31,15 +29,16 @@ export default function KineticName({ lines }) {
         if (!el) return;
         const r = el.getBoundingClientRect();
         const d = Math.hypot(px - (r.left + r.width / 2), py - (r.top + r.height / 2));
-        const target = BASE + (MAX - BASE) * Math.exp(-((d / RADIUS) ** 2));
-        const prev = cur.get(el) ?? BASE;
-        const next = prev + (target - prev) * 0.14;
-        if (Math.abs(next - prev) > 0.3) moving = true;
+        const target = Math.exp(-((d / RADIUS) ** 2));
+        const prev = cur.get(el) ?? 0;
+        const next = prev + (target - prev) * 0.12;
+        if (Math.abs(next - prev) > 0.002) moving = true;
         cur.set(el, next);
-        el.style.fontVariationSettings = `"wght" ${next.toFixed(0)}`;
+        el.style.transform = `translateY(${(-next * 0.055).toFixed(4)}em)`;
+        el.style.color = `color-mix(in oklab, var(--accent) ${(next * 100).toFixed(0)}%, var(--ink))`;
       });
-      raf = moving ? requestAnimationFrame(tick) : 0;
       running = moving;
+      raf = moving ? requestAnimationFrame(tick) : 0;
     };
     const kick = () => {
       if (!running) {
@@ -67,20 +66,20 @@ export default function KineticName({ lines }) {
 
   let n = 0;
   return (
-    <h1 ref={root} className="t-display text-[clamp(2.6rem,12vw,10.5rem)] !leading-[1.1]" aria-label={lines.join(" ")}>
+    <h1 ref={root} className="t-display text-[clamp(3.2rem,18vw,15.5rem)] !leading-[1.02]" aria-label={lines.join(" ")}>
       {lines.map((line, li) => (
         <span key={li} className="block whitespace-nowrap" aria-hidden>
           {[...line].map((c, ci) => {
             const i = n++;
             return (
-              <span key={ci} className="inline-block overflow-hidden pb-[0.3em] align-top" style={{ marginBottom: "-0.3em" }}>
+              <span key={ci} className="inline-block overflow-hidden pb-[0.3em] pt-[0.12em] align-top" style={{ marginBottom: "-0.3em", marginTop: "-0.12em" }}>
                 <motion.span
                   className="inline-block"
-                  initial={reduce ? false : { y: "115%", rotate: 4 }}
+                  initial={reduce ? false : { y: "118%", rotate: 3 }}
                   animate={{ y: 0, rotate: 0 }}
-                  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 + i * 0.045 }}
+                  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 + i * 0.05 }}
                 >
-                  <span ref={(el) => (chars.current[i] = el)} className="inline-block" style={{ fontVariationSettings: `"wght" ${BASE}` }}>
+                  <span ref={(el) => (chars.current[i] = el)} className="inline-block will-change-transform">
                     {c}
                   </span>
                 </motion.span>
