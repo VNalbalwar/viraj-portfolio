@@ -19,7 +19,7 @@ export default function Contact() {
   async function submit(e) {
     e.preventDefault();
     if (busy) return;
-    setState({ status: "sending", message: "Transmitting…" });
+    setState({ status: "sending", message: "Sending…" });
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -36,15 +36,15 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="zone" data-t="5" data-prev="4" aria-labelledby="contact-h">
+    <section id="contact" className="zone" aria-labelledby="contact-h">
       <div className="wrap zone-pad">
-        <div className="grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <div className="panel-accent grid rounded-[2rem] p-6 sm:p-10 lg:p-14 gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
           <div>
             <h2 id="contact-h" className="display text-[clamp(2.6rem,7.5vw,5.5rem)]">
-              Peak temp. Say hi.
+              Let's talk.
             </h2>
             <p className="mt-6 max-w-[40ch] text-[1.15rem] font-medium">
-              You scrolled all the way to the hottest part of the page. If you're working on something where infrastructure, performance or reliability matters, I'd like to hear about it.
+              You made it all the way down here, so you might as well say hi. If you're working on something where infrastructure, performance or reliability matters, I'd like to hear about it.
             </p>
             <Socials items={socials} className="mt-8" />
           </div>
@@ -96,9 +96,9 @@ export default function Contact() {
                 role="status"
                 aria-live="polite"
                 className="readout text-[0.85rem] font-semibold"
-                style={state.status === "error" ? { color: "#5c0011" } : undefined}
+                style={state.status === "error" ? { textDecoration: "underline" } : undefined}
               >
-                {state.message || "status: idle"}
+                {state.message || "I usually reply within a day."}
               </p>
             </div>
           </form>

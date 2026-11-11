@@ -8,7 +8,7 @@ const day = (iso) =>
 export default function Writing({ posts }) {
   const blog = `https://${site.hashnodeHost}/`;
   return (
-    <section id="writing" className="zone" data-t="4" data-prev="3" aria-labelledby="writing-h">
+    <section id="writing" className="zone" data-alt aria-labelledby="writing-h">
       <div className="wrap zone-pad">
         <h2 id="writing-h" className="h-section max-w-[15ch]">
           Notes from the terminal.

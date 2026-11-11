@@ -1,4 +1,4 @@
-// Generated thumbnail for any repo without a hand-made one: a small heat map
+// Generated thumbnail for any repo without a hand-made one: a tile pattern
 // seeded by the repo name, so every project gets a unique, stable signature.
 const COLS = 16;
 const ROWS = 8;
@@ -13,7 +13,7 @@ function seeded(str) {
   };
 }
 
-export default function HeatThumb({ id, label }) {
+export default function PatternThumb({ id, label }) {
   const rnd = seeded(id);
   const blobs = Array.from({ length: 3 }, () => ({ x: rnd() * COLS, y: rnd() * ROWS, r: 2.2 + rnd() * 3.2, a: 0.55 + rnd() * 0.45 }));
   const cells = [];
@@ -25,13 +25,13 @@ export default function HeatThumb({ id, label }) {
     }
   }
   return (
-    <div className="relative aspect-[400/220] w-full overflow-hidden" style={{ background: "var(--r0)" }} aria-hidden>
+    <div className="relative aspect-[400/220] w-full overflow-hidden" style={{ background: "var(--th-bg)" }} aria-hidden>
       <div className="grid h-full w-full gap-px p-px" style={{ gridTemplateColumns: `repeat(${COLS}, 1fr)` }}>
         {cells.map((c, i) => (
           <span
             key={i}
             className={c >= 3 ? "heat-cell-hot" : undefined}
-            style={{ background: `var(--r${c})`, animationDelay: `${(i % 7) * 0.35}s`, borderRadius: 2 }}
+            style={{ background: c === 0 ? "var(--th-surf)" : `color-mix(in oklab, var(--th-accent) ${c * 25}%, var(--th-surf))`, animationDelay: `${(i % 7) * 0.35}s`, borderRadius: 2 }}
           />
         ))}
       </div>

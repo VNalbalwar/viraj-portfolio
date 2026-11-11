@@ -42,6 +42,8 @@ A systems person who also builds polished front ends: published HPC research (IS
 - Personal facts that recur: speedcubing (CFOP, Roux, WCA events), Arch Linux tinkering, "deliberately broken Linux machines".
 - His LinkedIn line: "The most interesting things in computing happen when a system is under pressure."
 
+- Visual preference (Viraj, Nov 2026): clean and modern with one accent colour. No site-wide metaphor or theme built from a personal fact (a cube theme and a thermal theme were both tried and rejected as forced).
+
 ## Evidence on Hand
 
 - Resume: public/resumes/Viraj-Nalbalwar-Resume.pdf

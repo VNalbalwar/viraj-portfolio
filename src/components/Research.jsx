@@ -6,7 +6,7 @@ const FIGS = { gpu: RecoveryFigure, thermal: SchedulerFigure };
 
 export default function Research() {
   return (
-    <section id="research" className="zone" data-t="2" data-prev="1" aria-labelledby="research-h">
+    <section id="research" className="zone" aria-labelledby="research-h">
       <div className="wrap zone-pad">
         <h2 id="research-h" className="h-section max-w-[14ch]">
           Systems under pressure.

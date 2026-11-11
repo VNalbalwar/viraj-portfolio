@@ -97,8 +97,7 @@ export function SchedulerFigure() {
                   k < 0.5
                     ? `color-mix(in oklab, var(--r2) ${k * 200}%, var(--r1))`
                     : `color-mix(in oklab, var(--r3) ${(k - 0.5) * 200}%, var(--r2))`,
-                color: "#fff",
-                textShadow: "0 1px 2px rgb(0 0 0 / 0.55)",
+                color: k > 0.45 ? "var(--accent-on)" : "var(--on)",
                 outline: i === target ? "2px solid var(--on)" : "2px solid transparent",
                 outlineOffset: 2,
               }}
@@ -110,7 +109,7 @@ export function SchedulerFigure() {
                   layoutId="pod"
                   transition={{ type: "spring", stiffness: 260, damping: 26 }}
                   className="readout absolute right-2 top-2 rounded-full px-1.5 py-0.5"
-                  style={{ background: "var(--on)", color: "var(--bg)", textShadow: "none" }}
+                  style={{ background: "var(--on)", color: "var(--bg)" }}
                 >
                   pod-{pod}
                 </motion.span>

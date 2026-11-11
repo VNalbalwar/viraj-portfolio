@@ -9,14 +9,14 @@ export default function Questions() {
   const [open, setOpen] = useState(0);
   const reduce = useReducedMotion();
   return (
-    <section id="questions" className="zone" data-t="2" data-prev="5" aria-labelledby="questions-h">
+    <section id="questions" className="zone" data-alt aria-labelledby="questions-h">
       <div className="wrap zone-pad">
         <div className="grid gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
           <div>
             <h2 id="questions-h" className="h-section">
               Spill the tea. I've got answers.
             </h2>
-            <p className="mt-5" style={{ color: "var(--on-2)" }}>Cooling down. The stuff people actually ask me.</p>
+            <p className="mt-5" style={{ color: "var(--on-2)" }}>The stuff people actually ask me.</p>
           </div>
           <ul className="border-t" style={{ borderColor: "var(--line)" }}>
             {questions.map((item, i) => {

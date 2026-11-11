@@ -45,24 +45,21 @@ export const about = [
   "Off the keyboard I'm usually ricing my Arch setup or solving a cube. Turning chaos into order one algorithm at a time is suspiciously similar to debugging.",
 ];
 
-// ── Journey, told as a system warming up ───────────────────────────────────
-// heat: 0 to 1, how hard things were running. Drives the bar next to each entry.
+// ── Journey: education and experience, oldest first ───────────────────────
 export const journey = [
   {
-    stage: "Ambient",
+    stage: "Foundations",
     years: "2019 – 2021",
-    line: "Idle temps. Curiosity doing most of the work.",
+    line: "Curiosity doing most of the work.",
     entries: [
       {
         title: "Picked up a cube and never put it down",
-        heat: 0.25,
         org: "Speedcubing",
         when: "2019 – forever",
         points: ["CFOP and Roux, finger tricks, ZBLL and COLL, and WCA competitions."],
       },
       {
         title: "SSC, 97.40%",
-        heat: 0.3,
         org: "S.S. Nikam English School, Lonere",
         when: "2021",
         points: [],
@@ -70,20 +67,18 @@ export const journey = [
     ],
   },
   {
-    stage: "Warming up",
+    stage: "Diploma years",
     years: "2021 – 2024",
-    line: "First real workloads show up.",
+    line: "First real code, first internship, first blog.",
     entries: [
       {
         title: "Diploma in Computer Engineering",
-        heat: 0.5,
         org: "Dr. Babasaheb Ambedkar Technological University, Lonere",
         when: "2021 – 2024",
         points: ["CGPA 9.92, Maharashtra State Rank 2, Gold Medalist."],
       },
       {
         title: "Responsive Web Design Intern",
-        heat: 0.4,
         org: "SEED Infotech Ltd., Pune",
         when: "Jun – Jul 2023",
         points: [
@@ -93,7 +88,6 @@ export const journey = [
       },
       {
         title: "Started writing about Linux",
-        heat: 0.35,
         org: "Hashnode",
         when: "Jul 2023",
         points: ["A beginner-to-shell-scripting series, written while learning it."],
@@ -101,20 +95,18 @@ export const journey = [
     ],
   },
   {
-    stage: "Under load",
+    stage: "COEP and cloud",
     years: "2024 – 2025",
     line: "Real infrastructure, real pressure.",
     entries: [
       {
         title: "B.Tech, Computer Engineering",
-        heat: 0.6,
         org: "COEP Technological University, Pune",
         when: "2024 – 2027",
         points: ["CGPA 8.74. Member of CSI COEP."],
       },
       {
         title: "Cloud Intern",
-        heat: 0.72,
         org: "Jio Platforms, Navi Mumbai",
         when: "Jun – Jul 2025",
         points: [
@@ -126,13 +118,12 @@ export const journey = [
     ],
   },
   {
-    stage: "Peak",
+    stage: "The big year",
     years: "2026",
-    line: "Everything running hot at once.",
+    line: "Research, Mastercard and a Red Hat cert, all at once.",
     entries: [
       {
         title: "Software Engineer Intern",
-        heat: 0.9,
         org: "Mastercard, Pune",
         when: "May – Jul 2026",
         points: [
@@ -143,21 +134,18 @@ export const journey = [
       },
       {
         title: "Paper presented at ISC High Performance 2026",
-        heat: 0.95,
         org: "EESP Workshop, Hamburg, Germany",
         when: "Jun 2026",
         points: ["Thermal-Aware Core-Level Scheduling for Kubernetes Workloads."],
       },
       {
         title: "Red Hat Certified System Administrator",
-        heat: 0.8,
         org: "Red Hat",
         when: "Aug 2026",
         points: ["Plus NVIDIA Deep Learning Institute courses on deep learning, data science and LLM apps."],
       },
       {
         title: "Paper accepted at IEEE HiPC 2026",
-        heat: 1,
         org: "Student Research Symposium, Bengaluru",
         when: "Dec 2026",
         points: ["Characterizing Performance Recovery After Transient GPU Resource Interference."],
@@ -202,72 +190,72 @@ export const research = [
   },
 ];
 
-// ── Skills: a heat map ─────────────────────────────────────────────────────
-// [name, heat 1-5 (how much it has been running lately), where it was used]
+// ── Skills ─────────────────────────────────────────────────────────────────
+// [name, where it was used]
 export const skills = [
   {
     name: "Cloud & Infra",
     items: [
-      ["Kubernetes", 5, "Custom thermal-aware scheduler"],
-      ["Docker", 4, "Jio workloads, this site"],
-      ["OpenStack", 4, "Multi-node cloud at Jio"],
-      ["OpenShift", 3, "Jio CloudOps"],
-      ["Prometheus", 3, "Cluster monitoring"],
-      ["Grafana", 3, "Dashboards at Jio"],
-      ["DevStack", 2, "CloudInfraLab"],
-      ["HPE iLO", 2, "Bare-metal management"],
+      ["Kubernetes", "Custom thermal-aware scheduler"],
+      ["Docker", "Jio workloads, this site"],
+      ["OpenStack", "Multi-node cloud at Jio"],
+      ["OpenShift", "Jio CloudOps"],
+      ["Prometheus", "Cluster monitoring"],
+      ["Grafana", "Dashboards at Jio"],
+      ["DevStack", "CloudInfraLab"],
+      ["HPE iLO", "Bare-metal management"],
     ],
   },
   {
     name: "Linux & Systems",
     items: [
-      ["RHEL", 5, "RHCSA certified"],
-      ["Arch Linux", 5, "Daily driver, btw"],
-      ["Bash", 4, "Hashnode series"],
-      ["systemd", 4, "Services and units"],
-      ["cgroups v2", 4, "Core-level CPU pinning"],
-      ["SELinux", 3, "Learned the hard way"],
-      ["LVM", 3, "Storage that survives reboots"],
-      ["SDN / Mininet", 2, "SYN flood detection"],
+      ["RHEL", "RHCSA certified"],
+      ["Arch Linux", "Daily driver, btw"],
+      ["Bash", "Hashnode series"],
+      ["systemd", "Services and units"],
+      ["cgroups v2", "Core-level CPU pinning"],
+      ["SELinux", "Learned the hard way"],
+      ["LVM", "Storage that survives reboots"],
+      ["SDN / Mininet", "SYN flood detection"],
     ],
   },
   {
     name: "Languages",
     items: [
-      ["Go", 5, "Kubernetes scheduler"],
-      ["Java", 4, "Spring Boot at Mastercard"],
-      ["Python", 4, "ML pipelines, Scapy"],
-      ["TypeScript", 4, "Most of my web apps"],
-      ["C++", 4, "CUDA benchmarks, DSA"],
-      ["CUDA", 4, "GPU microbenchmarks"],
-      ["SQL", 3, "Oracle and DB2 migration"],
-      ["C", 2, "Graph algorithm library"],
+      ["Go", "Kubernetes scheduler"],
+      ["Java", "Spring Boot at Mastercard"],
+      ["Python", "ML pipelines, Scapy"],
+      ["TypeScript", "Most of my web apps"],
+      ["C++", "CUDA benchmarks, DSA"],
+      ["CUDA", "GPU microbenchmarks"],
+      ["SQL", "Oracle and DB2 migration"],
+      ["C", "Graph algorithm library"],
     ],
   },
   {
     name: "Web",
     items: [
-      ["Next.js", 5, "This site, SteganoSafe"],
-      ["React", 4, "Since SEED Infotech"],
-      ["Tailwind CSS", 4, "Every UI I ship"],
-      ["Motion", 3, "The animations here"],
-      ["Spring Boot", 4, "Migration services"],
-      ["Node.js", 3, "APIs and tooling"],
-      ["Flask", 2, "MindWebs NLP app"],
-      ["Firebase", 2, "Note-Flow auth"],
+      ["Next.js", "This site, SteganoSafe"],
+      ["React", "Since SEED Infotech"],
+      ["Tailwind CSS", "Every UI I ship"],
+      ["Motion", "The animations here"],
+      ["Spring Boot", "Migration services"],
+      ["Node.js", "APIs and tooling"],
+      ["Flask", "MindWebs NLP app"],
+      ["Firebase", "Note-Flow auth"],
     ],
   },
   {
     name: "Data & ML",
     items: [
-      ["Apache Spark", 4, "DB2 to Oracle at Mastercard"],
-      ["Perf Analysis", 5, "GPU latency research"],
-      ["Deep Learning", 3, "BiLSTM failure prediction"],
-      ["XGBoost", 3, "Hard-drive failure ensemble"],
-      ["LightGBM", 3, "Hard-drive failure ensemble"],
-      ["Generative AI", 3, "Plant Identifier, Gentales"],
-      ["Statistics", 3, "Holm-adjusted trial tests"],
-      ["Scapy", 2, "Packet crafting for SDN tests"],
+      ["Apache Spark", "DB2 to Oracle at Mastercard"],
+      ["Perf Analysis", "GPU latency research"],
+      ["Deep Learning", "BiLSTM failure prediction"],
+      ["XGBoost", "Hard-drive failure ensemble"],
+      ["LightGBM", "Hard-drive failure ensemble"],
+      ["Generative AI", "Plant Identifier, Gentales"],
+      ["Statistics", "Holm-adjusted trial tests"],
+      ["Scapy", "Packet crafting for SDN tests"],
     ],
   },
 ];
@@ -277,7 +265,7 @@ export const skills = [
 // This map only *enriches* repos (nicer title, description, tags, a custom
 // animated thumbnail) and pins the featured ones to the top, in this order.
 // A brand-new repo with no entry here still appears, with a generated
-// heat-map thumbnail. Tip: give repos a description and topics on GitHub.
+// patterned thumbnail. Tip: give repos a description and topics on GitHub.
 export const projectOverrides = {
   "gpu-recovery-experiment": {
     title: "GPU Interference Recovery",
@@ -366,7 +354,7 @@ export const projectOverrides = {
   },
   "viraj-portfolio": {
     title: "This Website",
-    desc: "The heat map you're scrolling. Next.js, Motion, a hand-written WebGL thermal shader, and data that syncs itself from GitHub and Hashnode.",
+    desc: "The site you're on. Next.js, Motion, and data that syncs itself from GitHub and Hashnode.",
     tech: ["Next.js", "Motion", "Docker"],
   },
 };
@@ -406,8 +394,8 @@ export const questions = [
     a: "Why choose? 😭 I've built front ends in Next.js, wired up OpenStack and OpenShift at Jio, shipped Spark migration services at Mastercard, and wrote a Kubernetes scheduler for research. I like knowing the whole trip, from the button someone clicks to the hardware quietly sweating underneath.",
   },
   {
-    q: "Why does this site glow when I move my mouse? 🌡️",
-    a: "That's a little thermal simulation. Your cursor is the noisy neighbour: it heats things up, then you leave and the field cools back to baseline. It's basically my GPU paper as a toy. Also it looks cool, which was at least 40% of the decision. ✨",
+    q: "Why does this website even exist? 💻",
+    a: "Because a resume tells you what I've done, not who I am. This is my corner of the internet where projects, research, milestones and questionable design obsessions live together. It also updates itself from GitHub and Hashnode, because I refuse to maintain it by hand. ✨",
   },
   {
     q: "What's the research actually about? 🔬",

@@ -1,53 +1,49 @@
-import HeatBar from "./HeatBar";
+import TimelineRail, { TimelineItem } from "./TimelineRail";
 import { journey } from "@/content/profile";
 
 export default function Journey() {
   return (
-    <section id="journey" className="zone" data-t="1" data-prev="1" aria-labelledby="journey-h">
-      <div className="wrap zone-pad !pt-[clamp(2rem,5vw,4rem)]">
+    <section id="journey" className="zone" data-alt aria-labelledby="journey-h">
+      <div className="wrap zone-pad">
         <h2 id="journey-h" className="h-section max-w-[16ch]">
-          How it warmed up.
+          The road so far.
         </h2>
         <p className="mt-5 max-w-[56ch]" style={{ color: "var(--on-2)" }}>
-          Education and experience, oldest first. The bar next to each entry is how hard things were running at the time.
+          Education and experience, oldest first, so you can watch it escalate.
         </p>
 
-        <ol className="mt-14">
-          {journey.map((phase) => (
-            <li
-              key={phase.stage}
-              className="grid gap-x-12 gap-y-6 border-t py-10 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:py-14"
-              style={{ borderColor: "var(--line)" }}
-            >
-              <div className="lg:sticky lg:top-24 lg:self-start">
-                <p className="readout" style={{ color: "var(--on-2)" }}>{phase.years}</p>
-                <h3 className="display mt-2 text-[clamp(1.9rem,4vw,2.75rem)]">{phase.stage}</h3>
-                <p className="mt-3 max-w-[26ch]" style={{ color: "var(--on-2)" }}>{phase.line}</p>
-              </div>
-              <ul className="space-y-10">
-                {phase.entries.map((e) => (
-                  <li key={e.title}>
-                    <HeatBar heat={e.heat} />
-                    <h4 className="mt-4 text-[1.3rem] font-bold leading-snug [font-stretch:110%]">{e.title}</h4>
-                    <p className="mt-1 font-medium">
-                      {e.org} <span style={{ color: "var(--on-2)" }}>· {e.when}</span>
-                    </p>
-                    {e.points.length > 0 && (
-                      <ul className="mt-3 max-w-[64ch] space-y-1.5" style={{ color: "var(--on-2)" }}>
-                        {e.points.map((p) => (
-                          <li key={p} className="relative pl-5">
-                            <span aria-hidden className="absolute left-0 top-[0.7em] h-[2px] w-2.5" style={{ background: "var(--hot)" }} />
-                            {p}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ol>
+        <TimelineRail>
+          <ol className="space-y-16">
+            {journey.map((phase) => (
+              <li key={phase.stage}>
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                  <h3 className="display text-[clamp(1.7rem,3.6vw,2.5rem)]">{phase.stage}</h3>
+                  <p className="readout text-[0.8rem]" style={{ color: "var(--on-2)" }}>{phase.years}</p>
+                </div>
+                <p className="mt-2" style={{ color: "var(--on-2)" }}>{phase.line}</p>
+                <ul className="mt-8 grid gap-x-10 gap-y-10 lg:grid-cols-2">
+                  {phase.entries.map((e) => (
+                    <TimelineItem key={e.title}>
+                      <p className="readout" style={{ color: "var(--hot)" }}>{e.when}</p>
+                      <h4 className="mt-1.5 text-[1.3rem] font-bold leading-snug [font-stretch:110%]">{e.title}</h4>
+                      <p className="mt-1 font-medium">{e.org}</p>
+                      {e.points.length > 0 && (
+                        <ul className="mt-3 max-w-[60ch] space-y-1.5" style={{ color: "var(--on-2)" }}>
+                          {e.points.map((p) => (
+                            <li key={p} className="relative pl-5">
+                              <span aria-hidden className="absolute left-0 top-[0.7em] h-[2px] w-2.5" style={{ background: "var(--hot)" }} />
+                              {p}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </TimelineItem>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </TimelineRail>
       </div>
     </section>
   );

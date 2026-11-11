@@ -1,20 +1,20 @@
 "use client";
 import { motion } from "motion/react";
 
-// ── Palette (matches portfolio amber/warm-charcoal theme) ────────────
-const bg     = "#0e0b07";
-const surf   = "#1b140a";
-const amber  = "#d4890a";
-const ambrBr = "#e8a820";
-const warm   = "#c4622a";
-const green  = "#5aaa30";
-const red    = "#e54040";
-const ink    = "#f0e8d5";
-const dim    = "#887055";
-const border = "#2e1f0e";
-const blue   = "#5590d8";
-const purple = "#9060c8";
-const teal   = "#30a8a0";
+// ── Palette (reads the site tokens in globals.css, so it follows the theme) ────────────
+const bg = "var(--th-bg)";
+const surf = "var(--th-surf)";
+const amber = "var(--th-accent)";
+const ambrBr = "var(--th-accent-2)";
+const warm = "var(--th-warm)";
+const green = "#57c98a";
+const red = "#ff6b6b";
+const ink = "var(--th-ink)";
+const dim = "var(--th-dim)";
+const border = "var(--th-border)";
+const blue = "#5aa2ff";
+const purple = "#a487ff";
+const teal = "#3fc7bd";
 
 // ── Animation helpers ─────────────────────────────────────────────────
 const loop = (dur, delay = 0, repeatDelay = 0) => ({
@@ -381,9 +381,9 @@ export function GentalesThumb() {
       </text>
 
       {/* Book — left page */}
-      <rect x="120" y="55" width="77" height="108" rx="3 0 0 3" fill={surf} stroke={border} strokeWidth="1.5" />
+      <rect x="120" y="55" width="77" height="108" rx="3" fill={surf} stroke={border} strokeWidth="1.5" />
       {/* Book — right page */}
-      <rect x="203" y="55" width="77" height="108" rx="0 3 3 0" fill={surf} stroke={border} strokeWidth="1.5" />
+      <rect x="203" y="55" width="77" height="108" rx="3" fill={surf} stroke={border} strokeWidth="1.5" />
       {/* Spine */}
       <rect x="196" y="55" width="8" height="108" fill={amber} opacity="0.3" />
 

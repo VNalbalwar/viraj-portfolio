@@ -14,16 +14,16 @@ Constraints: light and dark themes, free tiers only, fast on phones, reduced-mot
 
 ## Direction contract
 
-THESIS: The page is a live heat map. A thermal field warms under the cursor and cools back to baseline, which is the recovery curve his GPU paper measures; the mechanism is demonstrated, not described. Refuses the dark bento-grid developer portfolio with gradient glow.
+THESIS: A clean, modern personal site where the work is the visual interest. No governing metaphor. Refuses themed costumes; Viraj rejected Speedcube and Thermal Field as forced.
 
-OWN-WORLD: Infrared false colour as ground, not accent. The page itself runs cold to hot as you scroll: indigo, violet, magenta, orange, with yellow as white-hot highlight. Dark theme is the ironbow palette on near-black indigo; light theme is the white-cold palette on icy lavender. Contour isolines, axis ticks and figure captions are the furniture. Archivo (expanded heavy for display, normal for text); mono only for measurements and readouts.
+OWN-WORLD: Neutral near-white and near-black surfaces with one cobalt accent (#2d5bff light, #7c9bff dark). Archivo, expanded and heavy for display, normal for text; mono only for dates and data. Rounded cards with hairline borders; alternating bands of bg and bg-alt. Project thumbnails read the same tokens.
 
-STORY: Visitor meets a cold field and a name, moves, sees heat follow and decay. Scrolling warms the page through about, journey (heat bars per event), research (live figures), skills (a heat map), projects, writing, to the hottest point, the contact form; the footer recovers to baseline.
+STORY: Who he is, how he got here, what he researched, what he knows, what he built, what he wrote, how to reach him.
 
-FIRST VIEWPORT: Full-bleed WebGL thermal field with isolines. Name in very large expanded heavy caps bottom-left over the field, one sentence, two actions. Top-right a small instrument readout of cursor heat and recovery time. Right edge: the colour bar legend that is the nav, with section ticks and a live temperature marker.
+FIRST VIEWPORT: Name in large caps left, one-line statement, two actions and socials; portrait on an accent card right; quiet grid backdrop with a soft light that follows the pointer; floating pill nav top centre.
 
-SIGNATURE INTERACTION: one clock. Scroll is temperature: the colour bar marker climbs, section grounds step up the ramp, and the readout rises from 24 to 96 degrees, then recovers at the footer. In the hero the pointer splats heat into a decaying simulation and the readout times the recovery. Motion grammar: things warm up (colour and scale along the ramp) with exponential ease-out; nothing fades up generically.
+SIGNATURE INTERACTION: restrained. Nav pill slides between sections, timeline rail fills with scroll, research figures draw themselves, skill tiles flip to a note on hover, the contact block is the one full-accent panel.
 
-FORM: Thermal Field, position 1 on the first-hand grounded list; pinned by the user after first choosing Speedcube. Seed key 41279581. Build path: code-led.
+FORM: Category standard, chosen by the user (standing exit) after two themed rounds. Seed key 41279581. Build path: code-led.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

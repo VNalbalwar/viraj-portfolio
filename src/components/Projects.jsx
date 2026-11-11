@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Star } from "lucide-react";
 import { BrandIcon } from "./Icons";
 import { THUMBS } from "./ProjectThumb";
-import HeatThumb from "./HeatThumb";
+import PatternThumb from "./PatternThumb";
 
 const INITIAL = 9;
 const monthYear = (iso) =>
@@ -19,10 +19,10 @@ function Card({ p, lead }) {
       className={`group flex h-full flex-col overflow-hidden rounded-[1.5rem] transition-[transform,box-shadow] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:shadow-[0_28px_50px_-28px_rgb(0_0_0/0.55)] ${
         lead ? "lg:flex-row" : ""
       }`}
-      style={{ background: "var(--surface)" }}
+      style={{ background: "var(--surface)", border: "1px solid var(--line)" }}
     >
       <div className={lead ? "lg:w-[56%] lg:self-center" : ""}>
-        {Thumb ? <Thumb /> : <HeatThumb id={p.id} label={p.language} />}
+        {Thumb ? <Thumb /> : <PatternThumb id={p.id} label={p.language} />}
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <h3 className={`font-extrabold leading-tight [font-stretch:112%] ${lead ? "text-[1.6rem]" : "text-[1.25rem]"}`}>{p.title}</h3>
@@ -75,8 +75,8 @@ export default function Projects({ projects, live }) {
   const shown = all || tag !== "All" ? filtered : filtered.slice(0, INITIAL);
 
   return (
-    <section id="projects" className="zone" data-t="3" data-prev="3" aria-labelledby="projects-h">
-      <div className="wrap zone-pad !pt-[clamp(2rem,5vw,4rem)]">
+    <section id="projects" className="zone" aria-labelledby="projects-h">
+      <div className="wrap zone-pad">
         <h2 id="projects-h" className="h-section max-w-[15ch]">
           Things I actually shipped.
         </h2>
