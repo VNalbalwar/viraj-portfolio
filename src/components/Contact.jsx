@@ -34,8 +34,8 @@ export default function Contact() {
 
   return (
     <section id="contact" className="sec band" aria-labelledby="contact-h">
-      <div className="wrap grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-        <div>
+      <div className="wrap split narrow-left">
+        <div className="s-left">
           <h2 id="contact-h" className="t-h2">
             Contact
           </h2>
@@ -54,7 +54,7 @@ export default function Contact() {
           </ul>
         </div>
 
-        <form onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
+        <form onSubmit={submit} className="s-right grid gap-5 sm:grid-cols-2">
           <label className="block">
             Name
             <input className={field} style={{ borderColor: "var(--line)" }} name="name" value={form.name} onChange={set} required maxLength={100} autoComplete="name" />

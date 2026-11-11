@@ -4,11 +4,11 @@ import { about, aboutFacts, site } from "@/content/profile";
 export default function About() {
   return (
     <section id="about" className="sec alt" aria-labelledby="about-h">
-      <div className="wrap grid gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-        <h2 id="about-h" className="t-h2">
+      <div className="wrap split narrow-left">
+        <h2 id="about-h" className="t-h2 s-left">
           About
         </h2>
-        <div>
+        <div className="s-right">
           <div className="max-w-[62ch] space-y-5">
             {about.map((p, i) => (
               <p key={i} className={i === 0 ? "t-lead" : "t-muted"} style={i === 0 ? { color: "var(--ink)" } : undefined}>

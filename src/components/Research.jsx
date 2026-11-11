@@ -15,8 +15,8 @@ export default function Research() {
           {research.map((r) => {
             const Fig = FIGS[r.id];
             return (
-              <article key={r.id} className="row-rule grid items-start gap-x-16 gap-y-8 py-12 lg:grid-cols-2">
-                <div>
+              <article key={r.id} className="row-rule split py-12">
+                <div className="s-left">
                   <p className="t-mono t-muted">
                     {r.status}. {r.venue}
                   </p>
@@ -31,7 +31,7 @@ export default function Research() {
                     Code on GitHub <ArrowUpRight size={16} aria-hidden />
                   </a>
                 </div>
-                <div className="card p-5 sm:p-7">
+                <div className="card s-right p-5 sm:p-7">
                   <Fig />
                 </div>
               </article>

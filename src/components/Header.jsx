@@ -108,7 +108,7 @@ export default function Header() {
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <a href="#contact" className="btn btn-solid hidden !h-11 sm:inline-flex">
+            <a href="#contact" className="btn btn-solid hidden sm:inline-flex">
               Contact
             </a>
             <button

@@ -16,7 +16,7 @@
   --bg: #ffffff;
   --surface: #ecedec;
   --ink: #0f1f10;
-  --muted: #566256;
+  --muted: #3f4a3f;
   --accent: #0f1f10;
   --accent-ink: #ffffff;
   --line: color-mix(in oklab, var(--ink) 16%, transparent);
@@ -24,7 +24,7 @@
   --band-bg: #0f1f10;
   --band-surface: #162a17;
   --band-ink: #ffffff;
-  --band-muted: #9aa39a;
+  --band-muted: #c3cac3;
   --band-accent: #c6f19d;
   --band-accent-ink: #0f1f10;
 
@@ -48,14 +48,14 @@
   --bg: #0f1f10;
   --surface: #162a17;
   --ink: #ffffff;
-  --muted: #9aa39a;
+  --muted: #c3cac3;
   --accent: #c6f19d;
   --accent-ink: #0f1f10;
   --line: color-mix(in oklab, var(--ink) 18%, transparent);
   --band-bg: #ffffff;
   --band-surface: #ecedec;
   --band-ink: #0f1f10;
-  --band-muted: #566256;
+  --band-muted: #3f4a3f;
   --band-accent: #0f1f10;
   --band-accent-ink: #ffffff;
 }
@@ -107,11 +107,19 @@ input, textarea { caret-color: var(--accent); }
 }
 .wrap {
   width: 100%;
-  max-width: 75rem;
+  max-width: calc(75rem + 3rem);
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
-@media (min-width: 1024px) { .wrap { padding-inline: 3rem; } }
+@media (min-width: 1024px) { .wrap { max-width: calc(75rem + 6rem); padding-inline: 3rem; } }
+/* every split sits on the same 12-column lines */
+.split { display: grid; gap: 2.5rem 1.5rem; align-items: start; }
+@media (min-width: 1024px) {
+  .split { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 3rem 1.5rem; }
+  .split > .s-left { grid-column: 1 / span 6; }
+  .split > .s-right { grid-column: 7 / span 6; }
+  .split.narrow-left > .s-left { grid-column: 1 / span 5; }
+}
 
 /* ─── Type ──────────────────────────────────────────────────────────────── */
 .t-hero {

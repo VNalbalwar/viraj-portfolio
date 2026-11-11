@@ -9,8 +9,8 @@ export default function Hero() {
       className="sec flex flex-col justify-center !pb-16 lg:min-h-[100svh]"
       aria-label="Introduction"
     >
-      <div className="wrap grid items-center gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-        <div data-enter>
+      <div className="wrap split">
+        <div data-enter className="s-left">
           <p className="t-mono t-muted">RHCSA. Papers at ISC High Performance and IEEE HiPC, 2026.</p>
           <h1 className="t-hero mt-5">
             Viraj
@@ -28,7 +28,7 @@ export default function Hero() {
           </div>
           <Socials items={socials} className="mt-8" />
         </div>
-        <div data-enter-img className="relative w-full max-w-[26rem] justify-self-center lg:max-w-none lg:justify-self-end">
+        <div data-enter-img className="s-right relative w-full max-w-[26rem] justify-self-center lg:max-w-[28rem] lg:justify-self-start">
           <Image
             src="/viraj-nalbalwar.jpg"
             alt="Portrait of Viraj Nalbalwar"
@@ -36,7 +36,7 @@ export default function Hero() {
             height={760}
             priority
             sizes="(min-width: 1024px) 28rem, 80vw"
-            className="aspect-[4/5] w-full rounded-[var(--radius)] object-cover lg:max-w-[28rem]"
+            className="aspect-[4/5] w-full rounded-[var(--radius)] object-cover"
           />
         </div>
       </div>

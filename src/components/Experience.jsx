@@ -7,8 +7,8 @@ export default function Experience() {
         <h2 id="experience-h" className="t-h2">
           Experience and education
         </h2>
-        <div className="mt-14 grid gap-x-16 gap-y-16 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
-          <ol aria-label="Experience">
+        <div className="split mt-14">
+          <ol aria-label="Experience" className="s-left">
             {experience.map((e) => (
               <li key={e.org} className="row-rule py-8 first:pt-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
@@ -26,7 +26,7 @@ export default function Experience() {
               </li>
             ))}
           </ol>
-          <div>
+          <div className="s-right">
             <ol aria-label="Education">
               {education.map((e) => (
                 <li key={e.name} className="row-rule py-6 first:pt-6">

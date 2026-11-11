@@ -12,8 +12,8 @@ export default function Writing({ posts }) {
         <h2 id="writing-h" className="t-h2">
           Writing
         </h2>
-        <div className="mt-14 grid gap-x-16 gap-y-16 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-          <div>
+        <div className="split mt-14">
+          <div className="s-left">
             <h3 className="t-h3">Linux notes on Hashnode</h3>
             <p className="t-muted mt-1">A beginner-to-shell-scripting series I wrote in 2023.</p>
             {posts.length > 0 ? (
@@ -44,7 +44,7 @@ export default function Writing({ posts }) {
             </a>
           </div>
 
-          <div>
+          <div className="s-right">
             <h3 className="t-h3">Recent on LinkedIn</h3>
             <ul className="mt-5">
               {linkedinHighlights.map((h) => (

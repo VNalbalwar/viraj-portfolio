@@ -8,10 +8,11 @@ export default function Questions() {
   const [open, setOpen] = useState(0);
   return (
     <section id="questions" className="sec alt" aria-labelledby="questions-h">
-      <div className="wrap grid gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-        <h2 id="questions-h" className="t-h2">
+      <div className="wrap split narrow-left">
+        <h2 id="questions-h" className="t-h2 s-left">
           Questions
         </h2>
+        <div className="s-right">
         <ul>
           {questions.map((item, i) => {
             const isOpen = open === i;
@@ -45,6 +46,10 @@ export default function Questions() {
             );
           })}
         </ul>
+        <a href="#contact" className="btn btn-solid mt-10">
+          Get in touch
+        </a>
+        </div>
       </div>
     </section>
   );
