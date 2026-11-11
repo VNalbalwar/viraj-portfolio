@@ -1,52 +1,61 @@
+import { MaskHeading, Stagger, StaggerItem } from "./Reveal";
 import { certifications, education, experience } from "@/content/profile";
 
 export default function Experience() {
   return (
     <section id="experience" className="sec" aria-labelledby="experience-h">
       <div className="wrap">
-        <h2 id="experience-h" className="t-h2">
-          Experience and education
-        </h2>
-        <div className="split mt-14">
-          <ol aria-label="Experience" className="s-left">
-            {experience.map((e) => (
-              <li key={e.org} className="row-rule py-8 first:pt-6">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                  <h3 className="t-h3">
-                    {e.role}, {e.org}
-                  </h3>
-                  <p className="t-mono t-muted">{e.when}</p>
-                </div>
-                <p className="t-muted mt-1">{e.place}</p>
-                <ul className="mt-4 max-w-[60ch] space-y-2">
-                  {e.points.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ol>
-          <div className="s-right">
-            <ol aria-label="Education">
+        <MaskHeading id="experience-h" text="Experience and education" className="t-h2 max-w-[16ch]" />
+
+        <Stagger as="ol" aria-label="Experience" className="mt-16" gap={0.12}>
+          {experience.map((e) => (
+            <StaggerItem
+              as="li"
+              key={e.org}
+              className="row-rule group grid gap-x-6 gap-y-5 py-10 lg:grid-cols-12"
+            >
+              <div className="lg:col-span-5">
+                <p className="t-muted t-num">{e.when}</p>
+                <h3 className="t-h3 mt-2 text-[clamp(1.35rem,2.4vw,1.9rem)] transition-transform duration-500 ease-[var(--ease-enter)] group-hover:translate-x-2">
+                  {e.org}
+                </h3>
+                <p className="mt-1">{e.role}</p>
+                <p className="t-muted">{e.place}</p>
+              </div>
+              <ul className="space-y-2.5 lg:col-span-6 lg:col-start-7">
+                {e.points.map((p) => (
+                  <li key={p} className="t-muted transition-colors duration-300 group-hover:[color:var(--ink)]">{p}</li>
+                ))}
+              </ul>
+            </StaggerItem>
+          ))}
+        </Stagger>
+
+        <div className="mt-24 grid gap-x-6 gap-y-16 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <h3 className="t-h3 text-[1.5rem]">Education</h3>
+            <Stagger as="ol" className="mt-6" aria-label="Education">
               {education.map((e) => (
-                <li key={e.name} className="row-rule py-6 first:pt-6">
-                  <p className="t-mono t-muted">{e.when}</p>
-                  <h3 className="t-h3 mt-1">{e.name}</h3>
+                <StaggerItem as="li" key={e.name} className="row-rule py-6">
+                  <p className="t-muted t-num">{e.when}</p>
+                  <h4 className="t-h3 mt-1">{e.name}</h4>
                   <p className="t-muted mt-1">{e.detail}</p>
-                </li>
+                </StaggerItem>
               ))}
-            </ol>
-            <h3 className="t-h3 mt-12">Certifications</h3>
-            <ul className="mt-4">
+            </Stagger>
+          </div>
+          <div className="lg:col-span-5 lg:col-start-8">
+            <h3 className="t-h3 text-[1.5rem]">Certifications</h3>
+            <Stagger as="ul" className="mt-6" gap={0.06}>
               {certifications.map(([name, by, when]) => (
-                <li key={name} className="row-rule flex flex-wrap justify-between gap-x-6 py-3">
+                <StaggerItem as="li" key={name} className="row-rule flex flex-wrap justify-between gap-x-6 gap-y-1 py-4">
                   <span>
                     {name} <span className="t-muted">({by})</span>
                   </span>
-                  <span className="t-mono t-muted">{when}</span>
-                </li>
+                  <span className="t-muted t-num">{when}</span>
+                </StaggerItem>
               ))}
-            </ul>
+            </Stagger>
           </div>
         </div>
       </div>

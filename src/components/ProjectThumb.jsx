@@ -762,6 +762,303 @@ export function PixelAuraThumb() {
 }
 
 // ── Registry ──────────────────────────────────────────────────────────
+
+// ══════════════════════════════════════════════════════════════════════
+// GPU INTERFERENCE RECOVERY  (HiPC 2026 paper)
+// ══════════════════════════════════════════════════════════════════════
+function gpuTrace() {
+  let seed = 11;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647 - 0.5);
+  const pts = [];
+  for (let x = 40; x <= 360; x += 4) {
+    let y = 150 + rnd() * 3;
+    if (x >= 130 && x < 250) y = 150 - 78 + rnd() * 9;
+    else if (x >= 250 && x < 266) y = 150 - 78 * Math.exp(-(x - 250) / 4) + rnd() * 3;
+    pts.push(`${x},${y.toFixed(1)}`);
+  }
+  return `M${pts.join(" L")}`;
+}
+const GPU_TRACE = gpuTrace();
+const GPU_CYCLE = 6;
+
+export function GpuRecoveryThumb() {
+  const sms = [];
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) sms.push({ x: 24 + c * 11, y: 32 + r * 11, k: r * 3 + c });
+  return (
+    <Base>
+      <text x="200" y="20" textAnchor="middle" fill={dim} fontSize="9" fontFamily="monospace" letterSpacing="2.5" fontWeight="700">
+        GPU INTERFERENCE RECOVERY · CUDA
+      </text>
+
+      {/* interference window */}
+      <motion.rect x="130" y="40" width="120" height="130" fill={warm}
+        animate={{ opacity: [0, 0, 0.16, 0.16, 0, 0] }}
+        transition={{ duration: GPU_CYCLE, times: [0, 0.18, 0.28, 0.5, 0.58, 1], repeat: Infinity, ease: "easeInOut" }}
+      />
+      <text x="190" y="54" textAnchor="middle" fill={warm} fontSize="7.5" fontFamily="monospace" fontWeight="700">NEIGHBOUR ON</text>
+
+      {/* axes */}
+      <line x1="40" y1="150" x2="360" y2="150" stroke={dim} strokeWidth="0.8" strokeDasharray="3 5" opacity="0.7" />
+      <line x1="40" y1="72" x2="360" y2="72" stroke={border} strokeWidth="0.8" />
+      <text x="36" y="153" textAnchor="end" fill={dim} fontSize="7" fontFamily="monospace">1.0x</text>
+      <text x="36" y="75" textAnchor="end" fill={dim} fontSize="7" fontFamily="monospace">2.7x</text>
+      <text x="360" y="166" textAnchor="end" fill={dim} fontSize="7" fontFamily="monospace">time</text>
+
+      {/* latency trace, drawn then reset */}
+      <motion.path d={GPU_TRACE} fill="none" stroke={amber} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"
+        animate={{ pathLength: [0, 1, 1, 0] }}
+        transition={{ duration: GPU_CYCLE, times: [0, 0.6, 0.92, 1], repeat: Infinity, ease: "linear" }}
+      />
+      <motion.circle r="3.6" fill={ambrBr}
+        style={{ offsetPath: `path('${GPU_TRACE}')` }}
+        animate={{ offsetDistance: ["0%", "100%", "100%"], opacity: [1, 1, 0] }}
+        transition={{ duration: GPU_CYCLE, times: [0, 0.6, 0.8], repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* recovery callout */}
+      <motion.g
+        animate={{ opacity: [0, 0, 1, 1, 0, 0] }}
+        transition={{ duration: GPU_CYCLE, times: [0, 0.52, 0.6, 0.9, 0.96, 1], repeat: Infinity }}
+      >
+        <line x1="268" y1="140" x2="268" y2="112" stroke={green} strokeWidth="1" />
+        <text x="274" y="110" fill={green} fontSize="8" fontFamily="monospace" fontWeight="700">RECOVERS IN µs</text>
+      </motion.g>
+
+      {/* GPU die: streaming multiprocessors flicker harder while the neighbour runs */}
+      <rect x="18" y="26" width="42" height="42" rx="4" fill="none" stroke={border} strokeWidth="1.2" />
+      {sms.map((c) => (
+        <motion.rect key={c.k} x={c.x} y={c.y} width="8" height="8" rx="1.5" fill={amber}
+          animate={{ opacity: [0.2, 0.95, 0.2] }}
+          transition={{ duration: 1.1 + (c.k % 4) * 0.35, delay: c.k * 0.12, repeat: Infinity, ease: "easeInOut" }}
+        />
+      ))}
+
+      <text x="200" y="196" textAnchor="middle" fill={dim} fontSize="8" fontFamily="monospace">
+        compute 2.7x · L2 cache 1.8x · baseline within tens of µs
+      </text>
+      <text x="200" y="212" textAnchor="middle" fill={border} fontSize="8" fontFamily="monospace">
+        CUDA · C++ · RTX 4060 · Tesla T4 · IEEE HiPC 2026
+      </text>
+    </Base>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// CLOUDINFRALAB: OPENSTACK ON THREE NODES
+// ══════════════════════════════════════════════════════════════════════
+export function CloudInfraThumb() {
+  const links = [
+    { a: [172, 84], b: [92, 128], c: amber, d: 2.6, delay: 0 },
+    { a: [228, 84], b: [308, 128], c: teal, d: 2.6, delay: 0.9 },
+    { a: [138, 158], b: [262, 158], c: blue, d: 2.2, delay: 1.7 },
+  ];
+  return (
+    <Base>
+      <text x="200" y="20" textAnchor="middle" fill={dim} fontSize="9" fontFamily="monospace" letterSpacing="2.5" fontWeight="700">
+        CLOUDINFRALAB · OPENSTACK ON RHEL
+      </text>
+
+      {/* links with flowing dashes */}
+      {links.map((l, i) => (
+        <g key={i}>
+          <motion.line x1={l.a[0]} y1={l.a[1]} x2={l.b[0]} y2={l.b[1]} stroke={l.c} strokeWidth="1.2" strokeDasharray="4 6" opacity="0.55"
+            animate={{ strokeDashoffset: [0, -20] }}
+            transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.circle r="3.2" fill={l.c}
+            animate={{ cx: [l.a[0], l.b[0]], cy: [l.a[1], l.b[1]], opacity: [0, 1, 1, 0] }}
+            transition={{ duration: l.d, delay: l.delay, repeat: Infinity, ease: "easeInOut", times: [0, 0.1, 0.85, 1] }}
+          />
+        </g>
+      ))}
+      <text x="200" y="150" textAnchor="middle" fill={blue} fontSize="7" fontFamily="monospace" opacity="0.8">NEUTRON</text>
+
+      {/* controller */}
+      <rect x="145" y="38" width="110" height="46" rx="6" fill={surf} stroke={amber} strokeWidth="1.3" />
+      <text x="200" y="56" textAnchor="middle" fill={ink} fontSize="9" fontFamily="monospace" fontWeight="700">CONTROLLER</text>
+      <text x="200" y="71" textAnchor="middle" fill={dim} fontSize="7.5" fontFamily="monospace">Keystone · Horizon</text>
+      <motion.rect x="145" y="38" width="110" height="46" rx="6" fill="none" stroke={amber} strokeWidth="1.3"
+        animate={{ opacity: [0.5, 0], scale: [1, 1.12] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
+        style={{ transformBox: "fill-box", transformOrigin: "50% 50%" }}
+      />
+
+      {/* compute + VMs launching */}
+      <rect x="30" y="128" width="108" height="60" rx="6" fill={surf} stroke={ambrBr} strokeWidth="1.3" />
+      <text x="84" y="143" textAnchor="middle" fill={ink} fontSize="9" fontFamily="monospace" fontWeight="700">COMPUTE</text>
+      {[0, 1, 2].map((k) => (
+        <motion.rect key={k} x={44 + k * 30} y={152} width="22" height="26" rx="3" fill={ambrBr}
+          animate={{ scale: [0, 1, 1, 0], opacity: [0, 0.9, 0.9, 0] }}
+          transition={{ duration: 6, delay: 0.6 + k * 1.3, repeat: Infinity, times: [0, 0.12, 0.8, 1], ease: "easeOut" }}
+          style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
+        />
+      ))}
+      <text x="84" y="199" textAnchor="middle" fill={dim} fontSize="7.5" fontFamily="monospace">Nova · virtual machines</text>
+
+      {/* storage */}
+      <rect x="262" y="128" width="108" height="60" rx="6" fill={surf} stroke={teal} strokeWidth="1.3" />
+      <text x="316" y="143" textAnchor="middle" fill={ink} fontSize="9" fontFamily="monospace" fontWeight="700">STORAGE</text>
+      {[0, 1, 2].map((k) => (
+        <g key={k}>
+          <rect x="276" y={151 + k * 10} width="80" height="7" rx="2" fill={border} />
+          <motion.rect x="276" y={151 + k * 10} height="7" rx="2" fill={teal}
+            animate={{ width: [10, 20 + k * 22, 10] }}
+            transition={{ duration: 3 + k * 0.7, repeat: Infinity, ease: "easeInOut", delay: k * 0.4 }}
+          />
+        </g>
+      ))}
+      <text x="316" y="199" textAnchor="middle" fill={dim} fontSize="7.5" fontFamily="monospace">Glance · Cinder</text>
+
+      <text x="200" y="214" textAnchor="middle" fill={border} fontSize="8" fontFamily="monospace">RHEL 9.2 · DevStack · Docker · Kubernetes</text>
+    </Base>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// QAOA QUANTUM COMPUTING RESEARCH
+// ══════════════════════════════════════════════════════════════════════
+export function QaoaThumb() {
+  const wires = [58, 88, 118];
+  const gates = [
+    { x: 70, label: "H", all: true },
+    { x: 130, label: "Rz", all: true },
+    { x: 250, label: "Rx", all: true },
+  ];
+  const bars = [0.5, 0.9, 0.3, 0.75, 0.45, 0.95, 0.35, 0.6];
+  return (
+    <Base>
+      <text x="200" y="20" textAnchor="middle" fill={dim} fontSize="9" fontFamily="monospace" letterSpacing="2.5" fontWeight="700">
+        QAOA · QUANTUM OPTIMIZATION
+      </text>
+      {wires.map((y, i) => (
+        <g key={y}>
+          <text x="30" y={y + 3} textAnchor="end" fill={dim} fontSize="8" fontFamily="monospace">q{i}</text>
+          <line x1="40" y1={y} x2="360" y2={y} stroke={border} strokeWidth="1.2" />
+          <motion.circle r="3" fill={ambrBr} cy={y}
+            animate={{ cx: [40, 360], opacity: [0, 1, 1, 0] }}
+            transition={{ duration: 3.4, delay: i * 0.35, repeat: Infinity, ease: "linear", times: [0, 0.05, 0.95, 1] }}
+          />
+        </g>
+      ))}
+      {gates.map((g) =>
+        wires.map((y, i) => (
+          <motion.g key={g.x + "-" + y}
+            animate={{ scale: [1, 1.18, 1] }}
+            transition={{ duration: 3.4, delay: i * 0.35 + ((g.x - 40) / 320) * 3.4, repeat: Infinity, ease: "easeOut", times: [0, 0.04, 0.2] }}
+            style={{ transformBox: "fill-box", transformOrigin: "50% 50%" }}
+          >
+            <rect x={g.x - 11} y={y - 11} width="22" height="22" rx="4" fill={surf} stroke={amber} strokeWidth="1.2" />
+            <text x={g.x} y={y + 3.5} textAnchor="middle" fill={ink} fontSize="9" fontFamily="monospace" fontWeight="700">{g.label}</text>
+          </motion.g>
+        ))
+      )}
+      {/* CNOT chain */}
+      {[[58, 88, 190], [88, 118, 214]].map(([a, b, x]) => (
+        <g key={x}>
+          <line x1={x} y1={a} x2={x} y2={b} stroke={warm} strokeWidth="1.4" />
+          <circle cx={x} cy={a} r="3.5" fill={warm} />
+          <circle cx={x} cy={b} r="7" fill={bg} stroke={warm} strokeWidth="1.4" />
+          <line x1={x - 7} y1={b} x2={x + 7} y2={b} stroke={warm} strokeWidth="1.4" />
+          <line x1={x} y1={b - 7} x2={x} y2={b + 7} stroke={warm} strokeWidth="1.4" />
+        </g>
+      ))}
+      {/* measurement */}
+      {wires.map((y) => (
+        <g key={"m" + y}>
+          <rect x="326" y={y - 11} width="24" height="22" rx="4" fill={surf} stroke={teal} strokeWidth="1.2" />
+          <path d={`M331,${y + 5} a7,7 0 0 1 14,0`} fill="none" stroke={teal} strokeWidth="1.2" />
+          <line x1="338" y1={y + 5} x2="343" y2={y - 4} stroke={teal} strokeWidth="1.2" />
+        </g>
+      ))}
+      {/* outcome histogram */}
+      {bars.map((h, i) => (
+        <motion.rect key={i} x={70 + i * 34} y={158} width="22" height="46" rx="2" fill={i === 5 ? ambrBr : amber} opacity={i === 5 ? 1 : 0.55}
+          animate={{ scaleY: [h * 0.5, h, h * 0.5] }}
+          transition={{ duration: 2.4 + (i % 3) * 0.5, delay: i * 0.15, repeat: Infinity, ease: "easeInOut" }}
+          style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
+        />
+      ))}
+    </Base>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// QUICKSHELL RICE (QML DESKTOP SHELL)
+// ══════════════════════════════════════════════════════════════════════
+export function QuickshellThumb() {
+  return (
+    <Base>
+      <defs>
+        <linearGradient id="qs-wall" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor={surf} />
+          <stop offset="100%" stopColor={bg} />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="220" fill="url(#qs-wall)" />
+
+      {/* top bar */}
+      <rect x="10" y="10" width="380" height="24" rx="12" fill={bg} stroke={border} strokeWidth="1" />
+      {[0, 1, 2, 3, 4].map((k) => (
+        <circle key={k} cx={30 + k * 16} cy={22} r="3.2" fill={border} />
+      ))}
+      <motion.rect y="17" width="14" height="10" rx="5" fill={amber}
+        animate={{ x: [23, 39, 55, 71, 87, 23] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", times: [0, 0.2, 0.4, 0.6, 0.8, 1] }}
+      />
+      <text x="200" y="26" textAnchor="middle" fill={ink} fontSize="9" fontFamily="monospace" fontWeight="700">21:04</text>
+      <g transform="translate(330,22)">
+        {[0, 1, 2].map((k) => (
+          <motion.rect key={k} x={k * 5} y={-2 - k * 2} width="3" height={4 + k * 2} rx="1" fill={teal}
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2, delay: k * 0.25, repeat: Infinity }}
+          />
+        ))}
+        <rect x="26" y="-5" width="22" height="10" rx="2.5" fill="none" stroke={ink} strokeWidth="1" />
+        <rect x="28" y="-3" width="14" height="6" rx="1" fill={green} />
+      </g>
+
+      {/* cpu / ram widget */}
+      <rect x="22" y="52" width="150" height="70" rx="10" fill={bg} stroke={border} strokeWidth="1" />
+      {[["CPU", amber, 1], ["RAM", teal, 1.7]].map(([label, c, d], k) => (
+        <g key={label}>
+          <text x="36" y={78 + k * 24} fill={dim} fontSize="8" fontFamily="monospace">{label}</text>
+          <rect x="66" y={71 + k * 24} width="90" height="8" rx="4" fill={border} />
+          <motion.rect x="66" y={71 + k * 24} height="8" rx="4" fill={c}
+            animate={{ width: [18, 70, 36, 82, 18] }}
+            transition={{ duration: 6 * d, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </g>
+      ))}
+
+      {/* now playing */}
+      <rect x="188" y="52" width="190" height="70" rx="10" fill={bg} stroke={border} strokeWidth="1" />
+      <rect x="198" y="62" width="50" height="50" rx="8" fill={surf} stroke={border} />
+      {[0, 1, 2, 3, 4].map((k) => (
+        <motion.rect key={k} x={206 + k * 7} y={84} width="4" height="26" rx="2" fill={ambrBr}
+          animate={{ scaleY: [0.25, 1, 0.4, 0.8, 0.25] }}
+          transition={{ duration: 1.4 + k * 0.18, repeat: Infinity, ease: "easeInOut", delay: k * 0.1 }}
+          style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
+        />
+      ))}
+      <text x="258" y="80" fill={ink} fontSize="9" fontFamily="monospace" fontWeight="700">Now playing</text>
+      <rect x="258" y="90" width="100" height="4" rx="2" fill={border} />
+      <motion.rect x="258" y="90" height="4" rx="2" fill={amber}
+        animate={{ width: [4, 100] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* launcher */}
+      <rect x="22" y="140" width="356" height="34" rx="12" fill={bg} stroke={border} strokeWidth="1" />
+      <text x="40" y="161" fill={dim} fontSize="9" fontFamily="monospace">search apps</text>
+      <motion.rect x="104" y="150" width="1.6" height="14" fill={amber}
+        animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity }} />
+
+      <text x="200" y="202" textAnchor="middle" fill={dim} fontSize="8" fontFamily="monospace" letterSpacing="2">QUICKSHELL · QML · ARCH LINUX</text>
+      <text x="200" y="214" textAnchor="middle" fill={border} fontSize="8" fontFamily="monospace">a desktop shell, written by hand</text>
+    </Base>
+  );
+}
+
 export const THUMBS = {
   thermal:     ThermalK8sThumb,
   synflood:    SynFloodThumb,
@@ -773,4 +1070,8 @@ export const THUMBS = {
   noteflow:    NoteFlowThumb,
   chatbot:     ChatbotThumb,
   pixelaura:   PixelAuraThumb,
+  gpu:         GpuRecoveryThumb,
+  cloudinfra:  CloudInfraThumb,
+  qaoa:        QaoaThumb,
+  quickshell:  QuickshellThumb,
 };

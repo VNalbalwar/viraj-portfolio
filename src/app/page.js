@@ -4,6 +4,7 @@ import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
 import Numbers from "@/components/Numbers";
 import Projects from "@/components/Projects";
 import Questions from "@/components/Questions";
@@ -25,6 +26,7 @@ export default async function Home() {
       <Header />
       <main>
         <Hero />
+        <Marquee />
         <About />
         <Numbers
           repoCount={github.repoCount}

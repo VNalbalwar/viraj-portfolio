@@ -1,9 +1,10 @@
+import { FadeUp } from "./Reveal";
 import { site, socials } from "@/content/profile";
 
 export default function Footer() {
   return (
-    <footer className="border-t py-10" style={{ borderColor: "var(--line)" }}>
-      <div className="wrap flex flex-wrap items-center justify-between gap-x-10 gap-y-4">
+    <footer className="overflow-hidden pt-20" style={{ background: "var(--bg)" }}>
+      <div className="wrap flex flex-wrap items-center justify-between gap-x-10 gap-y-4 pb-10">
         <p className="t-muted text-[0.9375rem]">© {new Date().getFullYear()} {site.name}. Product names and logos are trademarks of their owners.</p>
         <ul className="flex flex-wrap gap-x-6">
           {socials.map((s) => (
@@ -15,6 +16,11 @@ export default function Footer() {
           ))}
         </ul>
       </div>
+      <FadeUp y={60}>
+        <p aria-hidden className="t-display select-none whitespace-nowrap text-center text-[clamp(2rem,9.6vw,10rem)] leading-[0.8] opacity-[0.07]" style={{ marginBottom: "-0.08em" }}>
+          Viraj Nalbalwar
+        </p>
+      </FadeUp>
     </footer>
   );
 }

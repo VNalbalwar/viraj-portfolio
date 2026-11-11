@@ -1,19 +1,24 @@
-import { DM_Mono, Instrument_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Unbounded } from "next/font/google";
+import SmoothScroll from "@/components/SmoothScroll";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site, socials } from "@/content/profile";
 import "./globals.css";
 
-const instrument = Instrument_Sans({
+const unbounded = Unbounded({
   subsets: ["latin"],
-  axes: ["wdth"],
-  variable: "--font-instrument",
+  weight: "variable",
+  variable: "--font-unbounded",
   display: "swap",
 });
-const dmMono = DM_Mono({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-dm-mono",
+  variable: "--font-geist",
+  display: "swap",
+});
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -65,8 +70,8 @@ export const metadata = {
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0b0e" },
+    { media: "(prefers-color-scheme: light)", color: "#eff0f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0b11" },
   ],
 };
 
@@ -116,11 +121,12 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning data-type="software" className={`${instrument.variable} ${dmMono.variable}`}>
+    <html lang="en" suppressHydrationWarning data-type="software" className={`${unbounded.variable} ${geist.variable} ${geistMono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="antialiased">
+        <SmoothScroll />
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
         <Analytics />

@@ -209,6 +209,7 @@ export const projectOverrides = {
     desc: "CUDA microbenchmarks that stress compute, L2 cache and memory, then measure how fast a victim kernel recovers once the noisy neighbour stops. The code behind my HiPC 2026 paper.",
     tech: ["CUDA", "C++", "Research"],
     featured: true,
+    thumbKey: "gpu",
   },
   "static-thermal-aware-scheduler-phase-1": {
     title: "Thermal-Aware Core Scheduler",
@@ -236,6 +237,7 @@ export const projectOverrides = {
     desc: "A full private-cloud lab built by hand on RHEL: identity, images, compute, networking and block storage across controller, compute and storage nodes.",
     tech: ["OpenStack", "RHEL", "Cloud"],
     featured: true,
+    thumbKey: "cloudinfra",
   },
   "Plant-Identifier": {
     title: "Plant Identifier",
@@ -284,10 +286,15 @@ export const projectOverrides = {
     title: "Quickshell Rice",
     desc: "My Arch desktop shell config, written in QML for Quickshell.",
     tech: ["QML", "Linux"],
+    thumbKey: "quickshell",
+    featured: true,
   },
   "QAOA-QC-Research-Project": {
     title: "QAOA Quantum Computing Research",
+    desc: "Research project on the Quantum Approximate Optimization Algorithm (QAOA).",
     tech: ["Quantum", "Research"],
+    thumbKey: "qaoa",
+    featured: true,
   },
   "viraj-portfolio": {
     title: "This Website",

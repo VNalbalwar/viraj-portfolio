@@ -2,11 +2,11 @@
 
 Personal site of Viraj Nalbalwar, live at [viraj-verse.vercel.app](https://viraj-verse.vercel.app).
 
-Designed with the taste-skill rules: one system, real tool logos, plain copy, one hero entrance, one moment (the odometer in "Public work so far"), and no scroll-triggered fades.
+Mist and ink with one ultramarine, Unbounded display type that swells under the cursor, Motion for the animation (masked headings, scroll-scrubbed text, staggered lists, drawn figures, animated project thumbnails), and Lenis for smooth scrolling.
 
 ## Stack
 
-Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Instrument Sans and DM Mono · Nodemailer. Hosted free on Vercel; a Docker image is also published to GHCR.
+Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Motion · Lenis · Unbounded, Geist and Geist Mono · Nodemailer. Hosted free on Vercel; a Docker image is also published to GHCR.
 
 ## What updates itself
 
@@ -16,7 +16,7 @@ Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Instrument Sans and DM 
 | Blog posts, post count | Hashnode RSS | Same hourly refresh. |
 | Experience, research, skills, certifications, LinkedIn numbers, Q&A | `src/content/profile.js` | Edited by hand. LinkedIn has no free public API. |
 
-To make a new repo look good here, give it a description and topics on GitHub. To pin it, give it a custom title or a hand-made thumbnail, add an entry to `projectOverrides` in `src/content/profile.js`. To hide a repo, add its name to `hiddenRepos`.
+To give a project its own animated thumbnail, add a component in `src/components/ProjectThumb.jsx`, register it in `THUMBS`, and set `thumbKey` for the repo in `projectOverrides`. To make a new repo look good here, give it a description and topics on GitHub. To pin it, give it a custom title or a hand-made thumbnail, add an entry to `projectOverrides` in `src/content/profile.js`. To hide a repo, add its name to `hiddenRepos`.
 
 ## Tool logos
 
