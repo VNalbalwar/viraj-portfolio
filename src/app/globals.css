@@ -1,98 +1,279 @@
 @import "tailwindcss";
 
-/* ─── Dark Mode Variant (class on <main>) ───────────────────── */
-@custom-variant dark (&:is(.dark, .dark *));
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* ─── Max-Width Breakpoints (matches existing component usage) ─ */
 @theme {
-  --breakpoint-sm: initial;
-  --breakpoint-md: initial;
-  --breakpoint-lg: initial;
-  --breakpoint-xl: initial;
-}
-@custom-variant xl (@media (max-width: 1400px));
-@custom-variant lg (@media (max-width: 1150px));
-@custom-variant md (@media (max-width: 767px));
-@custom-variant sm (@media (max-width: 639px));
-@custom-variant xs (@media (max-width: 393px));
-@custom-variant web (@media (max-width: 436px));
-
-/* ─── Brand & Accent Tokens ─────────────────────────────────── */
-@theme {
-  --color-brand:        oklch(0.73 0.18 62);
-  --color-brand-deep:   oklch(0.56 0.22 62);
-  --color-brand-pale:   oklch(0.90 0.10 65);
-  --color-warm:         oklch(0.64 0.13 18);
-  --color-warm-deep:    oklch(0.50 0.16 18);
-  --color-warm-pale:    oklch(0.93 0.06 20);
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ─── Semantic Theme Variables ───────────────────────────────── */
+/* ─── Thermal ramp ──────────────────────────────────────────────────────────
+   The page runs cold to hot. t0 is baseline, t5 is the hottest zone.
+   Light = "white-cold" palette, dark = "ironbow" palette.                  */
 :root {
-  --bg:           oklch(0.98 0.004 75);
-  --surface:      oklch(0.95 0.007 72);
-  --surface-2:    oklch(0.91 0.010 70);
-  --ink-1:        oklch(0.12 0.018 38);
-  --ink-2:        oklch(0.36 0.015 38);
-  --ink-3:        oklch(0.56 0.010 38);
-  --border:       oklch(0.84 0.013 65);
-  --brand-local:  oklch(0.50 0.22 62);
-  --warm-local:   oklch(0.71 0.09 14);
+  color-scheme: light;
+  --t0: #f3f2fa;
+  --t1: #e8e5fa;
+  --t2: #d9d0f6;
+  --t3: #f1c6e3;
+  --t4: #ffc3a3;
+  --t5: #ff8a1f;
+  --ink: #0b0f2b;
+  --ink-hot: #0b0f2b;
+  --hot-a: #a3155b; /* accent on cool zones */
+  --hot-b: #3b1c8c; /* accent on warm zones */
+  --hot-on: #ffffff;
+  --ramp: linear-gradient(to top, #cfc4f4, #f29bc6 40%, #ff8a1f 75%, #b0124f);
+  --r0: #f3f2fa;
+  --r1: #cfc4f4;
+  --r2: #f29bc6;
+  --r3: #ff8a1f;
+  --r4: #b0124f;
+  --danger: #b00020;
 }
 
-.dark {
-  --bg:           oklch(0.09 0.010 38);
-  --surface:      oklch(0.14 0.012 38);
-  --surface-2:    oklch(0.20 0.014 38);
-  --ink-1:        oklch(0.93 0.008 55);
-  --ink-2:        oklch(0.66 0.014 55);
-  --ink-3:        oklch(0.43 0.010 50);
-  --border:       oklch(0.23 0.016 38);
-  --brand-local:  oklch(0.74 0.18 62);
-  --warm-local:   oklch(0.64 0.13 18);
+[data-theme="dark"] {
+  color-scheme: dark;
+  --t0: #070a1c;
+  --t1: #100d38;
+  --t2: #24126a;
+  --t3: #4a1478;
+  --t4: #9a1759;
+  --t5: #ff8a1f;
+  --ink: #f1eeff;
+  --ink-hot: #1b0a00;
+  --hot-a: #ffe94a;
+  --hot-b: #ffe94a;
+  --hot-on: #1b0a00;
+  --ramp: linear-gradient(to top, #24126a, #9a1759 40%, #ff8a1f 75%, #ffe94a);
+  --r0: #070a1c;
+  --r1: #24126a;
+  --r2: #9a1759;
+  --r3: #ff8a1f;
+  --r4: #ffe94a;
+  --danger: #ffb4a8;
 }
 
-/* ─── Font Utilities ─────────────────────────────────────────── */
-@utility heading-font {
-  font-family: var(--font-bricolage, 'Bricolage Grotesque', sans-serif);
+/* A zone is one full-bleed band of the page at one temperature. */
+.zone {
+  --bg: var(--t0);
+  --prev: var(--bg);
+  --on: var(--ink);
+  --hot: var(--hot-a);
+  --on-2: color-mix(in oklab, var(--on) 80%, var(--bg));
+  --line: color-mix(in oklab, var(--on) 20%, transparent);
+  --surface: color-mix(in oklab, var(--on) 7%, var(--bg));
+  --surface-2: color-mix(in oklab, var(--on) 13%, var(--bg));
+  position: relative;
+  color: var(--on);
+  background: linear-gradient(to bottom, var(--prev), var(--bg) min(14rem, 30%));
 }
-@utility mono-font {
-  font-family: var(--font-fira, 'Fira Code', monospace);
-}
+.zone[data-t="1"] { --bg: var(--t1); }
+.zone[data-t="2"] { --bg: var(--t2); }
+.zone[data-t="3"] { --bg: var(--t3); }
+.zone[data-t="4"] { --bg: var(--t4); --hot: var(--hot-b); --on-2: color-mix(in oklab, var(--on) 90%, var(--bg)); }
+.zone[data-t="5"] { --bg: var(--t5); --on: var(--ink-hot); --hot: var(--hot-b); --on-2: color-mix(in oklab, var(--on) 88%, var(--bg)); }
+[data-theme="dark"] .zone[data-t="5"] { --hot: #24126a; --hot-on: #ffffff; }
+.zone[data-prev="0"] { --prev: var(--t0); }
+.zone[data-prev="1"] { --prev: var(--t1); }
+.zone[data-prev="2"] { --prev: var(--t2); }
+.zone[data-prev="3"] { --prev: var(--t3); }
+.zone[data-prev="4"] { --prev: var(--t4); }
+.zone[data-prev="5"] { --prev: var(--t5); }
 
-/* ─── Base Styles ────────────────────────────────────────────── */
+/* ─── Base ──────────────────────────────────────────────────────────────── */
 html {
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+  background: var(--t0);
+  -webkit-text-size-adjust: 100%;
 }
-
 body {
-  font-family: var(--font-geist, system-ui, sans-serif);
-  background-color: var(--bg);
-  color: var(--ink-1);
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--t0);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-x: clip;
+  font-variant-numeric: tabular-nums;
 }
 
 ::selection {
-  background-color: oklch(0.74 0.18 62 / 0.28);
-  color: var(--ink-1);
+  background: #ff8a1f;
+  color: #1b0a00;
+}
+:focus-visible {
+  outline: 2px solid var(--hot, var(--hot-a));
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+input,
+textarea {
+  caret-color: var(--hot, var(--hot-a));
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--brand-local); }
-
-/* ─── Dot-grid background texture ───────────────────────────── */
-.bg-dots {
-  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
-  background-size: 28px 28px;
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #9a1759 var(--t0);
+}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--t0); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ff8a1f, #9a1759);
+  border-radius: 10px;
+  border: 2px solid var(--t0);
 }
 
-/* ─── Reduced motion ─────────────────────────────────────────── */
+/* ─── Type ──────────────────────────────────────────────────────────────── */
+.display {
+  font-family: var(--font-sans);
+  font-stretch: 125%;
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.h-section {
+  font-stretch: 118%;
+  font-weight: 800;
+  font-size: clamp(2.1rem, 5.4vw, 4.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.readout {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.wrap {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+/* leave room for the colour-bar nav on wide screens */
+@media (min-width: 64rem) {
+  .wrap { padding-right: clamp(4.5rem, 7vw, 6rem); }
+}
+.zone-pad {
+  padding-block: clamp(5rem, 11vw, 9.5rem) clamp(4rem, 8vw, 7rem);
+}
+
+/* ─── Controls ──────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-stretch: 110%;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.35s var(--ease-out-expo), background-color 0.25s, color 0.25s, box-shadow 0.35s var(--ease-out-expo);
+}
+.btn:active { transform: scale(0.97); }
+.btn-hot {
+  background: var(--hot);
+  color: var(--hot-on);
+  box-shadow: 0 8px 24px -10px color-mix(in oklab, var(--hot) 70%, transparent);
+}
+.btn-hot:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px color-mix(in oklab, var(--hot) 80%, transparent); }
+.btn-ghost {
+  border: 1.5px solid var(--line);
+  color: var(--on);
+}
+.btn-ghost:hover { background: var(--surface-2); border-color: var(--on); }
+.btn[disabled] { opacity: 0.6; cursor: progress; transform: none; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--on-2);
+  white-space: nowrap;
+}
+
+.link-hot {
+  color: var(--hot);
+  font-weight: 600;
+  text-decoration: underline;
+}
+.link-hot:hover { text-decoration-thickness: 2px; }
+
+/* Portrait: infrared by default, visible light on hover/focus. */
+.thermal-img { filter: url(#ironbow) contrast(1.05); transition: filter 0.6s var(--ease-out-expo); }
+.thermal-frame:hover .thermal-img,
+.thermal-frame:focus-visible .thermal-img,
+.thermal-frame[data-visible="true"] .thermal-img { filter: none; }
+
+/* Isoline texture used on quiet surfaces. */
+.isolines {
+  background-image: repeating-radial-gradient(
+    circle at 80% 10%,
+    transparent 0 22px,
+    color-mix(in oklab, var(--on) 9%, transparent) 22px 23px
+  );
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.7); opacity: 0.35; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ─── Skill heat map ────────────────────────────────────────────────────────
+   Tiles start cold and warm up to their level when the row scrolls in.     */
+.skill {
+  --c: var(--h1);
+  --c-on: var(--h1-on);
+  background: var(--c);
+  color: var(--c-on);
+  transition: background-color 0.9s var(--ease-out-expo), color 0.5s, transform 0.35s var(--ease-out-expo);
+}
+.skill:hover, .skill:focus { transform: translateY(-3px); }
+.skill[data-on="true"].heat-2 { --c: var(--h2); --c-on: var(--h2-on); }
+.skill[data-on="true"].heat-3 { --c: var(--h3); --c-on: var(--h3-on); }
+.skill[data-on="true"].heat-4 { --c: var(--h4); --c-on: var(--h4-on); }
+.skill[data-on="true"].heat-5 { --c: var(--h5); --c-on: var(--h5-on); }
+:root {
+  --h1: #ffffff; --h1-on: #0b0f2b;
+  --h2: #cfc4f4; --h2-on: #0b0f2b;
+  --h3: #f29bc6; --h3-on: #0b0f2b;
+  --h4: #ff8a1f; --h4-on: #0b0f2b;
+  --h5: #a3155b; --h5-on: #ffffff;
+}
+[data-theme="dark"] {
+  --h1: #1d1650; --h1-on: #f1eeff;
+  --h2: #2f1a86; --h2-on: #f1eeff;
+  --h3: #9a1759; --h3-on: #ffffff;
+  --h4: #ff8a1f; --h4-on: #1b0a00;
+  --h5: #ffe94a; --h5-on: #1b0a00;
+}
+
+@keyframes cell-breathe {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.22); }
+}
+.heat-cell-hot { animation: cell-breathe 3.2s ease-in-out infinite; }

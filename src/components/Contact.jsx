@@ -1,199 +1,109 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import Heading from "./sub/Heading";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { Check, Send } from "lucide-react";
+import { Socials } from "./Icons";
+import { socials } from "@/content/profile";
 
-const inputBase = {
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  color: "var(--ink-1)",
-  outline: "none",
-  borderRadius: "0.75rem",
-  padding: "0.625rem 1rem",
-  fontSize: "0.875rem",
-  width: "100%",
-  transition: "border-color 0.2s",
-};
+const EMPTY = { name: "", email: "", subject: "", message: "", company: "" };
+const field =
+  "mt-1.5 w-full rounded-2xl border bg-[var(--surface)] px-4 py-3 text-[1rem] text-[var(--on)] placeholder:text-[color-mix(in_oklab,var(--on)_62%,var(--bg))] transition-[border-color,background-color] duration-200 focus:border-[var(--on)] focus:bg-[var(--surface-2)] focus:outline-none";
 
-const Contact = () => {
-  const [isClient, setIsClient] = useState(false);
+export default function Contact() {
+  const [form, setForm] = useState(EMPTY);
+  const [state, setState] = useState({ status: "idle", message: "" });
+  const set = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  const busy = state.status === "sending";
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const [loadingMessage, setLoadingMessage] = useState({
-    loading: false,
-    message: "",
-    success: false,
-  });
-
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleFocus = (e) => {
-    e.target.style.borderColor = "var(--brand-local)";
-  };
-  const handleBlur = (e) => {
-    e.target.style.borderColor = "var(--border)";
-  };
-
-  const handleSubmit = async (e) => {
+  async function submit(e) {
     e.preventDefault();
+    if (busy) return;
+    setState({ status: "sending", message: "Transmitting…" });
     try {
-      if (!formData?.fullname || !formData?.email || !formData?.subject || !formData?.message) {
-        setLoadingMessage({ loading: false, message: "Please fill all fields.", success: false });
-        return;
-      }
-      setLoadingMessage({ loading: true, message: "", success: false });
-
-      const formatData = {
-        name: formData?.fullname,
-        email: formData?.email,
-        subject: formData?.subject,
-        message: formData?.message,
-      };
-
-      const response = await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formatData),
+        body: JSON.stringify(form),
       });
-
-      if (!response.ok) throw new Error("Network response was not ok");
-
-      const res = await response.json();
-
-      if (res?.message) {
-        setFormData({ fullname: "", email: "", subject: "", message: "" });
-        setLoadingMessage({ loading: false, message: res?.message, success: true });
-      } else {
-        setLoadingMessage({ loading: false, message: "Failed to send message.", success: false });
-      }
-    } catch (error) {
-      setLoadingMessage({ loading: false, message: "Failed to send message.", success: false });
-      console.error("Contact form error", error);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Something broke on my side. Try again in a minute, or ping me on LinkedIn.");
+      setForm(EMPTY);
+      setState({ status: "sent", message: "Delivered. I'll reply soon." });
+    } catch (err) {
+      setState({ status: "error", message: err.message });
     }
-  };
+  }
 
   return (
-    <div id="contact" className="py-20 lg:py-32">
-      <Heading text={"Got Questions? I'm All Ears!👂"} />
-      <div className="w-full flex lg:flex-col items-center justify-between gap-x-16 lg:gap-y-12">
-        {isClient && (
-          <>
-            {/* Left: illustration + status */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center gap-y-4"
-            >
-              <Image
-                src={"/contact.gif"}
-                alt="Contact illustration"
-                width={380}
-                height={380}
-                className="w-[340px] rounded-xl opacity-85 lg:w-[260px]"
-              />
-              {loadingMessage?.message && (
-                <p
-                  className="text-sm text-center"
-                  style={{ color: loadingMessage?.success ? "var(--brand-local)" : "#f87171" }}
-                >
-                  {loadingMessage?.message}
-                </p>
-              )}
-            </motion.div>
+    <section id="contact" className="zone" data-t="5" data-prev="4" aria-labelledby="contact-h">
+      <div className="wrap zone-pad">
+        <div className="grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+          <div>
+            <h2 id="contact-h" className="display text-[clamp(2.6rem,7.5vw,5.5rem)]">
+              Peak temp. Say hi.
+            </h2>
+            <p className="mt-6 max-w-[40ch] text-[1.15rem] font-medium">
+              You scrolled all the way to the hottest part of the page. If you're working on something where infrastructure, performance or reliability matters, I'd like to hear about it.
+            </p>
+            <Socials items={socials} className="mt-8" />
+          </div>
 
-            {/* Right: form */}
-            <motion.form
-              onSubmit={handleSubmit}
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="w-[560px] lg:w-full flex flex-col gap-3"
-            >
-              <div className="flex lg:flex-col gap-3">
-                <input
-                  id="fullname"
-                  name="fullname"
-                  value={formData?.fullname}
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  autoComplete="off"
-                  type="text"
-                  style={inputBase}
-                  placeholder="Your Name"
-                />
-                <input
-                  id="email"
-                  name="email"
-                  value={formData?.email}
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  autoComplete="off"
-                  type="email"
-                  style={inputBase}
-                  placeholder="Your Email"
-                />
-              </div>
-              <input
-                id="subject"
-                name="subject"
-                value={formData?.subject}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                autoComplete="off"
-                type="text"
-                style={inputBase}
-                placeholder="Subject"
-              />
-              <textarea
-                id="message"
-                name="message"
-                value={formData?.message}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                style={{ ...inputBase, minHeight: "140px", maxHeight: "240px", resize: "vertical" }}
-                placeholder="Your message..."
-              />
-              <button
-                type="submit"
-                className="w-full rounded-xl px-4 py-3 text-sm font-semibold tracking-wide transition-all duration-200"
-                style={{
-                  background: "var(--brand-local)",
-                  color: "oklch(0.10 0.012 255)",
-                  opacity: loadingMessage?.loading ? 0.7 : 1,
-                  cursor: loadingMessage?.loading ? "not-allowed" : "pointer",
-                }}
-                disabled={loadingMessage?.loading}
-              >
-                {loadingMessage?.loading ? "Sending…" : "Send Message →"}
+          <form onSubmit={submit} noValidate={false} className="grid gap-4 sm:grid-cols-2">
+            <label className="block font-semibold">
+              Your name
+              <input className={field} style={{ borderColor: "var(--line)" }} name="name" value={form.name} onChange={set} required maxLength={100} autoComplete="name" />
+            </label>
+            <label className="block font-semibold">
+              Email
+              <input className={field} style={{ borderColor: "var(--line)" }} type="email" name="email" value={form.email} onChange={set} required maxLength={200} autoComplete="email" placeholder="you@example.com" />
+            </label>
+            <label className="block font-semibold sm:col-span-2">
+              Subject
+              <input className={field} style={{ borderColor: "var(--line)" }} name="subject" value={form.subject} onChange={set} required maxLength={150} />
+            </label>
+            <label className="block font-semibold sm:col-span-2">
+              Message
+              <textarea className={`${field} min-h-40 resize-y`} style={{ borderColor: "var(--line)" }} name="message" value={form.message} onChange={set} required maxLength={5000} />
+            </label>
+            {/* honeypot: humans never see or fill this */}
+            <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+              <label>
+                Company
+                <input tabIndex={-1} name="company" value={form.company} onChange={set} autoComplete="off" />
+              </label>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
+              <button type="submit" className="btn btn-hot" disabled={busy}>
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={state.status === "sent" ? "sent" : "send"}
+                    initial={{ y: 12, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -12, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    className="inline-flex items-center gap-2"
+                  >
+                    {state.status === "sent" ? (
+                      <>Sent <Check size={18} aria-hidden /></>
+                    ) : (
+                      <>{busy ? "Sending" : "Send message"} <Send size={17} aria-hidden /></>
+                    )}
+                  </motion.span>
+                </AnimatePresence>
               </button>
-            </motion.form>
-          </>
-        )}
+              <p
+                role="status"
+                aria-live="polite"
+                className="readout text-[0.85rem] font-semibold"
+                style={state.status === "error" ? { color: "#5c0011" } : undefined}
+              >
+                {state.message || "status: idle"}
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Contact;
+}

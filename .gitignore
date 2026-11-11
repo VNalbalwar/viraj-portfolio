@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local tooling
+.claude/
+.impeccable/*
+!.impeccable/design.json
+!.impeccable/surfaces/
