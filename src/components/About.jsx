@@ -8,12 +8,12 @@ export default function About() {
       <div className="wrap">
         <MaskHeading id="about-h" text="About" className="t-h2" />
         <ScrubText
-          text={about[0] + " " + about[1]}
+          text={about[0]}
           className="mt-12 max-w-[30ch] text-[clamp(1.7rem,3.7vw,3.1rem)] font-medium leading-[1.16] tracking-[-0.03em] sm:max-w-[36ch]"
         />
         <div className="mt-16 grid gap-x-6 gap-y-12 lg:grid-cols-12">
           <FadeUp className="lg:col-span-5">
-            <p className="t-muted max-w-[46ch]">{about[2]}</p>
+            <p className="t-muted max-w-[46ch]">{about[1]}</p>
             <a href={site.resume} download className="btn btn-solid mt-8">
               Download CV <Download size={17} aria-hidden />
             </a>

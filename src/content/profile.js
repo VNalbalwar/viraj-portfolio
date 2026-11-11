@@ -41,15 +41,15 @@ export const manualStats = {
   fallbackPosts: 9,
 };
 
+// Written to stay true as time passes: no years, seasons or "latest" claims.
 export const about = [
-  "I'm a final-year computer engineering student at COEP Technological University in Pune. I work on how shared machines behave under load: Kubernetes scheduling, GPU interference, and the Linux and cloud plumbing underneath.",
-  "Last year I built a multi-node OpenStack cloud at Jio. This summer I wrote Spark migration services at Mastercard that move financial data from DB2 to Oracle. Two research papers I worked on were accepted in 2026, at ISC High Performance in Hamburg and IEEE HiPC in Bengaluru.",
-  "Outside work I run Arch on my laptop, write about Linux on Hashnode, and solve Rubik's cubes in competitions.",
+  "I like it when systems misbehave. A cluster that slows down for no reason, a noisy neighbour on a shared GPU, a Linux box that was fine until it wasn't. I keep poking until I know why, then I build the thing that doesn't break that way again.",
+  "Mostly that means Kubernetes, Linux and cloud infrastructure, with enough front-end taste that what I ship is nice to use too. Away from the keyboard it's Arch setups and Rubik's cubes.",
 ];
 
 export const aboutFacts = [
   ["Based in", "Pune, Maharashtra"],
-  ["Studying", "B.Tech, Computer Engineering, COEP (2027)"],
+  ["Education", "B.Tech in Computer Engineering, COEP Technological University"],
   ["Earlier", "Diploma, Computer Engineering, gold medal and state rank 2"],
   ["Certified", "Red Hat Certified System Administrator", "redhat"],
 ];
