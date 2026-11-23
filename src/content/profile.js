@@ -3,7 +3,8 @@
 //
 // Synced automatically (no edits needed):
 //   • Projects + repo count  ← GitHub public API   (src/lib/github.js)
-//   • Blog posts + post count ← Hashnode RSS feed  (src/lib/hashnode.js)
+//   • Blog posts + post count ← Offcuts and Hashnode RSS feeds
+//                               (src/lib/offcuts.js, src/lib/hashnode.js)
 //
 // Everything below is content GitHub/Hashnode can't provide. LinkedIn has no
 // free public API, so anything that lives there (experience, certifications,
@@ -20,12 +21,14 @@ export const site = {
   location: "Pune, Maharashtra, India",
   githubUser: "VNalbalwar",
   hashnodeHost: "viraj-verse.hashnode.dev",
+  offcutsUrl: "https://viraj-offcuts.vercel.app",
   resume: "/resumes/Viraj-Nalbalwar-Resume.pdf",
 };
 
 export const socials = [
   { id: "github", label: "GitHub", href: "https://github.com/VNalbalwar" },
   { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/viraj-nalbalwar-895365255/" },
+  { id: "offcuts", label: "Blog: Offcuts", href: "https://viraj-offcuts.vercel.app" },
   { id: "hashnode", label: "Blog on Hashnode", href: "https://viraj-verse.hashnode.dev/" },
   { id: "instagram", label: "Instagram", href: "https://www.instagram.com/viraj_nalbalwar/" },
 ];

@@ -13,13 +13,14 @@ import Skills from "@/components/Skills";
 import Writing from "@/components/Writing";
 import { getGithub } from "@/lib/github";
 import { getPosts } from "@/lib/hashnode";
+import { getOffcutsPosts } from "@/lib/offcuts";
 
 // Rebuild this page in the background at most once an hour, so new repos and
 // blog posts show up without a redeploy.
 export const revalidate = 3600;
 
 export default async function Home() {
-  const [github, blog] = await Promise.all([getGithub(), getPosts()]);
+  const [github, hashnode, offcuts] = await Promise.all([getGithub(), getPosts(), getOffcutsPosts()]);
   return (
     <>
       <Header />
@@ -27,12 +28,12 @@ export default async function Home() {
         <Hero />
         <Marquee />
         <About />
-        <Numbers repoCount={github.repoCount} postCount={blog.postCount} />
+        <Numbers repoCount={github.repoCount} postCount={hashnode.postCount + offcuts.postCount} />
         <Experience />
         <Research />
         <Skills />
         <Projects projects={github.projects} repoCount={github.repoCount} live={github.live} />
-        <Writing posts={blog.posts} />
+        <Writing offcutsPosts={offcuts.posts} hashnodePosts={hashnode.posts} />
         <Contact />
         <Questions />
       </main>

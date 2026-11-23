@@ -5,7 +5,7 @@ import { manualStats } from "@/content/profile";
 export default function Numbers({ repoCount, postCount }) {
   const figures = [
     { value: repoCount, label: "public repositories", note: "From GitHub" },
-    { value: postCount, label: "posts on Linux and shell scripting", note: "From Hashnode" },
+    { value: postCount, label: "posts on Linux, cloud and shell scripting", note: "From Offcuts and Hashnode" },
     { value: 2, label: "research papers accepted in 2026", note: "ISC High Performance, Hamburg, Germany. IEEE HiPC, Bengaluru, India." },
     { value: manualStats.linkedinFollowers, text: manualStats.linkedinFollowersLabel, label: "followers on LinkedIn", note: "From LinkedIn" },
   ];

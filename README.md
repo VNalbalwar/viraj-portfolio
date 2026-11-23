@@ -13,7 +13,7 @@ Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · Motion · Lenis · Inst
 | Content | Source | How |
 | --- | --- | --- |
 | Projects, repo count | GitHub public API | Fetched server-side, refreshed hourly (ISR). Push a public repo and it appears. |
-| Blog posts, post count | Hashnode RSS | Same hourly refresh. |
+| Blog posts, post count | Offcuts and Hashnode RSS | Same hourly refresh. Offcuts leads; Hashnode is the older series. |
 | Experience, research, skills, certifications, LinkedIn numbers, Q&A | `src/content/profile.js` | Edited by hand. LinkedIn has no free public API. |
 
 To give a project its own animated thumbnail, add a component in `src/components/ProjectThumb.jsx`, register it in `THUMBS`, and set `thumbKey` for the repo in `projectOverrides`. To make a new repo look good here, give it a description and topics on GitHub. To pin it, give it a custom title or a hand-made thumbnail, add an entry to `projectOverrides` in `src/content/profile.js`. To hide a repo, add its name to `hiddenRepos`.

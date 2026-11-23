@@ -22,7 +22,7 @@ A systems person who also builds polished front ends: published HPC research (IS
 
 - Hosted free on Vercel at viraj-verse.vercel.app, Next.js App Router. Must stay on free tiers everywhere.
 - GitHub (VNalbalwar) is the source of truth for projects and repo counts; the public API is free and can sync automatically.
-- Hashnode blog (viraj-verse.hashnode.dev) holds a Linux series; its RSS feed can sync automatically.
+- The blog now lives on Offcuts (viraj-offcuts.vercel.app), a separate site with its own RSS feed that syncs automatically and leads the Writing section. Hashnode (viraj-verse.hashnode.dev) is the older Linux series, kept below it as a secondary block; its RSS feed also syncs automatically.
 - LinkedIn holds experience, certifications, research posts, and follower counts. It has no free public API, so this content is curated in one data file and updated by hand.
 - Contact form sends email through Gmail SMTP using environment variables set in Vercel.
 
@@ -30,7 +30,7 @@ A systems person who also builds polished front ends: published HPC research (IS
 
 - Light and dark themes are required.
 - Sections: intro, about, journey (experience and education), research, skills, projects, writing, contact, Q&A. The reviews section is removed at Viraj's request.
-- Projects, repo count, and blog posts update from GitHub and Hashnode without code changes.
+- Projects, repo count, and blog posts update from GitHub, Offcuts and Hashnode without code changes. The post count is the total across both blogs.
 - A Docker image is built and published to GitHub Container Registry by CI; Vercel remains the host.
 - SEO matters: the site should rank for his name.
 - Latest stable versions of all tooling.
